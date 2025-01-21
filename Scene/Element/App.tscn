@@ -1,0 +1,57 @@
+[gd_scene load_steps=4 format=3 uid="uid://cnm0a8qtvlr0v"]
+
+[ext_resource type="Script" uid="uid://dl7tbclhhg0jn" path="res://Scene/Element/App.gd" id="1_tclri"]
+[ext_resource type="Texture2D" uid="uid://blp1ncss6o8da" path="res://Resource/Texture/anti_virus.png" id="2_tclri"]
+[ext_resource type="PackedScene" uid="uid://cgaiiiewvrg7f" path="res://Scene/Element/app_window.tscn" id="2_vsa88"]
+
+[node name="App" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1792.0
+offset_bottom = -900.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tclri")
+app_window_scene = ExtResource("2_vsa88")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("2_tclri")
+
+[node name="AppNameLabel" type="RichTextLabel" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "app name 
+(Copy).exe"
+horizontal_alignment = 1
+justification_flags = 162
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+metadata/_edit_lock_ = true
+
+[node name="DoubleClickTimer" type="Timer" parent="."]
+wait_time = 0.5
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="timeout" from="DoubleClickTimer" to="." method="_on_double_click_timer_timeout"]

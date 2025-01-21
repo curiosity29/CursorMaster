@@ -1,0 +1,137 @@
+[gd_scene load_steps=7 format=3 uid="uid://cng3iysgp4mdw"]
+
+[ext_resource type="PackedScene" uid="uid://b1uaspp687sdv" path="res://Resource/Enemy/TestEnemy/test_enemy.tscn" id="2_kj8bi"]
+[ext_resource type="PackedScene" uid="uid://b6xl554453ryw" path="res://Scene/Element/equipable.tscn" id="3_kj8bi"]
+[ext_resource type="PackedScene" uid="uid://chaoecajqxhxx" path="res://Resource/Icon/Core/core.tscn" id="4_di4vt"]
+[ext_resource type="PackedScene" uid="uid://cgdqly86g5vby" path="res://Scene/Element/enemy_spawner.tscn" id="4_dxgkd"]
+[ext_resource type="PackedScene" uid="uid://bnr50xadh0h2x" path="res://Resource/Icon/AntiVirus3000/anti_virus_3000.tscn" id="5_di4vt"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_r2btm"]
+vertices = PackedVector2Array(2234.07, 1065.87, 36.0391, 1039.12, 40.9531, 30, 2241.92, 30)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(31, 20, 2252, 20, 2244, 1076, 26, 1049)])
+
+[node name="World" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_r2btm")
+metadata/_edit_lock_ = true
+
+[node name="Debug" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_lock_ = true
+
+[node name="Enemies" type="Control" parent="Debug"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_lock_ = true
+
+[node name="TestEnemy" parent="Debug/Enemies" instance=ExtResource("2_kj8bi")]
+offset_left = 1561.0
+offset_top = 270.0
+offset_right = 1561.0
+offset_bottom = 270.0
+
+[node name="TestEnemy2" parent="Debug/Enemies" instance=ExtResource("2_kj8bi")]
+offset_left = 1567.0
+offset_top = 510.0
+offset_right = 1567.0
+offset_bottom = 510.0
+
+[node name="TestEnemy5" parent="Debug/Enemies" instance=ExtResource("2_kj8bi")]
+offset_left = 1010.0
+offset_top = 280.0
+offset_right = 1010.0
+offset_bottom = 280.0
+
+[node name="TestEnemy4" parent="Debug/Enemies" instance=ExtResource("2_kj8bi")]
+offset_left = 1177.0
+offset_top = 715.0
+offset_right = 1177.0
+offset_bottom = 715.0
+
+[node name="TestEnemy3" parent="Debug/Enemies" instance=ExtResource("2_kj8bi")]
+offset_left = 1563.0
+offset_top = 662.0
+offset_right = 1563.0
+offset_bottom = 662.0
+
+[node name="TestEnemy6" parent="Debug/Enemies" instance=ExtResource("2_kj8bi")]
+offset_left = 1351.0
+offset_top = 488.0
+offset_right = 1351.0
+offset_bottom = 488.0
+
+[node name="TestEnemy7" parent="Debug/Enemies" instance=ExtResource("2_kj8bi")]
+offset_left = 1357.0
+offset_top = 728.0
+offset_right = 1357.0
+offset_bottom = 728.0
+
+[node name="TestEnemy8" parent="Debug/Enemies" instance=ExtResource("2_kj8bi")]
+offset_left = 800.0
+offset_top = 498.0
+offset_right = 800.0
+offset_bottom = 498.0
+
+[node name="TestEnemy9" parent="Debug/Enemies" instance=ExtResource("2_kj8bi")]
+offset_left = 967.0
+offset_top = 933.0
+offset_right = 967.0
+offset_bottom = 933.0
+
+[node name="TestEnemy10" parent="Debug/Enemies" instance=ExtResource("2_kj8bi")]
+offset_left = 1353.0
+offset_top = 880.0
+offset_right = 1353.0
+offset_bottom = 880.0
+
+[node name="Equipable" type="Control" parent="Debug"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_lock_ = true
+
+[node name="Equipable" parent="Debug/Equipable" instance=ExtResource("3_kj8bi")]
+layout_mode = 1
+offset_left = 478.0
+offset_top = 471.0
+offset_right = -1378.0
+offset_bottom = -545.0
+
+[node name="EnemySpawner" parent="." instance=ExtResource("4_dxgkd")]
+
+[node name="Core" parent="." instance=ExtResource("4_di4vt")]
+layout_mode = 1
+offset_left = 92.0
+offset_top = 498.0
+offset_right = -1700.0
+offset_bottom = -402.0
+
+[node name="AntiVirus3000" parent="." instance=ExtResource("5_di4vt")]
+layout_mode = 1
+offset_left = 94.0
+offset_top = 250.0
+offset_right = -1698.0
+offset_bottom = -650.0

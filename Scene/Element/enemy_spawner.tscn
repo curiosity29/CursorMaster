@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://cgdqly86g5vby"]
+
+[ext_resource type="Script" uid="uid://ceycvxg3y4l2i" path="res://Scene/Element/enemy_spawner.gd" id="1_7spi0"]
+
+[node name="EnemySpawner" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 2017.0
+offset_top = 98.0
+offset_right = 2132.0
+offset_bottom = 1034.0
+script = ExtResource("1_7spi0")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0

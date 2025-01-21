@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://b6xl554453ryw"]
+
+[ext_resource type="Texture2D" uid="uid://dvloptnx0835n" path="res://Resource/Texture/Banana.png" id="1_4jxek"]
+[ext_resource type="Script" uid="uid://b1tgbtrw4pn7p" path="res://Scene/Element/equipable.gd" id="1_sfnff"]
+
+[node name="Equipable" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1856.0
+offset_bottom = -1016.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sfnff")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_4jxek")
+
+[node name="HittingBox" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HittingBox"]
+polygon = PackedVector2Array(0, 56, 32, 40, 48, 0, 64, 0, 64, 40, 40, 64, 0, 64)
+
+[connection signal="area_entered" from="HittingBox" to="." method="_on_hitting_box_area_entered"]

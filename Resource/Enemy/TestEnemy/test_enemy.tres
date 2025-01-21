@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="EnemyResource" load_steps=3 format=3 uid="uid://wsismd8sm75t"]
+
+[ext_resource type="Script" uid="uid://b6j8jidrdov5t" path="res://PureScript/Resource/enemy_resource.gd" id="1_8wigu"]
+[ext_resource type="PackedScene" uid="uid://b1uaspp687sdv" path="res://Resource/Enemy/TestEnemy/test_enemy.tscn" id="2_imwyf"]
+
+[resource]
+script = ExtResource("1_8wigu")
+id = "test_enemy"
+name = "test enemy"
+scene = ExtResource("2_imwyf")
+health = 40
+speed = 60
+damage = 5
+attack_speed = 1.0
+metadata/_custom_type_script = ExtResource("1_8wigu")
