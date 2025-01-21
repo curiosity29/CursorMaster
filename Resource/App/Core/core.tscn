@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://chaoecajqxhxx"]
 
 [ext_resource type="PackedScene" uid="uid://cnm0a8qtvlr0v" path="res://Scene/Element/App.tscn" id="1_1vywe"]
-[ext_resource type="Script" uid="uid://wse7oeitambl" path="res://Resource/Icon/Core/core.gd" id="2_4hf3a"]
+[ext_resource type="Script" uid="uid://wse7oeitambl" path="res://Resource/App/Core/core.gd" id="2_4hf3a"]
 [ext_resource type="Texture2D" uid="uid://b53hs2hxq8hd1" path="res://Resource/Texture/Pizza.png" id="2_dg8hp"]
 
 [node name="Core" instance=ExtResource("1_1vywe")]

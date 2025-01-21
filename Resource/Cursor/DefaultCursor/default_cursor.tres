@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=5 format=3 uid="uid://c8yof8lhqqkpm"]
+
+[ext_resource type="PackedScene" uid="uid://da14d0s1dto5o" path="res://Resource/Cursor/DefaultCursor/default_cursor_hittingbox.tscn" id="1_bs5tx"]
+[ext_resource type="Texture2D" uid="uid://dbfohuy3kokti" path="res://Resource/Texture/anti_virus_cursor.png" id="1_rlihm"]
+[ext_resource type="Script" uid="uid://bfp3w7t3x572f" path="res://PureScript/Resource/cursor_manager_resource.gd" id="2_rlihm"]
+[ext_resource type="Script" uid="uid://ci4dsbhqqmaor" path="res://Resource/Cursor/DefaultCursor/default_cursor_resource.gd" id="3_kwyqb"]
+
+[resource]
+script = ExtResource("3_kwyqb")
+hitting_box_scene = ExtResource("1_bs5tx")
+id = "default"
+name = "default"
+cursor_hotspot = Vector2(2, 2)
+cursor_texture = ExtResource("1_rlihm")
+metadata/_custom_type_script = ExtResource("2_rlihm")

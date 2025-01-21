@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://bnr50xadh0h2x"]
 
-[ext_resource type="Script" uid="uid://bb1gge0cvgtgb" path="res://Resource/Icon/AntiVirus3000/anti_virus_3000.gd" id="1_72q1r"]
+[ext_resource type="Script" uid="uid://bb1gge0cvgtgb" path="res://Resource/App/AntiVirus3000/anti_virus_3000.gd" id="1_72q1r"]
 [ext_resource type="PackedScene" uid="uid://cnm0a8qtvlr0v" path="res://Scene/Element/App.tscn" id="1_dcnke"]
-[ext_resource type="PackedScene" uid="uid://15ocw3k1btix" path="res://Resource/Icon/AntiVirus3000/anti_virus_3000_window.tscn" id="2_cteo0"]
+[ext_resource type="PackedScene" uid="uid://15ocw3k1btix" path="res://Resource/App/AntiVirus3000/anti_virus_3000_window.tscn" id="2_cteo0"]
 
 [node name="AntiVirus3000" instance=ExtResource("1_dcnke")]
 script = ExtResource("1_72q1r")

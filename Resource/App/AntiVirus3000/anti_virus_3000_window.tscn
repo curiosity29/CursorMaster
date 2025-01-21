@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://15ocw3k1btix"]
 
 [ext_resource type="PackedScene" uid="uid://cgaiiiewvrg7f" path="res://Scene/Element/app_window.tscn" id="1_0v5wk"]
-[ext_resource type="Script" uid="uid://2v52bb262as6" path="res://Resource/Icon/AntiVirus3000/anti_virus_3000_window.gd" id="1_twwt8"]
+[ext_resource type="Script" uid="uid://2v52bb262as6" path="res://Resource/App/AntiVirus3000/anti_virus_3000_window.gd" id="1_twwt8"]
 [ext_resource type="Texture2D" uid="uid://u5jklly0luuy" path="res://Resource/Texture/minimize.png" id="2_yxjb6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ov41b"]

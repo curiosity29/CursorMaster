@@ -26,8 +26,7 @@ func _ready() -> void:
 	if not enemy_resource:
 		enemy_resource = load("res://Resource/Enemy/TestEnemy/test_enemy.tres")
 	#enemy_resource.report()
-	
-	pass
+
 
 func _process(delta: float) -> void:
 	#return

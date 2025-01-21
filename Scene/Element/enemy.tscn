@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cyxg3w8by6j01" path="res://Scene/Element/enemy.gd" id="1_q53vx"]
 [ext_resource type="Texture2D" uid="uid://whd33sasw7e3" path="res://Resource/Texture/Tick.png" id="1_rco28"]
 
-[node name="Enemy" type="Control"]
+[node name="Enemy" type="Control" groups=["Enemy"]]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 64.0

@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://nytlbk4yl5ro"]
+
+[ext_resource type="PackedScene" uid="uid://cnm0a8qtvlr0v" path="res://Scene/Element/App.tscn" id="1_oppyb"]
+[ext_resource type="Script" uid="uid://baovfccq5l5vt" path="res://Resource/App/DefaultCursor/default_cursor.gd" id="2_6tw6w"]
+[ext_resource type="Texture2D" uid="uid://dbfohuy3kokti" path="res://Resource/Texture/anti_virus_cursor.png" id="3_febmx"]
+
+[node name="DefaultCursor" instance=ExtResource("1_oppyb")]
+script = ExtResource("2_6tw6w")
+app_name = "default cursor.exe"
+app_window_scene = null
+
+[node name="TextureRect" parent="VBoxContainer" index="0"]
+texture = ExtResource("3_febmx")
