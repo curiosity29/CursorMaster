@@ -19,6 +19,7 @@ func _on_button_pressed() -> void:
 	if first_clicked:
 		on_open()
 		double_click_timer.stop()
+		first_clicked = false
 	else:
 		first_clicked = true
 		double_click_timer.start()
@@ -45,3 +46,4 @@ func on_open() -> void:
 
 func _on_double_click_timer_timeout() -> void:
 	first_clicked = false
+	#print("first click timeout")

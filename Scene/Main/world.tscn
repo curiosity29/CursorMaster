@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://cng3iysgp4mdw"]
+[gd_scene load_steps=8 format=3 uid="uid://cng3iysgp4mdw"]
 
 [ext_resource type="PackedScene" uid="uid://b1uaspp687sdv" path="res://Resource/Enemy/TestEnemy/test_enemy.tscn" id="2_kj8bi"]
 [ext_resource type="PackedScene" uid="uid://b6xl554453ryw" path="res://Scene/Element/equipable.tscn" id="3_kj8bi"]
 [ext_resource type="PackedScene" uid="uid://chaoecajqxhxx" path="res://Resource/Icon/Core/core.tscn" id="4_di4vt"]
 [ext_resource type="PackedScene" uid="uid://cgdqly86g5vby" path="res://Scene/Element/enemy_spawner.tscn" id="4_dxgkd"]
 [ext_resource type="PackedScene" uid="uid://bnr50xadh0h2x" path="res://Resource/Icon/AntiVirus3000/anti_virus_3000.tscn" id="5_di4vt"]
+[ext_resource type="PackedScene" uid="uid://15ocw3k1btix" path="res://Resource/Icon/AntiVirus3000/anti_virus_3000_window.tscn" id="6_ewhwy"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_r2btm"]
 vertices = PackedVector2Array(2234.07, 1065.87, 36.0391, 1039.12, 40.9531, 30, 2241.92, 30)
@@ -135,3 +136,12 @@ offset_left = 94.0
 offset_top = 250.0
 offset_right = -1698.0
 offset_bottom = -650.0
+
+[node name="AntiVirus3000Window" parent="." instance=ExtResource("6_ewhwy")]
+visible = false
+layout_mode = 1
+offset_left = 329.0
+offset_top = 374.0
+offset_right = -1291.0
+offset_bottom = -406.0
+mouse_filter = 1

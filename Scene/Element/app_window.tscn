@@ -12,6 +12,7 @@ offset_right = -1620.0
 offset_bottom = -780.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_d4cpa")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
@@ -27,11 +28,13 @@ theme_override_constants/separation = 0
 [node name="Header" parent="VBoxContainer" instance=ExtResource("2_0lwcj")]
 unique_name_in_owner = true
 layout_mode = 2
+mouse_filter = 0
 
 [node name="Body" type="Control" parent="VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
+mouse_filter = 1
 
 [node name="ColorRect" type="ColorRect" parent="VBoxContainer/Body"]
 layout_mode = 1
@@ -40,4 +43,5 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(0.803922, 0, 0.807843, 0.192157)

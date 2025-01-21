@@ -9,6 +9,9 @@ func _gui_input(event: InputEvent) -> void:
 		is_picked_up = true
 
 func _input(event: InputEvent) -> void:
+	#if event.is_action_pressed("click") and get_global_rect().has_point(get_global_mouse_position()):
+		#is_picked_up = true
+		
 	if event.is_action_released("click"):
 		is_picked_up = false
 
