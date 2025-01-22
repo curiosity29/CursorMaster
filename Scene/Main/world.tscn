@@ -1,7 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://cng3iysgp4mdw"]
+[gd_scene load_steps=15 format=3 uid="uid://cng3iysgp4mdw"]
 
 [ext_resource type="Script" uid="uid://c3m2cxthk4fuh" path="res://Scene/Main/world.gd" id="1_e7iqy"]
+[ext_resource type="Script" uid="uid://cn5ojowj5b0a4" path="res://Scene/Element/obstacle.gd" id="2_4fii4"]
 [ext_resource type="PackedScene" uid="uid://xtf4r1s7o2j8" path="res://Resource/Enemy/TestEnemy/test_enemy.tscn" id="2_kj8bi"]
+[ext_resource type="Script" uid="uid://bnmauulljowdd" path="res://Scene/Element/navigation_region_2d.gd" id="2_wwyuk"]
 [ext_resource type="PackedScene" uid="uid://b6xl554453ryw" path="res://Scene/Element/equipable.tscn" id="3_kj8bi"]
 [ext_resource type="PackedScene" uid="uid://chaoecajqxhxx" path="res://Resource/App/Core/core.tscn" id="4_di4vt"]
 [ext_resource type="PackedScene" uid="uid://cgdqly86g5vby" path="res://Scene/Element/enemy_spawner.tscn" id="4_dxgkd"]
@@ -9,12 +11,14 @@
 [ext_resource type="PackedScene" uid="uid://6pcrfclgvup6" path="res://Resource/App/AutoClicker/auto_clicker.tscn" id="7_q16u2"]
 [ext_resource type="PackedScene" uid="uid://dkhwotstt1kip" path="res://Resource/App/ProfessorHelper/professor_helper.tscn" id="8_gioca"]
 [ext_resource type="PackedScene" uid="uid://s5fo7qa36uif" path="res://Resource/App/CrusherCursor/crusher_cursor.tscn" id="8_q16u2"]
+[ext_resource type="PackedScene" uid="uid://civ3yph023tte" path="res://Resource/App/FireWall/fire_wall.tscn" id="9_0p2xg"]
 [ext_resource type="PackedScene" uid="uid://nytlbk4yl5ro" path="res://Resource/App/DefaultCursor/default_cursor.tscn" id="9_gioca"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_r2btm"]
-vertices = PackedVector2Array(2400.84, -547.508, 2381.17, 1742.39, 1550.46, 1080.97, 1555.93, -0.992188, -123.898, 1093.92, -114.078, -8.95313)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(2, 4, 5, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-124, -19, 1553, -11, 2411, -566, 2391, 1763, 1547, 1091, -134, 1104)])
+vertices = PackedVector2Array(2378.5, -509.102, 2359.54, 1699.15, 1556.9, 1093.13, 1563.88, -19, -82.5391, -19, -101.438, 1072.4)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 3, 2, 5)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-114, -51, 1555, -51, 2411, -566, 2391, 1763, 1546, 1125, -134, 1104)])
+agent_radius = 32.0
 
 [node name="World" type="Control"]
 layout_mode = 3
@@ -27,6 +31,20 @@ script = ExtResource("1_e7iqy")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_r2btm")
+script = ExtResource("2_wwyuk")
+metadata/_edit_lock_ = true
+
+[node name="ObstacleContainer" type="Control" parent="NavigationRegion2D"]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_4fii4")
 metadata/_edit_lock_ = true
 
 [node name="Debug" type="Control" parent="."]
@@ -50,76 +68,40 @@ mouse_filter = 2
 metadata/_edit_lock_ = true
 
 [node name="TestEnemy11" parent="Debug/Enemies" instance=ExtResource("2_kj8bi")]
-offset_left = 1028.0
-offset_top = 332.0
-offset_right = 1092.0
-offset_bottom = 396.0
+position = Vector2(1119, 232)
 
 [node name="TestEnemy12" parent="Debug/Enemies" instance=ExtResource("2_kj8bi")]
-offset_left = 1536.0
-offset_top = 171.0
-offset_right = 1600.0
-offset_bottom = 235.0
+position = Vector2(1132, 372)
 
 [node name="TestEnemy13" parent="Debug/Enemies" instance=ExtResource("2_kj8bi")]
-offset_left = 1451.0
-offset_top = 299.0
-offset_right = 1515.0
-offset_bottom = 363.0
+position = Vector2(1368, 292)
 
 [node name="TestEnemy14" parent="Debug/Enemies" instance=ExtResource("2_kj8bi")]
-offset_left = 1435.0
-offset_top = 442.0
-offset_right = 1499.0
-offset_bottom = 506.0
+position = Vector2(980, 573)
 
 [node name="TestEnemy15" parent="Debug/Enemies" instance=ExtResource("2_kj8bi")]
-offset_left = 1258.0
-offset_top = 500.0
-offset_right = 1322.0
-offset_bottom = 564.0
+position = Vector2(1078, 95)
 
 [node name="TestEnemy16" parent="Debug/Enemies" instance=ExtResource("2_kj8bi")]
-offset_left = 1085.0
-offset_top = 145.0
-offset_right = 1149.0
-offset_bottom = 209.0
+position = Vector2(1216, 520)
 
 [node name="TestEnemy17" parent="Debug/Enemies" instance=ExtResource("2_kj8bi")]
-offset_left = 839.0
-offset_top = 761.0
-offset_right = 903.0
-offset_bottom = 825.0
+position = Vector2(1145, 763)
 
 [node name="TestEnemy18" parent="Debug/Enemies" instance=ExtResource("2_kj8bi")]
-offset_left = 1347.0
-offset_top = 600.0
-offset_right = 1411.0
-offset_bottom = 664.0
+position = Vector2(1366, 566)
 
 [node name="TestEnemy19" parent="Debug/Enemies" instance=ExtResource("2_kj8bi")]
-offset_left = 1262.0
-offset_top = 728.0
-offset_right = 1326.0
-offset_bottom = 792.0
+position = Vector2(784, 691)
 
 [node name="TestEnemy20" parent="Debug/Enemies" instance=ExtResource("2_kj8bi")]
-offset_left = 1246.0
-offset_top = 871.0
-offset_right = 1310.0
-offset_bottom = 935.0
+position = Vector2(897, 763)
 
 [node name="TestEnemy21" parent="Debug/Enemies" instance=ExtResource("2_kj8bi")]
-offset_left = 1069.0
-offset_top = 929.0
-offset_right = 1133.0
-offset_bottom = 993.0
+position = Vector2(1017, 930)
 
 [node name="TestEnemy22" parent="Debug/Enemies" instance=ExtResource("2_kj8bi")]
-offset_left = 896.0
-offset_top = 574.0
-offset_right = 960.0
-offset_bottom = 638.0
+position = Vector2(768, 935)
 
 [node name="Equipable" type="Control" parent="Debug"]
 layout_mode = 1
@@ -151,6 +133,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+metadata/_edit_lock_ = true
 
 [node name="AntiVirus3000" parent="Debug/App" instance=ExtResource("5_di4vt")]
 layout_mode = 1
@@ -184,6 +167,13 @@ offset_left = 1.0
 offset_top = 240.0
 offset_right = -1791.0
 offset_bottom = -660.0
+
+[node name="FireWall" parent="Debug/App" instance=ExtResource("9_0p2xg")]
+layout_mode = 1
+offset_left = 611.0
+offset_top = 107.0
+offset_right = -1181.0
+offset_bottom = -793.0
 
 [node name="EnemySpawner" parent="." instance=ExtResource("4_dxgkd")]
 offset_left = 2019.0

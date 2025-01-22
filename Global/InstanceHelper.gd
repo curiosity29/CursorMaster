@@ -2,7 +2,8 @@
 extends Node
 
 var core: Core
-
+var obstacle_container: Control
+var nav_region: MainNavRegion
 const APP_WINDOW = preload("res://Scene/Element/app_window.tscn")
 
 func create_enemy(id: String) -> Enemy:

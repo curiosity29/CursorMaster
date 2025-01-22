@@ -12,6 +12,10 @@ const hp_label_format = "HP: %d"
 func _ready() -> void:
 	super()
 	InstanceHelper.core = self
+	
+func _process(delta: float) -> void:
+	## stop this from dragging
+	pass
 
 func take_damage(value: int, _source: Enemy = null):
 	health -= value

@@ -1,16 +1,17 @@
 class_name Enemy
-extends Control
+extends CharacterBody2D
 #region component
 @onready var nav_agent: NavigationAgent2D = $Node2D/NavigationAgent2D
 @onready var target: Core:
 	get:
 		## if core not created, stand still
 		return InstanceHelper.core# if InstanceHelper.core else self
+@onready var texture_rect: TextureRect = %TextureRect
 
-@export var health: int = 20
-@export var speed: int = 60
-@export var damage: int = 5
-@export var attack_speed: float = 1.
+var health: int = 20
+var speed: int = 60
+var damage: int = 5
+var attack_speed: float = 1.
 const attack_range: int = 100
 
 @onready var enemy_resource: EnemyResource:
@@ -40,8 +41,11 @@ func _process(delta: float) -> void:
 	
 	#region navigate
 	nav_agent.target_position = target.global_position
-	var direction = (nav_agent.get_next_path_position() - global_position).normalized()
-	global_position += direction * enemy_resource.speed * delta
+	var direction = global_position.direction_to(nav_agent.get_next_path_position())
+	#global_position += direction * enemy_resource.speed * delta
+	velocity = direction * speed
+	
+	move_and_slide()
 	#print((next_target_pos - global_position).normalized() * enemy_resource.speed)
 	#global_position = next_pos
 	#print(global_position, next_pos)
@@ -54,7 +58,7 @@ var is_dead: bool:
 		
 func take_damage(value: int, _source: Node = null):
 	health -= value
-	AnimationHelper.spawn_damage_indicator(value, global_position + size/2)
+	AnimationHelper.spawn_damage_indicator(value, global_position + texture_rect.size/2)
 	#print("taking %d damage" % value)
 	if is_dead:
 		on_dead()

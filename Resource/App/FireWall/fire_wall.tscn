@@ -1,0 +1,15 @@
+[gd_scene load_steps=5 format=3 uid="uid://civ3yph023tte"]
+
+[ext_resource type="PackedScene" uid="uid://cnm0a8qtvlr0v" path="res://Scene/Element/App.tscn" id="1_k6wiq"]
+[ext_resource type="Texture2D" uid="uid://c28bbsg86rdcc" path="res://Resource/Texture/fire_wall.png" id="2_0gv66"]
+[ext_resource type="Script" uid="uid://bed8y67ijxkus" path="res://Resource/App/FireWall/fire_wall.gd" id="2_8yna7"]
+[ext_resource type="PackedScene" uid="uid://dcpsk6telqgv8" path="res://Resource/App/FireWall/fire_wall_obstacle.tscn" id="3_lplt1"]
+
+[node name="FireWall" instance=ExtResource("1_k6wiq")]
+script = ExtResource("2_8yna7")
+wall_scene = ExtResource("3_lplt1")
+app_name = "fire wall.exe"
+app_window_scene = null
+
+[node name="TextureRect" parent="VBoxContainer" index="0"]
+texture = ExtResource("2_0gv66")

@@ -1,0 +1,75 @@
+[gd_scene load_steps=6 format=3 uid="uid://dcpsk6telqgv8"]
+
+[ext_resource type="Script" uid="uid://b6iylp6lmiu7n" path="res://Resource/App/FireWall/fire_wall_obstacle.gd" id="1_p51lr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2yrk5"]
+size = Vector2(100, 300)
+
+[sub_resource type="Animation" id="Animation_06pdn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_p51lr"]
+resource_name = "moveAndGrow"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_aj6iy"]
+_data = {
+&"RESET": SubResource("Animation_06pdn"),
+&"moveAndGrow": SubResource("Animation_p51lr")
+}
+
+[node name="FireWallObstacle" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 100.0
+offset_bottom = 300.0
+pivot_offset = Vector2(50, 150)
+mouse_filter = 2
+script = ExtResource("1_p51lr")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.784314, 0.278431, 0.192157, 0.85098)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(50, 150)
+shape = SubResource("RectangleShape2D_2yrk5")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_aj6iy")
+}

@@ -6,6 +6,9 @@ extends Control
 @export var app_window_scene: PackedScene
 @onready var app_name_label: RichTextLabel = $VBoxContainer/AppNameLabel
 
+var is_dragging: bool = false
+var drag_offset: Vector2 = Vector2.ZERO
+
 func _ready() -> void:
 	app_name_label.text = app_name
 	#double_click_timer.timeout.connect(func(): first_clicked = false)
@@ -23,9 +26,20 @@ func _on_button_pressed() -> void:
 	else:
 		first_clicked = true
 		double_click_timer.start()
-	
+
 #endregion
 
+
+func _gui_input(event: InputEvent) -> void:
+	if event.is_action_pressed("click"): 
+		is_dragging = true
+		drag_offset = global_position - get_global_mouse_position()
+func _input(event: InputEvent) -> void:
+	if event.is_action_released("click"): is_dragging = false
+func _process(delta: float) -> void:
+	if is_dragging:
+		global_position = get_global_mouse_position() + drag_offset
+		
 #region self helper
 func open_window(global_pos: Vector2 = global_position, max_size: Vector2 = Vector2(300, 300)) -> void:
 	var app_window: AppWindow = app_window_scene.instantiate()
