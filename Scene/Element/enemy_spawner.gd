@@ -7,7 +7,7 @@ func _ready() -> void:
 	timer.timeout.connect(spawn_enemy)
 	
 func spawn_enemy():
-	var spawn_point = global_position + size/2
+	var spawn_point = global_position + Vector2(randf_range(0, size.x), randf_range(0, size.y))
 	var enemy = InstanceHelper.create_enemy("test_enemy")
 	#get_tree().current_scene.
 	add_child(enemy)

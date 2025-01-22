@@ -1,0 +1,90 @@
+[gd_scene load_steps=8 format=3 uid="uid://dtmjximoktf30"]
+
+[ext_resource type="Texture2D" uid="uid://cen8ydquvuuhw" path="res://Resource/Texture/proffessor_helper_hand.png" id="1_66elo"]
+[ext_resource type="Script" uid="uid://br2hcfa2yfmvd" path="res://Resource/App/ProfessorHelper/professor_popup.gd" id="1_o1dm8"]
+[ext_resource type="Script" uid="uid://dpbwaleu74pku" path="res://PureScript/DamageArea.gd" id="1_vccq7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vccq7"]
+size = Vector2(500, 100)
+
+[sub_resource type="Animation" id="Animation_vccq7"]
+resource_name = "wave"
+length = 1.5
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6, 0.8, 1.5),
+"transitions": PackedFloat32Array(0.5, 2, 2, 2),
+"update": 0,
+"values": [0.0, 1.74533, 1.74533, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_o1dm8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_beqr5"]
+_data = {
+&"RESET": SubResource("Animation_o1dm8"),
+&"wave": SubResource("Animation_vccq7")
+}
+
+[node name="ProfessorPopup" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 500.0
+offset_bottom = 100.0
+pivot_offset = Vector2(500, 50)
+script = ExtResource("1_o1dm8")
+
+[node name="DamageArea" type="Area2D" parent="."]
+script = ExtResource("1_vccq7")
+damage = 40
+metadata/_custom_type_script = ExtResource("1_vccq7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea"]
+position = Vector2(250, 50)
+shape = SubResource("RectangleShape2D_vccq7")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_66elo")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_beqr5")
+}

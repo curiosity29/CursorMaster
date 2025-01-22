@@ -10,6 +10,6 @@ script = ExtResource("2_02jax")
 effect_animation_scene = ExtResource("2_k7bha")
 id = "crusher"
 name = "crusher"
-cursor_hotspot = Vector2(0, 28)
+cursor_hotspot = Vector2(16, 28)
 cursor_texture = ExtResource("1_k7bha")
 metadata/_custom_type_script = ExtResource("3_5d6an")

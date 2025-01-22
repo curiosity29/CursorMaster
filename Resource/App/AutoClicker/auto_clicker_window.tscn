@@ -1,0 +1,46 @@
+[gd_scene load_steps=4 format=3 uid="uid://cvkanhj0mgq67"]
+
+[ext_resource type="PackedScene" uid="uid://cgaiiiewvrg7f" path="res://Scene/Element/app_window.tscn" id="1_t5aep"]
+[ext_resource type="Script" uid="uid://b0r6hq1b4ce36" path="res://Resource/App/AutoClicker/auto_clicker_window.gd" id="2_qly6y"]
+[ext_resource type="Texture2D" uid="uid://dbfohuy3kokti" path="res://Resource/Texture/anti_virus_cursor.png" id="3_qly6y"]
+
+[node name="AutoClicker" instance=ExtResource("1_t5aep")]
+offset_right = -1770.0
+offset_bottom = -930.0
+script = ExtResource("2_qly6y")
+max_size = Vector2(100, 100)
+app_window_name = "Auto clicker"
+
+[node name="ColorRect" parent="MarginContainer/VBoxContainer/Body" index="0"]
+visible = false
+
+[node name="CursorTexture" type="TextureRect" parent="MarginContainer/VBoxContainer/Body" index="1"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = 9.0
+offset_right = 16.0
+offset_bottom = 41.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_qly6y")
+
+[node name="OptionButton" type="OptionButton" parent="MarginContainer/VBoxContainer/Body" index="2"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 43.0
+grow_horizontal = 2
+
+[node name="Timer" type="Timer" parent="MarginContainer/VBoxContainer/Body" index="3"]
+wait_time = 0.5
+autostart = true
+
+[connection signal="item_selected" from="MarginContainer/VBoxContainer/Body/OptionButton" to="." method="_on_option_button_item_selected"]
+[connection signal="timeout" from="MarginContainer/VBoxContainer/Body/Timer" to="." method="_on_timer_timeout"]

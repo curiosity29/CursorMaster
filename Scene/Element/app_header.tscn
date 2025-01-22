@@ -50,8 +50,8 @@ layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
 bbcode_enabled = true
-text = "A tab"
-fit_content = true
+text = "123456789012345678901"
+autowrap_mode = 0
 vertical_alignment = 1
 
 [node name="MinimizeButton" type="Button" parent="HBoxContainer"]

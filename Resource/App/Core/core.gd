@@ -15,3 +15,6 @@ func _ready() -> void:
 
 func take_damage(value: int, _source: Enemy = null):
 	health -= value
+
+func on_open() -> void:
+	pass

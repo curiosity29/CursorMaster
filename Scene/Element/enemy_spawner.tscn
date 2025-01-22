@@ -12,4 +12,4 @@ offset_bottom = 1034.0
 script = ExtResource("1_7spi0")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 0.5

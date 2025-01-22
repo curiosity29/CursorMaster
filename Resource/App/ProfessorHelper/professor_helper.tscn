@@ -1,0 +1,15 @@
+[gd_scene load_steps=5 format=3 uid="uid://dkhwotstt1kip"]
+
+[ext_resource type="PackedScene" uid="uid://cnm0a8qtvlr0v" path="res://Scene/Element/App.tscn" id="1_nbdx2"]
+[ext_resource type="Texture2D" uid="uid://q6sigvkffcub" path="res://Resource/Texture/professor_helper.png" id="2_qf0w4"]
+[ext_resource type="Script" uid="uid://bvc4e03smfg77" path="res://Resource/App/ProfessorHelper/professor_helper.gd" id="2_usujt"]
+[ext_resource type="PackedScene" uid="uid://dtmjximoktf30" path="res://Resource/App/ProfessorHelper/professor_popup.tscn" id="3_un4f3"]
+
+[node name="ProfessorHelper" instance=ExtResource("1_nbdx2")]
+script = ExtResource("2_usujt")
+popup_effect_scene = ExtResource("3_un4f3")
+app_name = "professor helper.exe"
+app_window_scene = null
+
+[node name="TextureRect" parent="VBoxContainer" index="0"]
+texture = ExtResource("2_qf0w4")

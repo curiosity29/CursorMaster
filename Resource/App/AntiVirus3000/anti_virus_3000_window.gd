@@ -3,8 +3,8 @@ extends AppWindow
 @export var damage: int = 3
 
 #@onready var on_off_hitting_timer: Timer = %OnOffHittingTimer
-@onready var hitting_box: Area2D = $VBoxContainer/Body/HittingBox
-@onready var collision_shape_2d: CollisionShape2D = $VBoxContainer/Body/HittingBox/CollisionShape2D
+@onready var hitting_box: Area2D = %HittingBox
+@onready var collision_shape_2d: CollisionShape2D = %CollisionShape2D
 
 
 func _ready() -> void:

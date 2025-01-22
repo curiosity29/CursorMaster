@@ -7,6 +7,7 @@ signal maximize_button_pressed
 
 @onready var app_name_label: RichTextLabel = $HBoxContainer/Grabber/HBoxContainer/AppNameLabel
 @onready var grabber: Control = %Grabber
+@export var parent_app_node: Node
 
 var is_dragging: bool = false
 var drag_offset: Vector2 = Vector2.ZERO
@@ -33,4 +34,4 @@ func _input(event: InputEvent) -> void:
 func _process(_delta: float) -> void:
 	if is_dragging:
 		## NOTE: parent app window should have the same position as app header, otherwise need + parent offset
-		get_parent().global_position = get_global_mouse_position() + drag_offset
+		parent_app_node.global_position = get_global_mouse_position() + drag_offset

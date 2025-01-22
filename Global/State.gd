@@ -14,14 +14,13 @@ var cursor_manager: CursorManagerResource:
 		cursor_manager.on_set()
 
 
-func on_click():
-	cursor_manager.on_click(get_global_mouse_position(), self)
-
-func on_right_click():
-	cursor_manager.on_right_click(get_global_mouse_position(), self)
+func on_click(click_pos: Vector2 = get_global_mouse_position()):
+	cursor_manager.on_click(click_pos, self)
+func on_right_click(click_pos: Vector2 = get_global_mouse_position()):
+	cursor_manager.on_right_click(click_pos, self)
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
-		if event.is_action_pressed("click"): on_click()
-		elif event.is_action_pressed("right_click"): on_right_click()
-	
+		#print("click event: ", event)
+		if event.is_action_pressed("click"): on_click(event.global_position)
+		elif event.is_action_pressed("right_click"): on_right_click(event.global_position)
