@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://d2q3w2ou4a6nj"]
+
+[ext_resource type="PackedScene" uid="uid://cnm0a8qtvlr0v" path="res://Scene/Element/App.tscn" id="1_64gh4"]
+
+[node name="Cleaner" instance=ExtResource("1_64gh4")]
+app_name = "CCleaner.exe"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cng3iysgp4mdw"]
+[gd_scene load_steps=16 format=3 uid="uid://cng3iysgp4mdw"]
 
 [ext_resource type="Script" uid="uid://c3m2cxthk4fuh" path="res://Scene/Main/world.gd" id="1_e7iqy"]
 [ext_resource type="Script" uid="uid://cn5ojowj5b0a4" path="res://Scene/Element/obstacle.gd" id="2_4fii4"]
@@ -13,11 +13,12 @@
 [ext_resource type="PackedScene" uid="uid://s5fo7qa36uif" path="res://Resource/App/CrusherCursor/crusher_cursor.tscn" id="8_q16u2"]
 [ext_resource type="PackedScene" uid="uid://civ3yph023tte" path="res://Resource/App/FireWall/fire_wall.tscn" id="9_0p2xg"]
 [ext_resource type="PackedScene" uid="uid://nytlbk4yl5ro" path="res://Resource/App/DefaultCursor/default_cursor.tscn" id="9_gioca"]
+[ext_resource type="PackedScene" uid="uid://shjmjxqvgo32" path="res://Resource/App/VirtualMachine/virtual_machine.tscn" id="12_wwyuk"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_r2btm"]
-vertices = PackedVector2Array(2378.5, -509.102, 2359.54, 1699.15, 1556.9, 1093.13, 1563.88, -19, -82.5391, -19, -101.438, 1072.4)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 3, 2, 5)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-114, -51, 1555, -51, 2411, -566, 2391, 1763, 1546, 1125, -134, 1104)])
+vertices = PackedVector2Array(2378.5, -509.102, 2359.54, 1699.15, 1556.66, 1092.95, 1563.79, -18.9375, 36.4922, 1099.85, 53.5234, -28.7891)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(2, 4, 5, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(22, -61, 1555, -51, 2411, -566, 2391, 1763, 1546, 1125, 4, 1132)])
 agent_radius = 32.0
 
 [node name="World" type="Control"]
@@ -29,12 +30,50 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_e7iqy")
 
-[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LeftBar" type="Control" parent="HBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/LeftBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer/LeftBar/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "[color=yellow]app for sale![/color]"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/LeftBar/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Map" type="Control" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="HBoxContainer/Map"]
 navigation_polygon = SubResource("NavigationPolygon_r2btm")
 script = ExtResource("2_wwyuk")
 metadata/_edit_lock_ = true
 
-[node name="ObstacleContainer" type="Control" parent="NavigationRegion2D"]
+[node name="ObstacleContainer" type="Control" parent="HBoxContainer/Map/NavigationRegion2D"]
 unique_name_in_owner = true
 layout_mode = 3
 anchors_preset = 15
@@ -47,7 +86,7 @@ grow_vertical = 2
 script = ExtResource("2_4fii4")
 metadata/_edit_lock_ = true
 
-[node name="Debug" type="Control" parent="."]
+[node name="Debug" type="Control" parent="HBoxContainer/Map"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -57,7 +96,7 @@ grow_vertical = 2
 mouse_filter = 2
 metadata/_edit_lock_ = true
 
-[node name="Enemies" type="Control" parent="Debug"]
+[node name="Enemies" type="Control" parent="HBoxContainer/Map/Debug"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -67,43 +106,43 @@ grow_vertical = 2
 mouse_filter = 2
 metadata/_edit_lock_ = true
 
-[node name="TestEnemy11" parent="Debug/Enemies" instance=ExtResource("2_kj8bi")]
+[node name="TestEnemy11" parent="HBoxContainer/Map/Debug/Enemies" instance=ExtResource("2_kj8bi")]
 position = Vector2(1119, 232)
 
-[node name="TestEnemy12" parent="Debug/Enemies" instance=ExtResource("2_kj8bi")]
+[node name="TestEnemy12" parent="HBoxContainer/Map/Debug/Enemies" instance=ExtResource("2_kj8bi")]
 position = Vector2(1132, 372)
 
-[node name="TestEnemy13" parent="Debug/Enemies" instance=ExtResource("2_kj8bi")]
+[node name="TestEnemy13" parent="HBoxContainer/Map/Debug/Enemies" instance=ExtResource("2_kj8bi")]
 position = Vector2(1368, 292)
 
-[node name="TestEnemy14" parent="Debug/Enemies" instance=ExtResource("2_kj8bi")]
+[node name="TestEnemy14" parent="HBoxContainer/Map/Debug/Enemies" instance=ExtResource("2_kj8bi")]
 position = Vector2(980, 573)
 
-[node name="TestEnemy15" parent="Debug/Enemies" instance=ExtResource("2_kj8bi")]
+[node name="TestEnemy15" parent="HBoxContainer/Map/Debug/Enemies" instance=ExtResource("2_kj8bi")]
 position = Vector2(1078, 95)
 
-[node name="TestEnemy16" parent="Debug/Enemies" instance=ExtResource("2_kj8bi")]
+[node name="TestEnemy16" parent="HBoxContainer/Map/Debug/Enemies" instance=ExtResource("2_kj8bi")]
 position = Vector2(1216, 520)
 
-[node name="TestEnemy17" parent="Debug/Enemies" instance=ExtResource("2_kj8bi")]
+[node name="TestEnemy17" parent="HBoxContainer/Map/Debug/Enemies" instance=ExtResource("2_kj8bi")]
 position = Vector2(1145, 763)
 
-[node name="TestEnemy18" parent="Debug/Enemies" instance=ExtResource("2_kj8bi")]
+[node name="TestEnemy18" parent="HBoxContainer/Map/Debug/Enemies" instance=ExtResource("2_kj8bi")]
 position = Vector2(1366, 566)
 
-[node name="TestEnemy19" parent="Debug/Enemies" instance=ExtResource("2_kj8bi")]
+[node name="TestEnemy19" parent="HBoxContainer/Map/Debug/Enemies" instance=ExtResource("2_kj8bi")]
 position = Vector2(784, 691)
 
-[node name="TestEnemy20" parent="Debug/Enemies" instance=ExtResource("2_kj8bi")]
+[node name="TestEnemy20" parent="HBoxContainer/Map/Debug/Enemies" instance=ExtResource("2_kj8bi")]
 position = Vector2(897, 763)
 
-[node name="TestEnemy21" parent="Debug/Enemies" instance=ExtResource("2_kj8bi")]
+[node name="TestEnemy21" parent="HBoxContainer/Map/Debug/Enemies" instance=ExtResource("2_kj8bi")]
 position = Vector2(1017, 930)
 
-[node name="TestEnemy22" parent="Debug/Enemies" instance=ExtResource("2_kj8bi")]
+[node name="TestEnemy22" parent="HBoxContainer/Map/Debug/Enemies" instance=ExtResource("2_kj8bi")]
 position = Vector2(768, 935)
 
-[node name="Equipable" type="Control" parent="Debug"]
+[node name="Equipable" type="Control" parent="HBoxContainer/Map/Debug"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -113,19 +152,19 @@ grow_vertical = 2
 mouse_filter = 2
 metadata/_edit_lock_ = true
 
-[node name="Equipable3" parent="Debug/Equipable" instance=ExtResource("3_kj8bi")]
+[node name="Equipable3" parent="HBoxContainer/Map/Debug/Equipable" instance=ExtResource("3_kj8bi")]
 offset_left = 34.0
 offset_top = 19.0
 offset_right = 98.0
 offset_bottom = 83.0
 
-[node name="Equipable4" parent="Debug/Equipable" instance=ExtResource("3_kj8bi")]
+[node name="Equipable4" parent="HBoxContainer/Map/Debug/Equipable" instance=ExtResource("3_kj8bi")]
 offset_left = 127.0
 offset_top = 18.0
 offset_right = 191.0
 offset_bottom = 82.0
 
-[node name="App" type="Control" parent="Debug"]
+[node name="App" type="Control" parent="HBoxContainer/Map/Debug"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -135,55 +174,56 @@ grow_vertical = 2
 mouse_filter = 2
 metadata/_edit_lock_ = true
 
-[node name="AntiVirus3000" parent="Debug/App" instance=ExtResource("5_di4vt")]
-layout_mode = 1
-offset_left = 4.0
-offset_top = 661.0
-offset_right = -1788.0
-offset_bottom = -239.0
+[node name="AutoClicker" parent="HBoxContainer/Map/Debug/App" instance=ExtResource("7_q16u2")]
+offset_left = 270.0
+offset_top = 651.0
+offset_right = 398.0
+offset_bottom = 831.0
 
-[node name="CrusherCursor" parent="Debug/App" instance=ExtResource("8_q16u2")]
-layout_mode = 1
-offset_left = 153.0
-offset_top = 885.0
-offset_right = -1639.0
-offset_bottom = -15.0
+[node name="DefaultCursor" parent="HBoxContainer/Map/Debug/App" instance=ExtResource("9_gioca")]
+offset_left = 116.0
+offset_top = 882.0
+offset_right = 244.0
+offset_bottom = 1062.0
 
-[node name="DefaultCursor" parent="Debug/App" instance=ExtResource("9_gioca")]
-layout_mode = 1
-offset_top = 887.0
-offset_bottom = -13.0
+[node name="CrusherCursor" parent="HBoxContainer/Map/Debug/App" instance=ExtResource("8_q16u2")]
+offset_left = 272.0
+offset_top = 876.0
+offset_right = 400.0
+offset_bottom = 1056.0
 
-[node name="AutoClicker" parent="Debug/App" instance=ExtResource("7_q16u2")]
-layout_mode = 1
-offset_left = 151.0
-offset_top = 662.0
-offset_right = -1641.0
-offset_bottom = -238.0
+[node name="AntiVirus3000" parent="HBoxContainer/Map/Debug/App" instance=ExtResource("5_di4vt")]
+offset_left = 117.0
+offset_top = 643.0
+offset_right = 245.0
+offset_bottom = 823.0
 
-[node name="ProfessorHelper" parent="Debug/App" instance=ExtResource("8_gioca")]
-layout_mode = 1
-offset_left = 1.0
-offset_top = 240.0
-offset_right = -1791.0
-offset_bottom = -660.0
+[node name="FireWall" parent="HBoxContainer/Map/Debug/App" instance=ExtResource("9_0p2xg")]
+offset_left = 625.0
+offset_top = 169.0
+offset_right = 753.0
+offset_bottom = 349.0
 
-[node name="FireWall" parent="Debug/App" instance=ExtResource("9_0p2xg")]
-layout_mode = 1
-offset_left = 611.0
-offset_top = 107.0
-offset_right = -1181.0
-offset_bottom = -793.0
+[node name="ProfessorHelper" parent="HBoxContainer/Map/Debug/App" instance=ExtResource("8_gioca")]
+offset_left = 112.0
+offset_top = 189.0
+offset_right = 240.0
+offset_bottom = 369.0
 
-[node name="EnemySpawner" parent="." instance=ExtResource("4_dxgkd")]
+[node name="VirtualMachine" parent="HBoxContainer/Map/Debug/App" instance=ExtResource("12_wwyuk")]
+offset_left = 338.0
+offset_top = 20.0
+offset_right = 466.0
+offset_bottom = 200.0
+
+[node name="EnemySpawner" parent="HBoxContainer/Map" instance=ExtResource("4_dxgkd")]
 offset_left = 2019.0
 offset_top = -258.0
 offset_right = 2134.0
 offset_bottom = 1263.0
 
-[node name="Core" parent="." instance=ExtResource("4_di4vt")]
-layout_mode = 1
-offset_left = 4.0
-offset_top = 468.0
-offset_right = -1788.0
-offset_bottom = -432.0
+[node name="Core" parent="HBoxContainer/Map" instance=ExtResource("4_di4vt")]
+offset_left = 105.0
+offset_top = 431.0
+offset_right = 233.0
+offset_bottom = 611.0

@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://b70vdrd7xpjkk"]
+
+[ext_resource type="PackedScene" uid="uid://cgaiiiewvrg7f" path="res://Scene/Element/app_window.tscn" id="1_cc600"]
+[ext_resource type="Script" uid="uid://dkyjtvi70a58k" path="res://Resource/App/Cleaner/cleaner_window.gd" id="2_2t46x"]
+[ext_resource type="Script" uid="uid://dpbwaleu74pku" path="res://PureScript/DamageArea.gd" id="3_c4twg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xdb4y"]
+size = Vector2(100, 100)
+
+[node name="CleanerWindow" instance=ExtResource("1_cc600")]
+script = ExtResource("2_2t46x")
+app_window_name = ""
+
+[node name="CleanArea" type="Control" parent="MarginContainer/VBoxContainer/Body" index="1"]
+anchors_preset = 0
+offset_right = 100.0
+offset_bottom = 100.0
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/Body/CleanArea" index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Area2D" type="Area2D" parent="MarginContainer/VBoxContainer/Body/CleanArea" index="1"]
+script = ExtResource("3_c4twg")
+damage = 15
+metadata/_custom_type_script = ExtResource("3_c4twg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MarginContainer/VBoxContainer/Body/CleanArea/Area2D" index="0"]
+position = Vector2(50, 50)
+shape = SubResource("RectangleShape2D_xdb4y")

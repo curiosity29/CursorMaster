@@ -40,10 +40,12 @@ func _process(delta: float) -> void:
 	#endregion
 	
 	#region navigate
-	nav_agent.target_position = target.global_position
+	var target_global_pos = CombatHelper.select_target().position_getter.call()
+	nav_agent.target_position = target_global_pos
 	var direction = global_position.direction_to(nav_agent.get_next_path_position())
 	#global_position += direction * enemy_resource.speed * delta
-	velocity = direction * speed
+	var acceleration = speed * 1.5
+	velocity = velocity.move_toward(direction * speed, acceleration * delta)
 	
 	move_and_slide()
 	#print((next_target_pos - global_position).normalized() * enemy_resource.speed)
