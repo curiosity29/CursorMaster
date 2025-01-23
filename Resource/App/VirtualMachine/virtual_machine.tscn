@@ -13,3 +13,13 @@ app_window_scene = null
 
 [node name="TextureRect" parent="VBoxContainer" index="0"]
 texture = ExtResource("3_wow3k")
+
+[node name="HPLabel" type="RichTextLabel" parent="VBoxContainer/TextureRect" index="0"]
+layout_mode = 0
+offset_top = -27.0
+offset_right = 128.0
+offset_bottom = -1.0
+bbcode_enabled = true
+text = "HP: 50"
+horizontal_alignment = 1
+vertical_alignment = 1

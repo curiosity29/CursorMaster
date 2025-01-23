@@ -2,10 +2,10 @@ class_name Enemy
 extends CharacterBody2D
 #region component
 @onready var nav_agent: NavigationAgent2D = $Node2D/NavigationAgent2D
-@onready var target: Core:
+@onready var target: TargetableManager:
 	get:
 		## if core not created, stand still
-		return InstanceHelper.core# if InstanceHelper.core else self
+		return CombatHelper.select_target()
 @onready var texture_rect: TextureRect = %TextureRect
 
 var health: int = 20

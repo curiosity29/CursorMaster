@@ -1,20 +1,32 @@
 extends App
 
+@onready var hp_label: RichTextLabel = $VBoxContainer/TextureRect/HPLabel
+var hp_label_format: String = "HP: %d"
+@export var health: int = 50#:
+	#set(value):
+		#health = value
+		#if is_node_ready(): hp_label.text = hp_label_format % health
+		#else: ready.connect(func(): hp_label.text = hp_label_format % health, CONNECT_ONE_SHOT)
 
-@export var health: int = 50
+	
 @export var priority: int = 10
 var targetable_manager: TargetableManager
 func _ready() -> void:
 	super()
-	targetable_manager = TargetableManager.new(health, get_global_pos , priority)
-	InstanceHelper.targets.append(targetable_manager)
+	targetable_manager = TargetableManager.new(health, get_target_pos , priority)
 	targetable_manager.dead.connect(on_death, CONNECT_ONE_SHOT)
-	#InstanceHelper.core = self
-func get_global_pos():
-	return global_position
+	InstanceHelper.targets.append(targetable_manager)
+	targetable_manager.stats_changed.connect(update_health)
+	
+func update_health():
+	hp_label.text = hp_label_format % targetable_manager.health
+func get_target_pos():
+	return global_position + size/2
 	
 func on_death():
 	InstanceHelper.targets.erase(targetable_manager)
+	call_deferred("queue_free")
 	
-func take_damage(value: int, _source: Enemy):
-	targetable_manager.take_damage(value, _source)
+#func take_damage(value: int, _source: Enemy = null):
+	#print("take %d damage" % value)
+	#targetable_manager.take_damage(value, _source)

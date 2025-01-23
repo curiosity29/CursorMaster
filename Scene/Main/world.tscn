@@ -211,10 +211,10 @@ offset_right = 240.0
 offset_bottom = 369.0
 
 [node name="VirtualMachine" parent="HBoxContainer/Map/Debug/App" instance=ExtResource("12_wwyuk")]
-offset_left = 338.0
-offset_top = 20.0
-offset_right = 466.0
-offset_bottom = 200.0
+offset_left = 273.0
+offset_top = 431.0
+offset_right = 401.0
+offset_bottom = 611.0
 
 [node name="EnemySpawner" parent="HBoxContainer/Map" instance=ExtResource("4_dxgkd")]
 offset_left = 2019.0
