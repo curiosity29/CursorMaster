@@ -2,7 +2,7 @@
 extends Node
 
 var targets: Array[TargetableManager]
-
+var map: Map
 var core: Core
 var obstacle_container: Control
 var nav_region: MainNavRegion

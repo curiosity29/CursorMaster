@@ -8,7 +8,7 @@
 offset_right = -1770.0
 offset_bottom = -930.0
 script = ExtResource("2_qly6y")
-max_size = Vector2(100, 100)
+max_size = Vector2(150, 150)
 app_window_name = "Auto clicker"
 
 [node name="ColorRect" parent="MarginContainer/VBoxContainer/Body" index="0"]

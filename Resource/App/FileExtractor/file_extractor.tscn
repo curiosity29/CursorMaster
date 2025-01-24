@@ -1,0 +1,50 @@
+[gd_scene load_steps=9 format=3 uid="uid://cl8l813o71jnl"]
+
+[ext_resource type="PackedScene" uid="uid://cnm0a8qtvlr0v" path="res://Scene/Element/App.tscn" id="1_lcotc"]
+[ext_resource type="Script" uid="uid://ipk7pkmy80y4" path="res://Resource/App/FileExtractor/file_extractor.gd" id="2_5gss5"]
+[ext_resource type="PackedScene" uid="uid://qb5f0r25n26a" path="res://Resource/Draggable/Bomb/bomb.tscn" id="3_5gss5"]
+[ext_resource type="Texture2D" uid="uid://dt2y2ggbyq75d" path="res://Resource/Texture/bomb_container_icon.png" id="3_ri67p"]
+[ext_resource type="Texture2D" uid="uid://cv1v0anxnll0r" path="res://Resource/Texture/bomb_file.png" id="5_ri67p"]
+[ext_resource type="Material" uid="uid://bbv5bhmcedvrj" path="res://Resource/Shader/progress_fill.tres" id="6_up43f"]
+
+[sub_resource type="Animation" id="Animation_nt5xr"]
+resource_name = "bombRecharge"
+length = 10.0
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_15nxh"]
+_data = {
+&"bombRecharge": SubResource("Animation_nt5xr")
+}
+
+[node name="FileExtractor" instance=ExtResource("1_lcotc")]
+script = ExtResource("2_5gss5")
+bomb_scene = ExtResource("3_5gss5")
+app_name = "file extractor.auto"
+
+[node name="TextureRect" parent="VBoxContainer" index="0"]
+texture = ExtResource("3_ri67p")
+expand_mode = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3"]
+libraries = {
+&"": SubResource("AnimationLibrary_15nxh")
+}
+
+[node name="TextureRect" type="TextureRect" parent="." index="4"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -52.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_ri67p")
+expand_mode = 1
+
+[node name="Wave" type="TextureRect" parent="." index="5"]
+material = ExtResource("6_up43f")
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 128.0
+texture = ExtResource("5_ri67p")
+expand_mode = 1

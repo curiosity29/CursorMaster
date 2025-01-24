@@ -1,0 +1,97 @@
+[gd_scene load_steps=7 format=3 uid="uid://qb5f0r25n26a"]
+
+[ext_resource type="PackedScene" uid="uid://b6xl554453ryw" path="res://Scene/Element/draggable.tscn" id="1_7rrhg"]
+[ext_resource type="Script" uid="uid://qknqmnm4boj8" path="res://Resource/Draggable/Bomb/bomb.gd" id="2_3dy3f"]
+[ext_resource type="Texture2D" uid="uid://dv63j4gf2cdv6" path="res://Resource/Texture/crush_damage_effect.png" id="3_stujl"]
+
+[sub_resource type="Animation" id="Animation_p3p4i"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DamageEffectTextureRect:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_stujl"]
+resource_name = "blowup"
+length = 0.5
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DamageEffectTextureRect:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(5, 5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_p3p4i"]
+_data = {
+&"RESET": SubResource("Animation_p3p4i"),
+&"blowup": SubResource("Animation_stujl")
+}
+
+[node name="Bomb" instance=ExtResource("1_7rrhg")]
+script = ExtResource("2_3dy3f")
+blowup_delay = 5.0
+blowup_radius = 320.0
+damage = 100
+
+[node name="DamageEffectTextureRect" type="TextureRect" parent="." index="1"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(32, 32)
+mouse_filter = 2
+texture = ExtResource("3_stujl")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
+libraries = {
+&"": SubResource("AnimationLibrary_p3p4i")
+}
+
+[node name="SecondCountdownTimer" type="Timer" parent="." index="3"]
+
+[node name="SecondLabel" type="Label" parent="." index="4"]
+layout_mode = 0
+offset_right = 24.0
+offset_bottom = 34.0
+theme_override_colors/font_color = Color(1, 0.103238, 0.0693007, 1)
+theme_override_font_sizes/font_size = 24
+text = "5"
+horizontal_alignment = 1
+vertical_alignment = 1

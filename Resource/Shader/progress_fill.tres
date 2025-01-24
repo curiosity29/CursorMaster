@@ -1,0 +1,29 @@
+[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://bbv5bhmcedvrj"]
+
+[ext_resource type="Shader" uid="uid://bkorqyu0h65cu" path="res://Resource/Shader/progress_fill.gdshader" id="1_dteqo"]
+[ext_resource type="Texture2D" uid="uid://d2ox03nl0yf02" path="res://Resource/Texture/bomb_file_mask.png" id="2_twryh"]
+
+[sub_resource type="Gradient" id="Gradient_twryh"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 1, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_guiby"]
+gradient = SubResource("Gradient_twryh")
+
+[resource]
+shader = ExtResource("1_dteqo")
+shader_parameter/progress = 0.171
+shader_parameter/background_color = Color(0.639216, 0.423529, 0.564706, 0)
+shader_parameter/color_gradient = SubResource("GradientTexture1D_guiby")
+shader_parameter/mask_texture = ExtResource("2_twryh")
+shader_parameter/wave_amplitude = 0.02
+shader_parameter/wave_frequency = 5.915
+shader_parameter/wave_speed = 2.146
+shader_parameter/particle_speed = 0.05
+shader_parameter/particle_lifetime = 3.0
+shader_parameter/particle_softness = 0.01
+shader_parameter/particle_spacing = 0.1
+shader_parameter/particle_offset = Vector2(0, 0)
+shader_parameter/particle_start_scale = Vector2(0.02, 0.02)
+shader_parameter/particle_end_scale = Vector2(0.01, 0.01)
+shader_parameter/particle_scale_randomness = 0.5
+shader_parameter/particle_amount = 5

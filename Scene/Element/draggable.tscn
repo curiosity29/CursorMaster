@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://b6xl554453ryw"]
+
+[ext_resource type="Script" uid="uid://b1tgbtrw4pn7p" path="res://Scene/Element/draggable.gd" id="1_sfnff"]
+[ext_resource type="Texture2D" uid="uid://cv1v0anxnll0r" path="res://Resource/Texture/bomb_file.png" id="2_5r01e"]
+
+[node name="Draggable" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 64.0
+offset_bottom = 64.0
+script = ExtResource("1_sfnff")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 5.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+pivot_offset = Vector2(32, 32)
+mouse_filter = 2
+texture = ExtResource("2_5r01e")
+expand_mode = 1

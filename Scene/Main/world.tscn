@@ -1,19 +1,21 @@
-[gd_scene load_steps=16 format=3 uid="uid://cng3iysgp4mdw"]
+[gd_scene load_steps=18 format=3 uid="uid://cng3iysgp4mdw"]
 
 [ext_resource type="Script" uid="uid://c3m2cxthk4fuh" path="res://Scene/Main/world.gd" id="1_e7iqy"]
 [ext_resource type="Script" uid="uid://cn5ojowj5b0a4" path="res://Scene/Element/obstacle.gd" id="2_4fii4"]
 [ext_resource type="PackedScene" uid="uid://xtf4r1s7o2j8" path="res://Resource/Enemy/TestEnemy/test_enemy.tscn" id="2_kj8bi"]
+[ext_resource type="Script" uid="uid://btqaogyarnlv7" path="res://Scene/Element/map.gd" id="2_vuaje"]
 [ext_resource type="Script" uid="uid://bnmauulljowdd" path="res://Scene/Element/navigation_region_2d.gd" id="2_wwyuk"]
-[ext_resource type="PackedScene" uid="uid://b6xl554453ryw" path="res://Scene/Element/equipable.tscn" id="3_kj8bi"]
 [ext_resource type="PackedScene" uid="uid://chaoecajqxhxx" path="res://Resource/App/Core/core.tscn" id="4_di4vt"]
 [ext_resource type="PackedScene" uid="uid://cgdqly86g5vby" path="res://Scene/Element/enemy_spawner.tscn" id="4_dxgkd"]
 [ext_resource type="PackedScene" uid="uid://bnr50xadh0h2x" path="res://Resource/App/AntiVirus3000/anti_virus_3000.tscn" id="5_di4vt"]
+[ext_resource type="PackedScene" uid="uid://qb5f0r25n26a" path="res://Resource/Draggable/Bomb/bomb.tscn" id="6_tquwj"]
 [ext_resource type="PackedScene" uid="uid://6pcrfclgvup6" path="res://Resource/App/AutoClicker/auto_clicker.tscn" id="7_q16u2"]
 [ext_resource type="PackedScene" uid="uid://dkhwotstt1kip" path="res://Resource/App/ProfessorHelper/professor_helper.tscn" id="8_gioca"]
 [ext_resource type="PackedScene" uid="uid://s5fo7qa36uif" path="res://Resource/App/CrusherCursor/crusher_cursor.tscn" id="8_q16u2"]
 [ext_resource type="PackedScene" uid="uid://civ3yph023tte" path="res://Resource/App/FireWall/fire_wall.tscn" id="9_0p2xg"]
 [ext_resource type="PackedScene" uid="uid://nytlbk4yl5ro" path="res://Resource/App/DefaultCursor/default_cursor.tscn" id="9_gioca"]
 [ext_resource type="PackedScene" uid="uid://shjmjxqvgo32" path="res://Resource/App/VirtualMachine/virtual_machine.tscn" id="12_wwyuk"]
+[ext_resource type="PackedScene" uid="uid://cl8l813o71jnl" path="res://Resource/App/FileExtractor/file_extractor.tscn" id="14_tquwj"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_r2btm"]
 vertices = PackedVector2Array(2378.5, -509.102, 2359.54, 1699.15, 1556.66, 1092.95, 1563.79, -18.9375, 36.4922, 1099.85, 53.5234, -28.7891)
@@ -67,6 +69,7 @@ size_flags_vertical = 3
 [node name="Map" type="Control" parent="HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+script = ExtResource("2_vuaje")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="HBoxContainer/Map"]
 navigation_polygon = SubResource("NavigationPolygon_r2btm")
@@ -142,7 +145,7 @@ position = Vector2(1017, 930)
 [node name="TestEnemy22" parent="HBoxContainer/Map/Debug/Enemies" instance=ExtResource("2_kj8bi")]
 position = Vector2(768, 935)
 
-[node name="Equipable" type="Control" parent="HBoxContainer/Map/Debug"]
+[node name="Draggable" type="Control" parent="HBoxContainer/Map/Debug"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -152,17 +155,17 @@ grow_vertical = 2
 mouse_filter = 2
 metadata/_edit_lock_ = true
 
-[node name="Equipable3" parent="HBoxContainer/Map/Debug/Equipable" instance=ExtResource("3_kj8bi")]
-offset_left = 34.0
-offset_top = 19.0
-offset_right = 98.0
-offset_bottom = 83.0
+[node name="Bomb" parent="HBoxContainer/Map/Debug/Draggable" instance=ExtResource("6_tquwj")]
+offset_left = 790.0
+offset_top = 675.0
+offset_right = 854.0
+offset_bottom = 739.0
 
-[node name="Equipable4" parent="HBoxContainer/Map/Debug/Equipable" instance=ExtResource("3_kj8bi")]
-offset_left = 127.0
-offset_top = 18.0
-offset_right = 191.0
-offset_bottom = 82.0
+[node name="Bomb2" parent="HBoxContainer/Map/Debug/Draggable" instance=ExtResource("6_tquwj")]
+offset_left = 624.0
+offset_top = 416.0
+offset_right = 688.0
+offset_bottom = 480.0
 
 [node name="App" type="Control" parent="HBoxContainer/Map/Debug"]
 layout_mode = 1
@@ -215,6 +218,12 @@ offset_left = 273.0
 offset_top = 431.0
 offset_right = 401.0
 offset_bottom = 611.0
+
+[node name="FileExtractor" parent="HBoxContainer/Map/Debug/App" instance=ExtResource("14_tquwj")]
+offset_left = 269.0
+offset_top = 191.0
+offset_right = 397.0
+offset_bottom = 371.0
 
 [node name="EnemySpawner" parent="HBoxContainer/Map" instance=ExtResource("4_dxgkd")]
 offset_left = 2019.0

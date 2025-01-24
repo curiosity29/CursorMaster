@@ -21,7 +21,7 @@ var app_name: String:
 		else: ready.connect(func(): app_name_label.text = app_window_name, CONNECT_ONE_SHOT)
 
 func _ready() -> void:
-	#size = max_size
+	size = max_size
 	setup_signal()
 
 	

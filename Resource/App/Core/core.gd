@@ -20,8 +20,7 @@ func _ready() -> void:
 	
 func update_health():
 	hp_label.text = hp_label_format % targetable_manager.health
-	print("updateed")
-	
+
 func get_target_pos():
 	return global_position + size/2
 

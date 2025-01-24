@@ -41,11 +41,12 @@ func _process(delta: float) -> void:
 		global_position = get_global_mouse_position() + drag_offset
 		
 #region self helper
-func open_window(global_pos: Vector2 = global_position, max_size: Vector2 = Vector2(300, 300)) -> void:
+func open_window(global_pos: Vector2 = global_position) -> void:
+	if not app_window_scene: return
 	var app_window: AppWindow = app_window_scene.instantiate()
-	app_window.max_size = max_size
 	app_window.app_name = app_name
-	get_parent().add_child(app_window)
+	InstanceHelper.map.add_child(app_window)
+	#print(app_window.size)
 	app_window.global_position = global_pos
 
 #endregion

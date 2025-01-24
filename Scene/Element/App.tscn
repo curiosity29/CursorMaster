@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cnm0a8qtvlr0v"]
+[gd_scene load_steps=3 format=3 uid="uid://cnm0a8qtvlr0v"]
 
 [ext_resource type="Script" uid="uid://dl7tbclhhg0jn" path="res://Scene/Element/App.gd" id="1_tclri"]
 [ext_resource type="Texture2D" uid="uid://blp1ncss6o8da" path="res://Resource/Texture/anti_virus.png" id="2_tclri"]
-[ext_resource type="PackedScene" uid="uid://cgaiiiewvrg7f" path="res://Scene/Element/app_window.tscn" id="2_vsa88"]
 
 [node name="App" type="Control"]
 layout_mode = 3
@@ -10,7 +9,6 @@ anchors_preset = 0
 offset_right = 128.0
 offset_bottom = 180.0
 script = ExtResource("1_tclri")
-app_window_scene = ExtResource("2_vsa88")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
