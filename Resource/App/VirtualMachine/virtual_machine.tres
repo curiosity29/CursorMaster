@@ -8,9 +8,10 @@
 script = ExtResource("1_due5u")
 id = "virtual_machine"
 app_name = "virtual machine.none"
-description = "Virus hate this one simple trick (they will chase it)"
+description = "Virus hate this one simple trick (they will chase it). Moving this app produce heat and can't move if temparature is less than 10 degree from overheat."
 icon = ExtResource("2_ir6y3")
 buy_price = 5
 app_scene = ExtResource("1_ytdbu")
 is_for_sale = true
+allow_multiple = true
 metadata/_custom_type_script = ExtResource("1_due5u")

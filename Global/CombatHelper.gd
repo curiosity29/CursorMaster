@@ -9,11 +9,21 @@ func damage_area_entered(damage: int, area: Area2D):
 	if area_owner is Enemy:
 		area_owner.take_damage(damage, self)
 
-func select_target() -> TargetableManager:
+func select_target(position: Vector2) -> TargetableManager:
 	# sort the whole array to get the minimum because lazy and can't find custom_min
-	InstanceHelper.targets.sort_custom(
-		func(target_a: TargetableManager, target_b: TargetableManager): 
-			return target_a.priority > target_b.priority
-	)
+	var max_priority = InstanceHelper.targets.map(func(target: TargetableManager): return target.priority).max()
+	var max_priority_targets = InstanceHelper.targets.filter(func(target: TargetableManager): return target.priority == max_priority)
+	var min_distance: float = INF
+	var min_distance_target: TargetableManager
+	for target: TargetableManager in max_priority_targets:
+		var distance = (position - target.position_getter.call()).length()
+		if  distance < min_distance:
+			min_distance_target = target
+			min_distance = distance
+	#InstanceHelper.targets.sort_custom(
+		#func(target_a: TargetableManager, target_b: TargetableManager): 
+			#return target_a.priority > target_b.priority
+	#)
 	## select target with maximum priority
-	return InstanceHelper.targets[0]
+	#return InstanceHelper.targets[0]
+	return min_distance_target

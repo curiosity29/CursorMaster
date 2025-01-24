@@ -25,6 +25,8 @@ var ram_value_left: float:
 var heat_value_left: float:
 	get: return max_heat_value - heat_value
 
+var heat_reduction_speed: float = 1.
+
 var owned_app_list: Array[AppResource]
 
 #var APP_SCENE = preload("res://Scene/Element/App.tscn")
@@ -59,3 +61,7 @@ func _input(event: InputEvent) -> void:
 		#print("click event: ", event)
 		if event.is_action_pressed("click"): on_click(event.global_position)
 		elif event.is_action_pressed("right_click"): on_right_click(event.global_position)
+
+func _process(delta: float) -> void:
+	heat_value = move_toward(heat_value, 0., heat_reduction_speed * delta)
+	

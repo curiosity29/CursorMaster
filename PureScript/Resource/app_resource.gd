@@ -9,3 +9,4 @@ extends Resource
 @export var app_scene: PackedScene
 
 @export var is_for_sale: bool = true
+@export var allow_multiple: bool = true

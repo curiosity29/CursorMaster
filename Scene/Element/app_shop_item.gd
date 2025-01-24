@@ -5,6 +5,7 @@ extends Control
 @onready var description: RichTextLabel = $VBoxContainer/Description
 
 const price_text_format = "%d\n[img=32]res://Resource/Texture/bytecoin.png[/img]"
+@onready var disable_input_timer: Timer = $DisableInputTimer
 
 var app_resource: AppResource:
 	set(value):
@@ -17,10 +18,14 @@ func _ready() -> void:
 	#app_resource = 
 	pass
 func _on_buy_button_pressed() -> void:
+	if disable_input_timer.time_left > 0.: return
 	if not app_resource or State.bytecoin < app_resource.buy_price: return
+	disable_input_timer.start()
 	State.bytecoin -= app_resource.buy_price
-	## remove from database
-	app_resource.is_for_sale = false
-	Database.shop_app_map.erase(app_resource.id)
+	## remove from database and hide (until next refresh) if not allow multiple
+	if not app_resource.allow_multiple:
+		app_resource.is_for_sale = false
+		Database.shop_app_map.erase(app_resource.id)
+		hide()
 	
 	Event.app_buy_request.emit(app_resource)

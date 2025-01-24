@@ -5,7 +5,7 @@ extends CharacterBody2D
 @onready var target: TargetableManager:
 	get:
 		## if core not created, stand still
-		return CombatHelper.select_target()
+		return CombatHelper.select_target(global_position)
 @onready var texture_rect: TextureRect = %TextureRect
 
 var health: int = 20
@@ -40,7 +40,7 @@ func _process(delta: float) -> void:
 	#endregion
 	
 	#region navigate
-	var target_global_pos = CombatHelper.select_target().position_getter.call()
+	var target_global_pos = CombatHelper.select_target(global_position).position_getter.call()
 	nav_agent.target_position = target_global_pos
 	var direction = global_position.direction_to(nav_agent.get_next_path_position())
 	#global_position += direction * enemy_resource.speed * delta

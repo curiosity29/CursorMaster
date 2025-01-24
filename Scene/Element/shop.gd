@@ -18,11 +18,14 @@ func _ready() -> void:
 func refresh_shop():
 
 	#app_container.add_child()
-	var random_app_resources = pick_n_random(Database.shop_app_map.values()) as Array[AppResource]
+	var random_app_resources = pick_n_random(
+		Database.shop_app_map.values(), Database.shop_app_map.size()
+	) as Array[AppResource]
 	for index in app_count:
 		var app_resource = random_app_resources[index]
 		
 		var child = app_container.get_child(index) as AppShopItem
+		child.show()
 		child.app_resource = random_app_resources[index]
 		
 func pick_n_random(array: Array, n: int = app_count) -> Array:

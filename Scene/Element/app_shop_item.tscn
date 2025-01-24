@@ -50,4 +50,8 @@ bbcode_enabled = true
 text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
 vertical_alignment = 1
 
+[node name="DisableInputTimer" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true
+
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/BuyButton" to="." method="_on_buy_button_pressed"]

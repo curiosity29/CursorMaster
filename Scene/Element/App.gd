@@ -43,11 +43,16 @@ func _process(delta: float) -> void:
 #region self helper
 func open_window(global_pos: Vector2 = global_position) -> void:
 	if not app_window_scene: return
+
 	var app_window: AppWindow = app_window_scene.instantiate()
+	if app_window.ram_cost > State.ram_value_left:
+		app_window.queue_free()
+		return
+
 	app_window.app_name = app_name
 	InstanceHelper.map.add_child(app_window)
 	#print(app_window.size)
-	app_window.global_position = global_pos
+	app_window.global_position = InstanceHelper.map.global_position + InstanceHelper.map.size/2 - app_window.size/2
 
 #endregion
 #region overwrite
