@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="AppResource" load_steps=4 format=3 uid="uid://bdvxjewcwm2yd"]
+
+[ext_resource type="Script" uid="uid://c1aneo2onwh24" path="res://PureScript/Resource/app_resource.gd" id="1_jlsr2"]
+[ext_resource type="PackedScene" uid="uid://bnr50xadh0h2x" path="res://Resource/App/AntiVirus3000/anti_virus_3000.tscn" id="1_lbt82"]
+[ext_resource type="Texture2D" uid="uid://blp1ncss6o8da" path="res://Resource/Texture/anti_virus.png" id="1_qnsmh"]
+
+[resource]
+script = ExtResource("1_jlsr2")
+id = "anti_virus"
+app_name = "anti virus.tab"
+description = "slowly and not surely remove all the virus where it scan"
+icon = ExtResource("1_qnsmh")
+app_scene = ExtResource("1_lbt82")
+metadata/_custom_type_script = ExtResource("1_jlsr2")

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="AppResource" load_steps=4 format=3 uid="uid://dhvutsy8g3iub"]
+
+[ext_resource type="PackedScene" uid="uid://nytlbk4yl5ro" path="res://Resource/App/DefaultCursor/default_cursor.tscn" id="1_4h2fn"]
+[ext_resource type="Script" uid="uid://c1aneo2onwh24" path="res://PureScript/Resource/app_resource.gd" id="1_kd1f1"]
+[ext_resource type="Texture2D" uid="uid://dbfohuy3kokti" path="res://Resource/Texture/anti_virus_cursor.png" id="2_6rg5v"]
+
+[resource]
+script = ExtResource("1_kd1f1")
+id = "default_cursor"
+app_name = "default cursor"
+description = ""
+icon = ExtResource("2_6rg5v")
+buy_price = 5
+app_scene = ExtResource("1_4h2fn")
+is_for_sale = false
+metadata/_custom_type_script = ExtResource("1_kd1f1")

@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cvo0evw6ywwcm" path="res://Resource/Texture/auto_clicker_icon.png" id="2_n2hsj"]
 
 [node name="AutoClicker" instance=ExtResource("1_10wee")]
-app_name = "Auto clicker.exe"
+app_name = "Auto clicker.tab"
 app_window_scene = ExtResource("2_4d5di")
 
 [node name="TextureRect" parent="VBoxContainer" index="0"]

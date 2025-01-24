@@ -1,0 +1,18 @@
+{
+  "column_properties": {
+    "res://Resource/App/": {
+      "resource_local_to_scene": {
+        "visibility": 0
+      },
+      "resource_name": {
+        "visibility": 0
+      }
+    }
+  },
+  "recent_paths": [
+    "res://Resource/App/"
+  ],
+  "table_functions": {
+
+  }
+}

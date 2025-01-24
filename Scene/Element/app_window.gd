@@ -13,6 +13,7 @@ extends Control
 @export var max_size: Vector2 = Vector2(300, 300)
 @export var is_transparent_body: bool = false
 @export var app_window_name: String = ""
+@export var ram_cost: float = 10.
 
 var app_name: String:
 	set(value):
@@ -21,9 +22,12 @@ var app_name: String:
 		else: ready.connect(func(): app_name_label.text = app_window_name, CONNECT_ONE_SHOT)
 
 func _ready() -> void:
+	State.ram_value += ram_cost
 	size = max_size
 	setup_signal()
 
+func _exit_tree() -> void:
+	State.ram_value -= ram_cost
 	
 
 func setup_signal():
@@ -31,7 +35,3 @@ func setup_signal():
 
 func _on_close_button_pressed() -> void:
 	call_deferred("queue_free")
-
-
-
-		

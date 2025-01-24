@@ -1,0 +1,265 @@
+[gd_scene load_steps=10 format=3 uid="uid://urv68rekayxc"]
+
+[ext_resource type="Texture2D" uid="uid://dvloptnx0835n" path="res://Resource/Texture/Banana.png" id="1_6iyfy"]
+[ext_resource type="Script" uid="uid://nvwu7sx55rcd" path="res://Scene/Element/task_manager.gd" id="1_cecgw"]
+[ext_resource type="Texture2D" uid="uid://8fv5ssprajx1" path="res://Resource/Texture/bytecoin.png" id="2_04gw3"]
+[ext_resource type="Shader" uid="uid://bkorqyu0h65cu" path="res://Resource/Shader/progress_fill.gdshader" id="2_cecgw"]
+
+[sub_resource type="Gradient" id="Gradient_twryh"]
+offsets = PackedFloat32Array(0, 0.664336, 1)
+colors = PackedColorArray(0, 1, 0, 1, 0.835101, 0.611349, 0.171184, 1, 1, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_guiby"]
+gradient = SubResource("Gradient_twryh")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_04gw3"]
+shader = ExtResource("2_cecgw")
+shader_parameter/progress = 0.284
+shader_parameter/background_color = Color(0.639216, 0.423529, 0.564706, 0)
+shader_parameter/color_gradient = SubResource("GradientTexture1D_guiby")
+shader_parameter/wave_amplitude = 0.0
+shader_parameter/wave_frequency = 0.0
+shader_parameter/wave_speed = 2.146
+shader_parameter/particle_speed = 0.05
+shader_parameter/particle_lifetime = 3.0
+shader_parameter/particle_softness = 0.01
+shader_parameter/particle_spacing = 0.1
+shader_parameter/particle_offset = Vector2(0, 0)
+shader_parameter/particle_start_scale = Vector2(0.02, 0.02)
+shader_parameter/particle_end_scale = Vector2(0.01, 0.01)
+shader_parameter/particle_scale_randomness = 0.5
+shader_parameter/particle_amount = 0
+
+[sub_resource type="Shader" id="Shader_nd2ak"]
+code = "shader_type canvas_item;
+
+uniform float progress : hint_range(0.0, 1.0) = 0.5;
+uniform vec4 background_color : source_color = vec4(0.5, 0.5, 0.5, 1.0);
+uniform sampler2D color_gradient : source_color;
+uniform sampler2D mask_texture : hint_default_white;
+
+// Wave effect parameters
+uniform float wave_amplitude : hint_range(0.0, 0.1) = 0.02;
+uniform float wave_frequency : hint_range(0.0, 10.0) = 3.0;
+uniform float wave_speed : hint_range(0.0, 5.0) = 1.5;
+
+// Particle effect parameters
+uniform float particle_speed : hint_range(0.01, 0.5) = 0.05;
+uniform float particle_lifetime : hint_range(1.0, 10.0) = 3.0;
+uniform float particle_softness : hint_range(0.001, 1.0) = 0.01;
+uniform float particle_spacing : hint_range(0.01, 1.0) = 0.1;
+uniform vec2 particle_offset = vec2(0.0, 0.0);
+uniform vec2 particle_start_scale = vec2(0.02, 0.02);
+uniform vec2 particle_end_scale = vec2(0.01, 0.01);
+uniform float particle_scale_randomness : hint_range(0.0, 1.0) = 0.5;
+uniform sampler2D particle_alpha_gradient : source_color;
+uniform int particle_amount : hint_range(0, 50) = 20;
+
+// Pseudo-random function
+float rand(vec2 co) {
+    return fract(sin(dot(co.xy ,vec2(12.9898,78.233))) * 43758.5453);
+}
+
+// Function to generate a single particle
+float particle(vec2 uv, float particle_id, float time, float mask_value) {
+    float random_offset = rand(vec2(particle_id, 0.0));
+    float spawn_time = particle_id * particle_spacing;
+    float life = mod(time - spawn_time, particle_lifetime) / particle_lifetime;
+    
+    if (life < 0.0 || life >= 1.0) return 0.0;
+    
+    float vertical_pos = rand(vec2(particle_id, 1.0));
+    float horizontal_pos = progress + life * particle_speed;
+    
+    vec2 particle_pos = vec2(horizontal_pos, vertical_pos) + particle_offset;
+    
+    // Calculate scale with randomness
+    float scale_random = rand(vec2(particle_id, 2.0)) * particle_scale_randomness;
+    vec2 start_scale = particle_start_scale * (1.0 - scale_random);
+    vec2 end_scale = particle_end_scale * (1.0 - scale_random);
+    vec2 current_scale = mix(start_scale, end_scale, life);
+    
+    vec2 scaled_uv = (uv - particle_pos) / current_scale;
+    float dist = length(scaled_uv);
+    
+    float alpha = texture(particle_alpha_gradient, vec2(life, 0.5)).a;
+    
+    return smoothstep(1.0 + particle_softness, 1.0, dist) * alpha * mask_value;
+}
+
+void fragment() {
+    vec2 uv = UV;
+    
+    // Sample the mask texture or use default (fully visible) if not provided
+    float mask = texture(mask_texture, uv).r;
+    
+    // Calculate wave offset
+    float wave_offset = wave_amplitude * sin(wave_frequency * uv.y + TIME * wave_speed);
+    
+    // Apply wave offset to progress
+    float wave_progress = progress + wave_offset;
+    
+    // Sample the color from the gradient texture based on progress
+    vec4 gradient_color = texture(color_gradient, vec2(progress, 0.5));
+    
+    // Start with the background color
+    vec4 final_color = background_color;
+    
+    // Apply the progress bar with mask
+    if (uv.x < wave_progress) {
+        final_color = mix(background_color, gradient_color, mask);
+    }
+    
+    // Generate particles
+    float particles = 0.0;
+    for (float i = 0.0; i < float(particle_amount); i++) {
+        particles += particle(uv, i, TIME, mask);
+    }
+    particles = clamp(particles, 0.0, 1.0);
+    
+    // Add particles to the final color
+    final_color = mix(final_color, gradient_color, particles * step(uv.x, 1.0));
+    
+    COLOR = final_color;
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ccpry"]
+shader = SubResource("Shader_nd2ak")
+shader_parameter/progress = 0.815
+shader_parameter/background_color = Color(0.639216, 0.423529, 0.564706, 0)
+shader_parameter/color_gradient = SubResource("GradientTexture1D_guiby")
+shader_parameter/wave_amplitude = 0.0
+shader_parameter/wave_frequency = 0.0
+shader_parameter/wave_speed = 2.146
+shader_parameter/particle_speed = 0.05
+shader_parameter/particle_lifetime = 3.0
+shader_parameter/particle_softness = 0.01
+shader_parameter/particle_spacing = 0.1
+shader_parameter/particle_offset = Vector2(0, 0)
+shader_parameter/particle_start_scale = Vector2(0.02, 0.02)
+shader_parameter/particle_end_scale = Vector2(0.01, 0.01)
+shader_parameter/particle_scale_randomness = 0.5
+shader_parameter/particle_amount = 0
+
+[node name="TaskManager" type="Control"]
+custom_minimum_size = Vector2(500, 96)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1420.0
+offset_bottom = -952.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cecgw")
+bytecoin_texture = ExtResource("2_04gw3")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+texture = ExtResource("1_6iyfy")
+expand_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Coin" type="ColorRect" parent="HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+color = Color(0.868819, 0.749578, 0.125305, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer/Coin"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/Coin/HBoxContainer"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "ByteCoin"
+vertical_alignment = 1
+
+[node name="CoinLabel" type="RichTextLabel" parent="HBoxContainer/VBoxContainer/Coin/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+bbcode_enabled = true
+text = "100[img=32]res://Resource/Texture/bytecoin.png[/img]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Heat" type="ColorRect" parent="HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_04gw3")
+layout_mode = 2
+size_flags_vertical = 3
+color = Color(1, 1, 1, 0)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer/Heat"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/Heat/HBoxContainer"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "Temparature"
+vertical_alignment = 1
+
+[node name="HeatLabel" type="Label" parent="HBoxContainer/VBoxContainer/Heat/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 16
+text = "13.1°C away from 70°C"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Ram" type="ColorRect" parent="HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_ccpry")
+layout_mode = 2
+size_flags_vertical = 3
+color = Color(1, 1, 1, 0)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer/Ram"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/Ram/HBoxContainer"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "Ram"
+vertical_alignment = 1
+
+[node name="RamLabel" type="Label" parent="HBoxContainer/VBoxContainer/Ram/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 16
+text = "13.1 MB free of 128 MB"
+horizontal_alignment = 1
+vertical_alignment = 1

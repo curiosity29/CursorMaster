@@ -9,7 +9,6 @@
 script = ExtResource("2_8yna7")
 wall_scene = ExtResource("3_lplt1")
 app_name = "fire wall.exe"
-app_window_scene = null
 
 [node name="TextureRect" parent="VBoxContainer" index="0"]
 texture = ExtResource("2_0gv66")

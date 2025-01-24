@@ -4,8 +4,8 @@ extends Control
 @onready var double_click_timer: Timer = $DoubleClickTimer
 @export var app_name: String = "unimplemented app"
 @export var app_window_scene: PackedScene
+@export var open_heat_cost: float = 0.
 @onready var app_name_label: RichTextLabel = $VBoxContainer/AppNameLabel
-
 var is_dragging: bool = false
 var drag_offset: Vector2 = Vector2.ZERO
 
@@ -52,6 +52,7 @@ func open_window(global_pos: Vector2 = global_position) -> void:
 #endregion
 #region overwrite
 func on_open() -> void:
+	State.heat_value += open_heat_cost
 	#print("opening window")
 	open_window()
 

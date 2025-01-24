@@ -8,8 +8,7 @@
 script = ExtResource("2_wow3k")
 health = 50
 priority = 10
-app_name = "virtual machine.exe"
-app_window_scene = null
+app_name = "virtual machine.none"
 
 [node name="TextureRect" parent="VBoxContainer" index="0"]
 texture = ExtResource("3_wow3k")

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="AppResource" load_steps=4 format=3 uid="uid://busrws45epla2"]
+
+[ext_resource type="PackedScene" uid="uid://6pcrfclgvup6" path="res://Resource/App/AutoClicker/auto_clicker.tscn" id="1_46rph"]
+[ext_resource type="Script" uid="uid://c1aneo2onwh24" path="res://PureScript/Resource/app_resource.gd" id="1_nn815"]
+[ext_resource type="Texture2D" uid="uid://cvo0evw6ywwcm" path="res://Resource/Texture/auto_clicker_icon.png" id="2_k6bnx"]
+
+[resource]
+script = ExtResource("1_nn815")
+id = "auto_clicker"
+app_name = "Auto clicker.tab"
+description = "automatically click on your desktop using a cursor of choice"
+icon = ExtResource("2_k6bnx")
+app_scene = ExtResource("1_46rph")
+metadata/_custom_type_script = ExtResource("1_nn815")

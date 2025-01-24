@@ -1,11 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://cl8l813o71jnl"]
+[gd_scene load_steps=13 format=3 uid="uid://cl8l813o71jnl"]
 
 [ext_resource type="PackedScene" uid="uid://cnm0a8qtvlr0v" path="res://Scene/Element/App.tscn" id="1_lcotc"]
 [ext_resource type="Script" uid="uid://ipk7pkmy80y4" path="res://Resource/App/FileExtractor/file_extractor.gd" id="2_5gss5"]
 [ext_resource type="PackedScene" uid="uid://qb5f0r25n26a" path="res://Resource/Draggable/Bomb/bomb.tscn" id="3_5gss5"]
 [ext_resource type="Texture2D" uid="uid://dt2y2ggbyq75d" path="res://Resource/Texture/bomb_container_icon.png" id="3_ri67p"]
 [ext_resource type="Texture2D" uid="uid://cv1v0anxnll0r" path="res://Resource/Texture/bomb_file.png" id="5_ri67p"]
-[ext_resource type="Material" uid="uid://bbv5bhmcedvrj" path="res://Resource/Shader/progress_fill.tres" id="6_up43f"]
+[ext_resource type="Shader" uid="uid://bkorqyu0h65cu" path="res://Resource/Shader/progress_fill.gdshader" id="6_bagsn"]
+[ext_resource type="Texture2D" uid="uid://d2ox03nl0yf02" path="res://Resource/Texture/bomb_file_mask.png" id="7_fjg0t"]
 
 [sub_resource type="Animation" id="Animation_nt5xr"]
 resource_name = "bombRecharge"
@@ -15,6 +16,31 @@ length = 10.0
 _data = {
 &"bombRecharge": SubResource("Animation_nt5xr")
 }
+
+[sub_resource type="Gradient" id="Gradient_twryh"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 1, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_guiby"]
+gradient = SubResource("Gradient_twryh")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xxpdy"]
+shader = ExtResource("6_bagsn")
+shader_parameter/progress = 0.421
+shader_parameter/background_color = Color(0.639216, 0.423529, 0.564706, 0)
+shader_parameter/color_gradient = SubResource("GradientTexture1D_guiby")
+shader_parameter/mask_texture = ExtResource("7_fjg0t")
+shader_parameter/wave_amplitude = 0.02
+shader_parameter/wave_frequency = 5.915
+shader_parameter/wave_speed = 2.146
+shader_parameter/particle_speed = 0.05
+shader_parameter/particle_lifetime = 3.0
+shader_parameter/particle_softness = 0.01
+shader_parameter/particle_spacing = 0.1
+shader_parameter/particle_offset = Vector2(0, 0)
+shader_parameter/particle_start_scale = Vector2(0.02, 0.02)
+shader_parameter/particle_end_scale = Vector2(0.01, 0.01)
+shader_parameter/particle_scale_randomness = 0.5
+shader_parameter/particle_amount = 5
 
 [node name="FileExtractor" instance=ExtResource("1_lcotc")]
 script = ExtResource("2_5gss5")
@@ -42,7 +68,7 @@ texture = ExtResource("5_ri67p")
 expand_mode = 1
 
 [node name="Wave" type="TextureRect" parent="." index="5"]
-material = ExtResource("6_up43f")
+material = SubResource("ShaderMaterial_xxpdy")
 layout_mode = 0
 offset_right = 128.0
 offset_bottom = 128.0
