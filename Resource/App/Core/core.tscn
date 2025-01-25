@@ -6,9 +6,8 @@
 
 [node name="Core" instance=ExtResource("1_1vywe")]
 script = ExtResource("2_4hf3a")
-health = 50
+health = 200
 app_name = "homework.mp4"
-app_window_scene = null
 
 [node name="TextureRect" parent="VBoxContainer" index="0"]
 texture = ExtResource("2_dg8hp")

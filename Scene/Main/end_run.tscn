@@ -1,0 +1,165 @@
+[gd_scene load_steps=7 format=3 uid="uid://bywchcfdcn1nj"]
+
+[ext_resource type="Script" uid="uid://bej03fprjl3f6" path="res://Scene/Main/end_run.gd" id="1_fhs6v"]
+[ext_resource type="Texture2D" uid="uid://dckyx4e1mv3jl" path="res://Resource/Texture/troll_face.png" id="2_wctuu"]
+[ext_resource type="Texture2D" uid="uid://b53hs2hxq8hd1" path="res://Resource/Texture/Pizza.png" id="3_p2br7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p2br7"]
+bg_color = Color(0.680102, 0.959726, 0.344548, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mhueh"]
+bg_color = Color(0.76459, 0.658334, 0.0975449, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ujpik"]
+bg_color = Color(0.458796, 0.392725, 0.0489848, 1)
+
+[node name="EndRun" type="Control"]
+custom_minimum_size = Vector2(800, 800)
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -400.0
+offset_right = 400.0
+offset_bottom = 400.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fhs6v")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="ResetButton" type="Button" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -320.0
+offset_top = 15.0
+offset_right = -20.0
+offset_bottom = 147.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 32
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_p2br7")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mhueh")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_p2br7")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ujpik")
+text = "Reset the pc"
+
+[node name="OnWin" type="Control" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_lock_ = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="OnWin"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 48
+bbcode_enabled = true
+text = "
+
+Congrats on finishing your job.
+Come open your reward:
+
+						->
+"
+
+[node name="HiddenTextLabel" type="RichTextLabel" parent="OnWin"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_top = 431.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 48
+bbcode_enabled = true
+text = "There are no reward sucker, I will erase your memory and you will work for free again muahahahaa"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="OnWin/HiddenTextLabel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -64.0
+offset_top = -156.0
+offset_right = 64.0
+offset_bottom = -28.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+texture = ExtResource("2_wctuu")
+expand_mode = 1
+
+[node name="PrizeButton" type="Button" parent="OnWin"]
+layout_mode = 0
+offset_left = 351.0
+offset_top = 302.0
+offset_right = 487.0
+offset_bottom = 438.0
+icon = ExtResource("3_p2br7")
+flat = true
+
+[node name="OnLose" type="Control" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_lock_ = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="OnLose"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 48
+bbcode_enabled = true
+text = "You bricked the pc.
+Reset the pc and try again.
+
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[connection signal="pressed" from="ResetButton" to="." method="_on_reset_button_pressed"]
+[connection signal="pressed" from="OnWin/PrizeButton" to="." method="_on_prize_button_pressed"]

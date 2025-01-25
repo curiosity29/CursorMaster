@@ -27,7 +27,17 @@ func _ready() -> void:
 	if not enemy_resource:
 		enemy_resource = load("res://Resource/Enemy/TestEnemy/test_enemy.tres")
 	#enemy_resource.report()
-
+	lazy_difficulty_scaling()
+	
+func lazy_difficulty_scaling():
+	match State.difficulty:
+		State.Difficulty.EASY:
+			health *= 1
+		State.Difficulty.NORMAL:
+			health *= 2.
+		State.Difficulty.HARD:
+			health *= 4.
+	health *= 1 + (State.elapsed_time/60.) * 0.3 # +30% base per min
 
 func _process(delta: float) -> void:
 	#return

@@ -1,8 +1,9 @@
-[gd_scene load_steps=24 format=3 uid="uid://cng3iysgp4mdw"]
+[gd_scene load_steps=25 format=3 uid="uid://cng3iysgp4mdw"]
 
 [ext_resource type="Script" uid="uid://c3m2cxthk4fuh" path="res://Scene/Main/world.gd" id="1_e7iqy"]
 [ext_resource type="Script" uid="uid://cn5ojowj5b0a4" path="res://Scene/Element/obstacle.gd" id="2_4fii4"]
 [ext_resource type="PackedScene" uid="uid://xtf4r1s7o2j8" path="res://Resource/Enemy/TestEnemy/test_enemy.tscn" id="2_kj8bi"]
+[ext_resource type="Texture2D" uid="uid://ci112pdqo6yac" path="res://Resource/Texture/pc_background.png" id="2_ql47x"]
 [ext_resource type="Script" uid="uid://btqaogyarnlv7" path="res://Scene/Element/map.gd" id="2_vuaje"]
 [ext_resource type="Script" uid="uid://bnmauulljowdd" path="res://Scene/Element/navigation_region_2d.gd" id="2_wwyuk"]
 [ext_resource type="Script" uid="uid://ctxd3akiuq5ll" path="res://Scene/Element/shop.gd" id="2_x23p1"]
@@ -43,6 +44,26 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_e7iqy")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_ql47x")
+
+[node name="Dimmer" type="ColorRect" parent="Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.482353)
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
@@ -156,7 +177,8 @@ grow_vertical = 2
 script = ExtResource("2_4fii4")
 metadata/_edit_lock_ = true
 
-[node name="Debug" type="Control" parent="HBoxContainer/Map"]
+[node name="DebugContainer" type="Control" parent="HBoxContainer/Map"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -166,7 +188,7 @@ grow_vertical = 2
 mouse_filter = 2
 metadata/_edit_lock_ = true
 
-[node name="Enemies" type="Control" parent="HBoxContainer/Map/Debug"]
+[node name="Enemies" type="Control" parent="HBoxContainer/Map/DebugContainer"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -176,43 +198,43 @@ grow_vertical = 2
 mouse_filter = 2
 metadata/_edit_lock_ = true
 
-[node name="TestEnemy11" parent="HBoxContainer/Map/Debug/Enemies" instance=ExtResource("2_kj8bi")]
+[node name="TestEnemy11" parent="HBoxContainer/Map/DebugContainer/Enemies" instance=ExtResource("2_kj8bi")]
 position = Vector2(1119, 232)
 
-[node name="TestEnemy12" parent="HBoxContainer/Map/Debug/Enemies" instance=ExtResource("2_kj8bi")]
+[node name="TestEnemy12" parent="HBoxContainer/Map/DebugContainer/Enemies" instance=ExtResource("2_kj8bi")]
 position = Vector2(1132, 372)
 
-[node name="TestEnemy13" parent="HBoxContainer/Map/Debug/Enemies" instance=ExtResource("2_kj8bi")]
+[node name="TestEnemy13" parent="HBoxContainer/Map/DebugContainer/Enemies" instance=ExtResource("2_kj8bi")]
 position = Vector2(1368, 292)
 
-[node name="TestEnemy14" parent="HBoxContainer/Map/Debug/Enemies" instance=ExtResource("2_kj8bi")]
+[node name="TestEnemy14" parent="HBoxContainer/Map/DebugContainer/Enemies" instance=ExtResource("2_kj8bi")]
 position = Vector2(980, 573)
 
-[node name="TestEnemy15" parent="HBoxContainer/Map/Debug/Enemies" instance=ExtResource("2_kj8bi")]
+[node name="TestEnemy15" parent="HBoxContainer/Map/DebugContainer/Enemies" instance=ExtResource("2_kj8bi")]
 position = Vector2(1078, 95)
 
-[node name="TestEnemy16" parent="HBoxContainer/Map/Debug/Enemies" instance=ExtResource("2_kj8bi")]
+[node name="TestEnemy16" parent="HBoxContainer/Map/DebugContainer/Enemies" instance=ExtResource("2_kj8bi")]
 position = Vector2(1216, 520)
 
-[node name="TestEnemy17" parent="HBoxContainer/Map/Debug/Enemies" instance=ExtResource("2_kj8bi")]
+[node name="TestEnemy17" parent="HBoxContainer/Map/DebugContainer/Enemies" instance=ExtResource("2_kj8bi")]
 position = Vector2(1145, 763)
 
-[node name="TestEnemy18" parent="HBoxContainer/Map/Debug/Enemies" instance=ExtResource("2_kj8bi")]
+[node name="TestEnemy18" parent="HBoxContainer/Map/DebugContainer/Enemies" instance=ExtResource("2_kj8bi")]
 position = Vector2(1366, 566)
 
-[node name="TestEnemy19" parent="HBoxContainer/Map/Debug/Enemies" instance=ExtResource("2_kj8bi")]
+[node name="TestEnemy19" parent="HBoxContainer/Map/DebugContainer/Enemies" instance=ExtResource("2_kj8bi")]
 position = Vector2(784, 691)
 
-[node name="TestEnemy20" parent="HBoxContainer/Map/Debug/Enemies" instance=ExtResource("2_kj8bi")]
+[node name="TestEnemy20" parent="HBoxContainer/Map/DebugContainer/Enemies" instance=ExtResource("2_kj8bi")]
 position = Vector2(897, 763)
 
-[node name="TestEnemy21" parent="HBoxContainer/Map/Debug/Enemies" instance=ExtResource("2_kj8bi")]
+[node name="TestEnemy21" parent="HBoxContainer/Map/DebugContainer/Enemies" instance=ExtResource("2_kj8bi")]
 position = Vector2(1017, 930)
 
-[node name="TestEnemy22" parent="HBoxContainer/Map/Debug/Enemies" instance=ExtResource("2_kj8bi")]
+[node name="TestEnemy22" parent="HBoxContainer/Map/DebugContainer/Enemies" instance=ExtResource("2_kj8bi")]
 position = Vector2(768, 935)
 
-[node name="Draggable" type="Control" parent="HBoxContainer/Map/Debug"]
+[node name="Draggable" type="Control" parent="HBoxContainer/Map/DebugContainer"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -222,19 +244,19 @@ grow_vertical = 2
 mouse_filter = 2
 metadata/_edit_lock_ = true
 
-[node name="Bomb" parent="HBoxContainer/Map/Debug/Draggable" instance=ExtResource("6_tquwj")]
+[node name="Bomb" parent="HBoxContainer/Map/DebugContainer/Draggable" instance=ExtResource("6_tquwj")]
 offset_left = 790.0
 offset_top = 675.0
 offset_right = 854.0
 offset_bottom = 739.0
 
-[node name="Bomb2" parent="HBoxContainer/Map/Debug/Draggable" instance=ExtResource("6_tquwj")]
+[node name="Bomb2" parent="HBoxContainer/Map/DebugContainer/Draggable" instance=ExtResource("6_tquwj")]
 offset_left = 624.0
 offset_top = 416.0
 offset_right = 688.0
 offset_bottom = 480.0
 
-[node name="App" type="Control" parent="HBoxContainer/Map/Debug"]
+[node name="AppContainer" type="Control" parent="HBoxContainer/Map/DebugContainer"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -244,60 +266,41 @@ grow_vertical = 2
 mouse_filter = 2
 metadata/_edit_lock_ = true
 
-[node name="AutoClicker" parent="HBoxContainer/Map/Debug/App" instance=ExtResource("7_q16u2")]
-offset_left = 270.0
+[node name="AutoClicker" parent="HBoxContainer/Map/DebugContainer/AppContainer" instance=ExtResource("7_q16u2")]
+offset_left = 199.0
 offset_top = 651.0
-offset_right = 398.0
+offset_right = 327.0
 offset_bottom = 831.0
 
-[node name="DefaultCursor" parent="HBoxContainer/Map/Debug/App" instance=ExtResource("9_gioca")]
-offset_left = 116.0
-offset_top = 882.0
-offset_right = 244.0
-offset_bottom = 1062.0
-
-[node name="CrusherCursor" parent="HBoxContainer/Map/Debug/App" instance=ExtResource("8_q16u2")]
-offset_left = 272.0
-offset_top = 876.0
-offset_right = 400.0
-offset_bottom = 1056.0
-
-[node name="AntiVirus3000" parent="HBoxContainer/Map/Debug/App" instance=ExtResource("5_di4vt")]
-offset_left = 117.0
+[node name="AntiVirus3000" parent="HBoxContainer/Map/DebugContainer/AppContainer" instance=ExtResource("5_di4vt")]
+offset_left = 49.0
 offset_top = 643.0
-offset_right = 245.0
+offset_right = 177.0
 offset_bottom = 823.0
 
-[node name="FireWall" parent="HBoxContainer/Map/Debug/App" instance=ExtResource("9_0p2xg")]
+[node name="FireWall" parent="HBoxContainer/Map/DebugContainer/AppContainer" instance=ExtResource("9_0p2xg")]
 offset_left = 625.0
 offset_top = 169.0
 offset_right = 753.0
 offset_bottom = 349.0
 
-[node name="ProfessorHelper" parent="HBoxContainer/Map/Debug/App" instance=ExtResource("8_gioca")]
-offset_left = 112.0
-offset_top = 189.0
-offset_right = 240.0
-offset_bottom = 369.0
+[node name="ProfessorHelper" parent="HBoxContainer/Map/DebugContainer/AppContainer" instance=ExtResource("8_gioca")]
+offset_left = 349.0
+offset_top = 866.0
+offset_right = 477.0
+offset_bottom = 1046.0
 
-[node name="VirtualMachine" parent="HBoxContainer/Map/Debug/App" instance=ExtResource("12_wwyuk")]
-offset_left = 273.0
+[node name="VirtualMachine" parent="HBoxContainer/Map/DebugContainer/AppContainer" instance=ExtResource("12_wwyuk")]
+offset_left = 199.0
 offset_top = 431.0
-offset_right = 401.0
+offset_right = 327.0
 offset_bottom = 611.0
 
-[node name="FileExtractor" parent="HBoxContainer/Map/Debug/App" instance=ExtResource("14_tquwj")]
+[node name="FileExtractor" parent="HBoxContainer/Map/DebugContainer/AppContainer" instance=ExtResource("14_tquwj")]
 offset_left = 269.0
 offset_top = 191.0
 offset_right = 397.0
 offset_bottom = 371.0
-
-[node name="TaskManager" parent="HBoxContainer/Map/Debug/App" instance=ExtResource("15_se05f")]
-layout_mode = 1
-offset_left = 137.0
-offset_top = 8.0
-offset_right = -1129.0
-offset_bottom = -944.0
 
 [node name="EnemySpawner" parent="HBoxContainer/Map" instance=ExtResource("4_dxgkd")]
 offset_left = 2019.0
@@ -305,11 +308,40 @@ offset_top = -258.0
 offset_right = 2134.0
 offset_bottom = 1263.0
 
-[node name="Core" parent="HBoxContainer/Map" instance=ExtResource("4_di4vt")]
-offset_left = 105.0
+[node name="AppContainer" type="Control" parent="HBoxContainer/Map"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_lock_ = true
+
+[node name="Core" parent="HBoxContainer/Map/AppContainer" instance=ExtResource("4_di4vt")]
+offset_left = 54.0
 offset_top = 431.0
-offset_right = 233.0
+offset_right = 182.0
 offset_bottom = 611.0
+
+[node name="DefaultCursor" parent="HBoxContainer/Map/AppContainer" instance=ExtResource("9_gioca")]
+offset_left = 48.0
+offset_top = 882.0
+offset_right = 176.0
+offset_bottom = 1062.0
+
+[node name="CrusherCursor" parent="HBoxContainer/Map/AppContainer" instance=ExtResource("8_q16u2")]
+offset_left = 201.0
+offset_top = 876.0
+offset_right = 329.0
+offset_bottom = 1056.0
+
+[node name="TaskManager" parent="HBoxContainer/Map/AppContainer" instance=ExtResource("15_se05f")]
+layout_mode = 1
+offset_left = 62.0
+offset_top = 8.0
+offset_right = -1148.0
+offset_bottom = -944.0
 
 [connection signal="pressed" from="HBoxContainer/Shop/VBoxContainer/VBoxContainer/RamUpgrade/RamUpgradeButton" to="HBoxContainer/Shop" method="_on_ram_upgrade_button_pressed"]
 [connection signal="timeout" from="HBoxContainer/Shop/SecondTimer" to="HBoxContainer/Shop" method="_on_second_timer_timeout"]

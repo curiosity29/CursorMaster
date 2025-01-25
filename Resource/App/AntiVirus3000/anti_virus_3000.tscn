@@ -6,5 +6,5 @@
 
 [node name="AntiVirus3000" instance=ExtResource("1_dcnke")]
 script = ExtResource("1_72q1r")
-app_name = "Anti Virus 3000.exe"
+app_name = "Anti Virus 3000.tab"
 app_window_scene = ExtResource("2_cteo0")

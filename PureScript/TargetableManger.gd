@@ -19,12 +19,13 @@ var is_dead: bool:
 
 var position_getter: Callable ## no argument func to get the position of the target
 var attackable_radius: int = 64
+var name: String = ""
 
-
-func _init(init_health: int, init_position_getter: Callable, init_priority: int = 0) -> void:
+func _init(init_health: int, init_position_getter: Callable, init_priority: int = 0, init_name: String = "") -> void:
 	health = init_health
 	priority = init_priority
 	position_getter = init_position_getter
+	name = init_name
 	
 func take_damage(value: int, _source: Enemy = null):
 	took_damage.emit(value)

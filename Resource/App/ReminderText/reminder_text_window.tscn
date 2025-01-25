@@ -1,0 +1,33 @@
+[gd_scene load_steps=2 format=3 uid="uid://ola22bynta3o"]
+
+[ext_resource type="PackedScene" uid="uid://cgaiiiewvrg7f" path="res://Scene/Element/app_window.tscn" id="1_ifcwr"]
+
+[node name="ReminderTextWindow" instance=ExtResource("1_ifcwr")]
+custom_minimum_size = Vector2(1000, 910)
+offset_right = -920.0
+offset_bottom = -170.0
+max_size = Vector2(1000, 910)
+app_window_name = "reminder text"
+ram_cost = 1.0
+
+[node name="ColorRect" parent="MarginContainer/VBoxContainer/Body" index="0"]
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Body" index="1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "Hey, you probably don't remember anything, let me remind you what's going on. Your consiousness has been transfered to the old computer at the corner of your office, due to the sheer amount of love you have for the company that you want to contribute more.
+
+Your new job is to pirate stuff from the internet. Pretty trivial stuff, although you must be aware of viruses bricking the pc.
+
+You can probably see the virus, so you can just slam yourself at the virus using the awesome anti virus sword form we set up for you.
+
+Read the tutorial text file for a brief review and head to the pirate dock to start working
+
+Remember, you are a GREAT ASSET to the company and we will REWARD YOU HANDSOMELY"
+autowrap_mode = 3

@@ -51,9 +51,10 @@ func open_window(global_pos: Vector2 = global_position) -> void:
 
 	app_window.app_name = app_name
 	InstanceHelper.map.add_child(app_window)
+	#get_tree().current_scene.add_child(app_window)
 	#print(app_window.size)
 	app_window.global_position = InstanceHelper.map.global_position + InstanceHelper.map.size/2 - app_window.size/2
-
+	#app_window.global_position = get_viewport_rect().size/2 - app_window.size/2
 #endregion
 #region overwrite
 func on_open() -> void:

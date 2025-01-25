@@ -14,7 +14,7 @@ func on_click(mouse_pos: Vector2, _source: Node2D = null) -> void:
 	State.heat_value_left += heat_cost
 	
 	var effect_animation = effect_animation_scene.instantiate()
-	State.add_child(effect_animation)
+	InstanceHelper.map.add_child(effect_animation)
 	effect_animation.global_position = mouse_pos
 	#effect_animation.global_position = State 
 	for enemy: Enemy in State.get_tree().get_nodes_in_group("Enemy"):

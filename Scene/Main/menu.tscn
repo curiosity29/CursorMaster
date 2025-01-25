@@ -1,0 +1,68 @@
+[gd_scene load_steps=6 format=3 uid="uid://dd71p7rogksuc"]
+
+[ext_resource type="Texture2D" uid="uid://ci112pdqo6yac" path="res://Resource/Texture/pc_background.png" id="1_0a6dx"]
+[ext_resource type="PackedScene" uid="uid://de4wtlkg87fxc" path="res://Resource/App/TutorialText1/tutorial_text_1.tscn" id="2_5ni6p"]
+[ext_resource type="PackedScene" uid="uid://bkpn2a2s0a156" path="res://Resource/App/ReminderText/reminder_text.tscn" id="3_1yig8"]
+[ext_resource type="PackedScene" uid="uid://c0lxvotyeu5ot" path="res://Resource/App/PirateDock/pirate_dock.tscn" id="4_1yig8"]
+[ext_resource type="Script" uid="uid://btqaogyarnlv7" path="res://Scene/Element/map.gd" id="5_qw7dy"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("1_0a6dx")
+
+[node name="Dimmer" type="ColorRect" parent="Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.482353)
+
+[node name="Map" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("5_qw7dy")
+
+[node name="AppContainer" type="Control" parent="Map"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TutorialText1" parent="Map/AppContainer" instance=ExtResource("2_5ni6p")]
+offset_left = 39.0
+offset_top = 231.0
+offset_right = 167.0
+offset_bottom = 411.0
+
+[node name="ReminderText" parent="Map/AppContainer" instance=ExtResource("3_1yig8")]
+offset_left = 33.0
+offset_top = 35.0
+offset_right = 161.0
+offset_bottom = 215.0
+
+[node name="PirateDock" parent="Map/AppContainer" instance=ExtResource("4_1yig8")]
+offset_left = 40.0
+offset_top = 439.0
+offset_right = 168.0
+offset_bottom = 619.0

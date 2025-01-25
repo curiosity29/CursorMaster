@@ -1,6 +1,6 @@
 extends Area2D
 
-var damage: int = 5
+@export var damage: int = 10
 
 func _on_area_entered(area: Area2D) -> void:
 	CombatHelper.damage_area_entered(damage, area)

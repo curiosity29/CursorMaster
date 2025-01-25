@@ -7,7 +7,7 @@ const ram_upgrade_cost: int = 5
 const ram_upgrade_value: float = 16.
 @onready var refresh_count_down_label: RichTextLabel = $VBoxContainer/RefreshCountDownLabel
 @onready var second_timer: Timer = $SecondTimer
-const max_count_down_time: int = 60
+var max_count_down_time: int = State.second_per_round
 var count_down_time: int = max_count_down_time
 const count_down_label_format: String = "refresh after %d secs"
 func _ready() -> void:

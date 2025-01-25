@@ -1,12 +1,18 @@
 # InstanceHelper
 extends Node
 
-var targets: Array[TargetableManager]
+var targets: Array[TargetableManager]:
+	get:
+		# catch all remove null
+		targets = targets.filter(func(target): return target)
+		return targets
 var map: Map
 var core: Core
 var obstacle_container: Control
 var nav_region: MainNavRegion
 const APP_WINDOW = preload("res://Scene/Element/app_window.tscn")
+
+
 
 func create_enemy(id: String) -> Enemy:
 	var enemy_resource = Database.enemy_map[id]

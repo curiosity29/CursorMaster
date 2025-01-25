@@ -2,8 +2,14 @@ class_name EnemySpawner
 extends Control
 @onready var timer: Timer = $Timer
 
+@export var difficulty_spawn_speed = {
+	State.Difficulty.EASY: 0.7,
+	State.Difficulty.NORMAL: 0.5,
+	State.Difficulty.HARD: 0.3,
+}
 func _ready() -> void:
 	timer.start()
+	timer.wait_time = difficulty_spawn_speed[State.difficulty]
 	timer.timeout.connect(spawn_enemy)
 	
 func spawn_enemy():

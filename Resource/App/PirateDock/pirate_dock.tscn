@@ -1,0 +1,12 @@
+[gd_scene load_steps=4 format=3 uid="uid://c0lxvotyeu5ot"]
+
+[ext_resource type="PackedScene" uid="uid://cnm0a8qtvlr0v" path="res://Scene/Element/App.tscn" id="1_usoes"]
+[ext_resource type="Texture2D" uid="uid://bw2kl0jxomx77" path="res://Resource/Texture/pirate_ship.png" id="2_omgli"]
+[ext_resource type="PackedScene" uid="uid://c20sjieivuudf" path="res://Resource/App/PirateDock/pirate_dock_window.tscn" id="2_vth1p"]
+
+[node name="PirateDock" instance=ExtResource("1_usoes")]
+app_name = "pirate dock.tab"
+app_window_scene = ExtResource("2_vth1p")
+
+[node name="TextureRect" parent="VBoxContainer" index="0"]
+texture = ExtResource("2_omgli")

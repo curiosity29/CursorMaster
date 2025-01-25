@@ -19,6 +19,9 @@ func _ready() -> void:
 	InstanceHelper.targets.append(targetable_manager)
 	targetable_manager.stats_changed.connect(update_health)
 	
+func _exit_tree() -> void:
+	InstanceHelper.targets.erase(targetable_manager)
+	
 func update_health():
 	hp_label.text = hp_label_format % targetable_manager.health
 func get_target_pos():

@@ -7,7 +7,7 @@
 
 [node name="AntiVirus3000Window" instance=ExtResource("1_0v5wk")]
 script = ExtResource("1_twwt8")
-damage = 3
+damage = 5
 is_transparent_body = true
 app_window_name = "Anti virus 3000"
 

@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://d2oapdpix1wis"]
+
+[ext_resource type="Script" uid="uid://b812epq4aig5p" path="res://Global/Navigator.gd" id="1_sfpni"]
+[ext_resource type="PackedScene" uid="uid://dd71p7rogksuc" path="res://Scene/Main/menu.tscn" id="2_qoupi"]
+[ext_resource type="PackedScene" uid="uid://cng3iysgp4mdw" path="res://Scene/Main/world.tscn" id="3_xwjy6"]
+[ext_resource type="PackedScene" uid="uid://bywchcfdcn1nj" path="res://Scene/Main/end_run.tscn" id="4_qoupi"]
+
+[node name="Navigator" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sfpni")
+MENU_SCENE = ExtResource("2_qoupi")
+MAIN_RUN_SCENE = ExtResource("3_xwjy6")
+END_RUN_SCENE = ExtResource("4_qoupi")
+
+[node name="MainSceneContainer" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="DummyScene" type="Control" parent="MainSceneContainer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2

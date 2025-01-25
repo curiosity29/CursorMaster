@@ -3,6 +3,8 @@ extends Control
 @onready var price_label: RichTextLabel = $VBoxContainer/HBoxContainer/PriceLabel
 @onready var buy_button: Button = $VBoxContainer/HBoxContainer/BuyButton
 @onready var description: RichTextLabel = $VBoxContainer/Description
+@onready var sold_out_texture_rect: TextureRect = $SoldOutTextureRect
+@onready var v_box_container: VBoxContainer = $VBoxContainer
 
 const price_text_format = "%d\n[img=32]res://Resource/Texture/bytecoin.png[/img]"
 @onready var disable_input_timer: Timer = $DisableInputTimer
@@ -26,6 +28,9 @@ func _on_buy_button_pressed() -> void:
 	if not app_resource.allow_multiple:
 		app_resource.is_for_sale = false
 		Database.shop_app_map.erase(app_resource.id)
-		hide()
+		
+		v_box_container.hide()	
+		sold_out_texture_rect.show()
+		
 	
 	Event.app_buy_request.emit(app_resource)

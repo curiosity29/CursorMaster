@@ -14,10 +14,18 @@ var targetable_manager: TargetableManager
 func _ready() -> void:
 	super()
 	InstanceHelper.core = self
-	targetable_manager = TargetableManager.new(health, get_target_pos, 0)
+	targetable_manager = TargetableManager.new(health, get_target_pos, 0, "core")
 	InstanceHelper.targets.append(targetable_manager)
 	targetable_manager.stats_changed.connect(update_health)
+	targetable_manager.dead.connect(on_dead)
+	update_health()
 	
+func _exit_tree() -> void:
+	InstanceHelper.targets.erase(targetable_manager)
+	
+func on_dead():
+	Event.run_end_request.emit()
+
 func update_health():
 	hp_label.text = hp_label_format % targetable_manager.health
 

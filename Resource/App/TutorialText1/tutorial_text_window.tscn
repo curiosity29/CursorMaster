@@ -1,0 +1,35 @@
+[gd_scene load_steps=2 format=3 uid="uid://bdi20qhsftx0a"]
+
+[ext_resource type="PackedScene" uid="uid://cgaiiiewvrg7f" path="res://Scene/Element/app_window.tscn" id="1_7tldg"]
+
+[node name="TutorialTextWindow" instance=ExtResource("1_7tldg")]
+custom_minimum_size = Vector2(1000, 670)
+offset_right = -920.0
+offset_bottom = -410.0
+max_size = Vector2(1000, 670)
+app_window_name = "Tutorial"
+ram_cost = 1.0
+
+[node name="ColorRect" parent="MarginContainer/VBoxContainer/Body" index="0"]
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Body" index="1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "- The basic:
++ During download, viruses could come to destroy your pc, hit and kill the virus to defend your pc
++ You are a weapon, move yourself over a virus can damage it
++ buy some apps by clicking on the icon from the store
++ If your pc is broken, you can just try turning off and on again
+- For those who don't know how to use a computer:
++ Double click on an app icon to open or activate it
++ You can drag most app icons
++ App window consume ram
++ Activate stuff produce heat
++ New stuff will not respond when there's not ram allocated or your pc is already too hot"
+autowrap_mode = 3
