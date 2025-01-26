@@ -6,9 +6,9 @@
 
 [resource]
 script = ExtResource("1_1t421")
-id = "professor_helper"
-app_name = "professor helper.exe"
-description = "A happy man with a helping hand!"
+id = "prohelper_fessor"
+app_name = "prohelper fessor.exe"
+description = "A happy man with a helping hand. Call him and he'll give a hand in the bottem left corner, heating up your pc and fry the viruses"
 icon = ExtResource("1_b0imp")
 buy_price = 5
 app_scene = ExtResource("1_nnkx1")

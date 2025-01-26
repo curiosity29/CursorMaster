@@ -2,12 +2,15 @@
 extends Node
 
 
-func damage_area_entered(damage: int, area: Area2D):
+func damage_area_entered(damage: int, area: Area2D) -> bool:
 	#NOTE: this rely on each enemy having at most 1 area2d, which is a hit box
 	#need to add group tag to area if it has non-hitbox area
 	var area_owner = area.owner
 	if area_owner is Enemy:
 		area_owner.take_damage(damage, self)
+		return true
+	else:
+		return false
 
 func select_target(position: Vector2) -> TargetableManager:
 	# sort the whole array to get the minimum because lazy and can't find custom_min

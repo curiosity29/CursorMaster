@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cen8ydquvuuhw"
-path="res://.godot/imported/proffessor_helper_hand.png-7ccf44f964c1f19e059d510997994c0c.ctex"
+path="res://.godot/imported/professor_helper_hand.png-dc113869af2ec1c79389929bc4b6e44a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Resource/Texture/proffessor_helper_hand.png"
-dest_files=["res://.godot/imported/proffessor_helper_hand.png-7ccf44f964c1f19e059d510997994c0c.ctex"]
+source_file="res://Resource/Texture/professor_helper_hand.png"
+dest_files=["res://.godot/imported/professor_helper_hand.png-dc113869af2ec1c79389929bc4b6e44a.ctex"]
 
 [params]
 

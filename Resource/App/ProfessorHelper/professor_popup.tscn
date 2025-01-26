@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://dtmjximoktf30"]
 
-[ext_resource type="Texture2D" uid="uid://cen8ydquvuuhw" path="res://Resource/Texture/proffessor_helper_hand.png" id="1_66elo"]
+[ext_resource type="Texture2D" uid="uid://cen8ydquvuuhw" path="res://Resource/Texture/professor_helper_hand.png" id="1_66elo"]
 [ext_resource type="Script" uid="uid://br2hcfa2yfmvd" path="res://Resource/App/ProfessorHelper/professor_popup.gd" id="1_o1dm8"]
 [ext_resource type="Script" uid="uid://dpbwaleu74pku" path="res://PureScript/DamageArea.gd" id="1_vccq7"]
 

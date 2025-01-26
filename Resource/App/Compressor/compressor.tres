@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="AppResource" load_steps=4 format=3 uid="uid://dsw488ldj16uj"]
+
+[ext_resource type="Texture2D" uid="uid://bg0bd22ntxh1x" path="res://Resource/Texture/compressor.png" id="1_ch2yb"]
+[ext_resource type="PackedScene" uid="uid://epen4xgts480" path="res://Resource/App/Compressor/compressor.tscn" id="1_guoiq"]
+[ext_resource type="Script" uid="uid://c1aneo2onwh24" path="res://PureScript/Resource/app_resource.gd" id="1_n5rxd"]
+
+[resource]
+script = ExtResource("1_n5rxd")
+id = "compressor"
+app_name = "compressor.tab"
+description = "compress up to 8 enemies into the horizontal center"
+icon = ExtResource("1_ch2yb")
+buy_price = 5
+app_scene = ExtResource("1_guoiq")
+is_for_sale = true
+allow_multiple = false
+metadata/_custom_type_script = ExtResource("1_n5rxd")

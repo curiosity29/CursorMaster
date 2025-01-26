@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://18i5a037safy"]
+
+[ext_resource type="PackedScene" uid="uid://cll1cljm8pvpn" path="res://Scene/Element/enemy.tscn" id="1_7txsc"]
+[ext_resource type="Script" uid="uid://cuy8ln3nxtmw0" path="res://Resource/Enemy/Dummy/dummy.gd" id="2_d2jev"]
+[ext_resource type="Texture2D" uid="uid://b714iu2cb5k4l" path="res://Resource/Texture/slow_enemy.png" id="2_vu0qo"]
+
+[node name="Dummy" instance=ExtResource("1_7txsc")]
+script = ExtResource("2_d2jev")
+enemy_resource_id = "dummy"
+
+[node name="CollisionPolygon2D" parent="." index="0"]
+position = Vector2(-33, -31)
+polygon = PackedVector2Array(17, 2, 60, 1, 68, 31, 65, 62, 43, 64, 14, 61, 2, 28)
+
+[node name="TextureRect" parent="." index="1"]
+texture = ExtResource("2_vu0qo")
+
+[node name="CollisionPolygon2D" parent="HitBox" index="0"]
+position = Vector2(-33, -31)
+polygon = PackedVector2Array(17, 1, 41, -1, 64, 1, 68, 32, 65, 63, 16, 63, 3, 46, 3, 26)

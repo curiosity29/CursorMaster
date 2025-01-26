@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="EnemyResource" load_steps=3 format=3 uid="uid://snq33nksp6mm"]
+
+[ext_resource type="Script" uid="uid://b6j8jidrdov5t" path="res://PureScript/Resource/enemy_resource.gd" id="1_5dacu"]
+[ext_resource type="PackedScene" uid="uid://oigo6e1u4c43" path="res://Resource/Enemy/Sprinter/sprinter.tscn" id="2_k3vnh"]
+
+[resource]
+script = ExtResource("1_5dacu")
+id = "sprinter"
+name = "sprinter"
+scene = ExtResource("2_k3vnh")
+health = 10
+speed = 150
+damage = 2
+attack_speed = 1.0
+metadata/_custom_type_script = ExtResource("1_5dacu")

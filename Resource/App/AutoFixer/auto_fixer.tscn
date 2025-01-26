@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://ey5hes74dbt3"]
+
+[ext_resource type="PackedScene" uid="uid://cnm0a8qtvlr0v" path="res://Scene/Element/App.tscn" id="1_l1vlv"]
+[ext_resource type="Script" uid="uid://cf3jrmdwd57xx" path="res://auto_fixer.gd" id="2_ecf4r"]
+[ext_resource type="Texture2D" uid="uid://4gjjqr72gt1h" path="res://Resource/Texture/medkit_icon.png" id="3_8rg7a"]
+
+[node name="AutoFixer" instance=ExtResource("1_l1vlv")]
+script = ExtResource("2_ecf4r")
+heal_per_sec = 2
+app_name = "auto fixer.auto"
+
+[node name="TextureRect" parent="VBoxContainer" index="0"]
+texture = ExtResource("3_8rg7a")
+
+[node name="HealTimer" type="Timer" parent="." index="3"]
+autostart = true
+
+[connection signal="timeout" from="HealTimer" to="." method="_on_heal_timer_timeout"]

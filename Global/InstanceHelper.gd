@@ -9,10 +9,13 @@ var targets: Array[TargetableManager]:
 var map: Map
 var core: Core
 var obstacle_container: Control
-var nav_region: MainNavRegion
+var task_manager: TaskManager
+var nav_regions: Array[MainNavRegion]
 const APP_WINDOW = preload("res://Scene/Element/app_window.tscn")
 
-
+func update_nav_regions():
+	for nav_region in nav_regions:
+		nav_region.update()
 
 func create_enemy(id: String) -> Enemy:
 	var enemy_resource = Database.enemy_map[id]

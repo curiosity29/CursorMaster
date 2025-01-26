@@ -1,0 +1,60 @@
+[gd_scene load_steps=6 format=3 uid="uid://c2r0jjobfdtsj"]
+
+[ext_resource type="PackedScene" uid="uid://cgaiiiewvrg7f" path="res://Scene/Element/app_window.tscn" id="1_3wmda"]
+[ext_resource type="Script" uid="uid://bv4vou4y10k83" path="res://Resource/App/Compressor/compressor_window.gd" id="2_ovl8j"]
+
+[sub_resource type="Gradient" id="Gradient_w5mui"]
+interpolation_color_space = 1
+offsets = PackedFloat32Array(0, 0.511905, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.0149532, 0.515579, 0, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_u86i1"]
+gradient = SubResource("Gradient_w5mui")
+fill_from = Vector2(0.518519, 0.002849)
+fill_to = Vector2(0.509971, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ovl8j"]
+
+[node name="CompressorWindow" instance=ExtResource("1_3wmda")]
+process_priority = -1
+custom_minimum_size = Vector2(600, 350)
+offset_right = -1320.0
+offset_bottom = -730.0
+script = ExtResource("2_ovl8j")
+max_pull_count = 8
+max_size = Vector2(700, 400)
+is_transparent_body = true
+app_window_name = "compressor"
+ram_cost = 24.0
+
+[node name="Body" parent="MarginContainer/VBoxContainer" index="1"]
+mouse_filter = 2
+
+[node name="ColorRect" parent="MarginContainer/VBoxContainer/Body" index="0"]
+visible = false
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/Body" index="1"]
+modulate = Color(1, 1, 1, 0.282353)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("GradientTexture2D_u86i1")
+
+[node name="CompressArea" type="Area2D" parent="MarginContainer/VBoxContainer/Body" index="2"]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MarginContainer/VBoxContainer/Body/CompressArea" index="0"]
+shape = SubResource("RectangleShape2D_ovl8j")
+
+[node name="PullTimer" type="Timer" parent="." index="2"]
+wait_time = 1.8
+autostart = true
+
+[connection signal="resized" from="MarginContainer/VBoxContainer/Body" to="." method="_on_body_resized"]
+[connection signal="body_entered" from="MarginContainer/VBoxContainer/Body/CompressArea" to="." method="_on_compress_area_body_entered"]
+[connection signal="body_exited" from="MarginContainer/VBoxContainer/Body/CompressArea" to="." method="_on_compress_area_body_exited"]
+[connection signal="timeout" from="PullTimer" to="." method="_on_pull_timer_timeout"]

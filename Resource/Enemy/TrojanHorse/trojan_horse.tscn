@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://c3r64o0v08d2p"]
+
+[ext_resource type="PackedScene" uid="uid://cll1cljm8pvpn" path="res://Scene/Element/enemy.tscn" id="1_e8osl"]
+[ext_resource type="Script" uid="uid://c3n3y5qvqs45q" path="res://Resource/Enemy/TrojanHorse/trojan_horse.gd" id="2_1ctyf"]
+[ext_resource type="Texture2D" uid="uid://dej8iedog8sds" path="res://Resource/Texture/trojan_horse.png" id="2_km8rd"]
+
+[node name="TrojanHorse" instance=ExtResource("1_e8osl")]
+script = ExtResource("2_1ctyf")
+summon_id = "sprinter"
+summon_count = 10
+summon_radius = 64.0
+enemy_resource_id = "trojan_horse"
+
+[node name="CollisionPolygon2D" parent="." index="0"]
+polygon = PackedVector2Array(-14, -28, 8, -28, 67, -14, 96, 34, 95, 88, -22, 87)
+
+[node name="TextureRect" parent="." index="1"]
+texture = ExtResource("2_km8rd")
+
+[node name="CollisionPolygon2D" parent="HitBox" index="0"]
+polygon = PackedVector2Array(-14, -28, 8, -28, 67, -14, 96.1587, 34.1185, 95, 88, -23, 89)
+
+[node name="NavigationAgent2D" parent="Node2D" index="0"]
+navigation_layers = 2
+radius = 64.0

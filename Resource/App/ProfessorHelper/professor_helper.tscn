@@ -8,7 +8,7 @@
 [node name="ProfessorHelper" instance=ExtResource("1_nbdx2")]
 script = ExtResource("2_usujt")
 popup_effect_scene = ExtResource("3_un4f3")
-app_name = "professor helper.exe"
+app_name = "prohelper fessor.exe"
 open_heat_cost = 5.0
 
 [node name="TextureRect" parent="VBoxContainer" index="0"]

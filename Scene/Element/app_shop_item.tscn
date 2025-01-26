@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cloxxl74vcjqa" path="res://Resource/Texture/sold_out_label.png" id="3_gglc4"]
 
 [node name="AppShopItem" type="Control"]
+process_mode = 3
 custom_minimum_size = Vector2(192, 250)
 layout_mode = 3
 anchors_preset = 0
@@ -27,6 +28,7 @@ layout_mode = 2
 [node name="BuyButton" type="Button" parent="VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
+focus_mode = 0
 icon = ExtResource("1_oek1q")
 flat = true
 icon_alignment = 1
@@ -44,6 +46,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Description" type="RichTextLabel" parent="VBoxContainer"]
+process_mode = 3
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/normal_font_size = 16

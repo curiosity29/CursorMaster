@@ -3,10 +3,10 @@
 [ext_resource type="PackedScene" uid="uid://cgaiiiewvrg7f" path="res://Scene/Element/app_window.tscn" id="1_7tldg"]
 
 [node name="TutorialTextWindow" instance=ExtResource("1_7tldg")]
-custom_minimum_size = Vector2(1000, 670)
+custom_minimum_size = Vector2(1000, 810)
 offset_right = -920.0
-offset_bottom = -410.0
-max_size = Vector2(1000, 670)
+offset_bottom = -270.0
+max_size = Vector2(1000, 810)
 app_window_name = "Tutorial"
 ram_cost = 1.0
 
@@ -24,12 +24,13 @@ theme_override_font_sizes/font_size = 32
 text = "- The basic:
 + During download, viruses could come to destroy your pc, hit and kill the virus to defend your pc
 + You are a weapon, move yourself over a virus can damage it
-+ buy some apps by clicking on the icon from the store
++ Buy some apps by clicking on the icon from the store
++ Use the task manager to see pc stats and control pc speed. You can also or shout \" \" (or in human language press space bar) to pause/unpause the pc
 + If your pc is broken, you can just try turning off and on again
 - For those who don't know how to use a computer:
 + Double click on an app icon to open or activate it
 + You can drag most app icons
 + App window consume ram
-+ Activate stuff produce heat
++ Manual labor and activating stuff produce heat
 + New stuff will not respond when there's not ram allocated or your pc is already too hot"
 autowrap_mode = 3

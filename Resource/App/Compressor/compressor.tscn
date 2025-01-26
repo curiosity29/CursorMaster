@@ -1,0 +1,12 @@
+[gd_scene load_steps=4 format=3 uid="uid://epen4xgts480"]
+
+[ext_resource type="PackedScene" uid="uid://cnm0a8qtvlr0v" path="res://Scene/Element/App.tscn" id="1_emvwj"]
+[ext_resource type="PackedScene" uid="uid://c2r0jjobfdtsj" path="res://Resource/App/Compressor/compressor_window.tscn" id="2_d6l0l"]
+[ext_resource type="Texture2D" uid="uid://bg0bd22ntxh1x" path="res://Resource/Texture/compressor.png" id="3_3beld"]
+
+[node name="Compressor" instance=ExtResource("1_emvwj")]
+app_name = "compressor.tab"
+app_window_scene = ExtResource("2_d6l0l")
+
+[node name="TextureRect" parent="VBoxContainer" index="0"]
+texture = ExtResource("3_3beld")

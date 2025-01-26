@@ -19,6 +19,6 @@ offset_top = -27.0
 offset_right = 128.0
 offset_bottom = -1.0
 bbcode_enabled = true
-text = "HP: 50"
+text = "HP: 100"
 horizontal_alignment = 1
 vertical_alignment = 1

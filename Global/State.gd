@@ -2,7 +2,7 @@
 extends Node2D
 
 signal task_stats_changed
-@export var starting_bytecoin: int = 10
+@export var starting_bytecoin: int = 20
 var bytecoin: int
 var ram_value: float = 0.:
 	set(value):
@@ -16,7 +16,7 @@ var max_ram_value: float = 64.:
 	set(value):
 		max_ram_value = value
 		task_stats_changed.emit()
-var max_heat_value: float = 70.:
+var max_heat_value: float = 50.:
 	set(value):
 		max_heat_value = value
 		task_stats_changed.emit()
@@ -56,8 +56,9 @@ func _ready() -> void:
 func on_app_buy(app_resource: AppResource):
 	var new_app: App = app_resource.app_scene.instantiate()
 	InstanceHelper.map.add_child(new_app)
-	new_app.global_position = InstanceHelper.map.global_position + InstanceHelper.map.size/2
-		
+	#new_app.global_position = InstanceHelper.map.global_position + InstanceHelper.map.size/2
+	new_app.global_position = InstanceHelper.core.global_position
+
 func set_default_cursor():
 	cursor_manager = Database.cursor_map["default"]
 var cursor_manager: CursorManagerResource:
@@ -77,6 +78,7 @@ func _input(event: InputEvent) -> void:
 		#print("click event: ", event)
 		if event.is_action_pressed("click"): on_click(event.global_position)
 		elif event.is_action_pressed("right_click"): on_right_click(event.global_position)
+
 
 func _process(delta: float) -> void:
 	heat_value = move_toward(heat_value, 0., heat_reduction_speed * delta)

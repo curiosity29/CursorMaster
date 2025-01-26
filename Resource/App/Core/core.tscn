@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cnm0a8qtvlr0v" path="res://Scene/Element/App.tscn" id="1_1vywe"]
 [ext_resource type="Script" uid="uid://wse7oeitambl" path="res://Resource/App/Core/core.gd" id="2_4hf3a"]
-[ext_resource type="Texture2D" uid="uid://b53hs2hxq8hd1" path="res://Resource/Texture/Pizza.png" id="2_dg8hp"]
+[ext_resource type="Texture2D" uid="uid://b2woxiysb2piv" path="res://Resource/Texture/mypc_icon.png" id="3_7jp41"]
 
 [node name="Core" instance=ExtResource("1_1vywe")]
 script = ExtResource("2_4hf3a")
@@ -10,7 +10,7 @@ health = 200
 app_name = "homework.mp4"
 
 [node name="TextureRect" parent="VBoxContainer" index="0"]
-texture = ExtResource("2_dg8hp")
+texture = ExtResource("3_7jp41")
 
 [node name="HPLabel" type="RichTextLabel" parent="." index="3"]
 layout_mode = 0

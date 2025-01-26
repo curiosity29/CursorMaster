@@ -8,9 +8,10 @@
 script = ExtResource("1_2qyml")
 id = "fire_wall"
 app_name = "fire wall.exe"
-description = "create a small impassable wall"
+description = "create a small impassable hot wall, only for cool pc"
 icon = ExtResource("2_vp4si")
 buy_price = 5
 app_scene = ExtResource("1_mn54b")
 is_for_sale = true
+allow_multiple = false
 metadata/_custom_type_script = ExtResource("1_2qyml")

@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://oigo6e1u4c43"]
+
+[ext_resource type="PackedScene" uid="uid://cll1cljm8pvpn" path="res://Scene/Element/enemy.tscn" id="1_kefd4"]
+[ext_resource type="Texture2D" uid="uid://dh68mnexsi67f" path="res://Resource/Texture/sprinter_enemy.png" id="2_5wpkx"]
+
+[node name="Sprinter" instance=ExtResource("1_kefd4")]
+enemy_resource_id = "sprinter"
+
+[node name="CollisionPolygon2D" parent="." index="0"]
+polygon = PackedVector2Array(2, 34, 5, 10, 64, 10, 64.5944, 28.3357, 64, 38, 59, 54, 7, 54)
+
+[node name="TextureRect" parent="." index="1"]
+texture = ExtResource("2_5wpkx")
+
+[node name="CollisionPolygon2D" parent="HitBox" index="0"]
+polygon = PackedVector2Array(5, 10, 64, 10, 65, 28, 64, 38, 59, 54, 7, 54, 2, 34)

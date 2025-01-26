@@ -2,7 +2,7 @@ extends App
 
 @onready var hp_label: RichTextLabel = $VBoxContainer/TextureRect/HPLabel
 var hp_label_format: String = "HP: %d"
-@export var health: int = 50#:
+@export var health: int = 100#:
 	#set(value):
 		#health = value
 		#if is_node_ready(): hp_label.text = hp_label_format % health
@@ -18,6 +18,7 @@ func _ready() -> void:
 	targetable_manager.dead.connect(on_death, CONNECT_ONE_SHOT)
 	InstanceHelper.targets.append(targetable_manager)
 	targetable_manager.stats_changed.connect(update_health)
+	update_health()
 	
 func _exit_tree() -> void:
 	InstanceHelper.targets.erase(targetable_manager)

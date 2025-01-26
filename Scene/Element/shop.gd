@@ -4,7 +4,8 @@ extends Control
 @onready var app_container: VBoxContainer = $VBoxContainer/AppContainer
 const app_count: int = 3
 const ram_upgrade_cost: int = 5
-const ram_upgrade_value: float = 16.
+@export var ram_upgrade_value: float = 16.
+@export var cool_speed_upgrade_value: float = 0.3
 @onready var refresh_count_down_label: RichTextLabel = $VBoxContainer/RefreshCountDownLabel
 @onready var second_timer: Timer = $SecondTimer
 var max_count_down_time: int = State.second_per_round
@@ -16,16 +17,19 @@ func _ready() -> void:
 
 
 func refresh_shop():
-
+	var app_left_to_display: int = min(app_count, Database.shop_app_map.size())
 	#app_container.add_child()
 	var random_app_resources = pick_n_random(
-		Database.shop_app_map.values(), Database.shop_app_map.size()
+		Database.shop_app_map.values(), app_left_to_display
 	) as Array[AppResource]
 	for index in app_count:
-		var app_resource = random_app_resources[index]
-		
 		var child = app_container.get_child(index) as AppShopItem
 		child.show()
+		
+		if index >= app_left_to_display:
+			child.is_sold_out = true
+			continue
+		var app_resource = random_app_resources[index]
 		child.app_resource = random_app_resources[index]
 		
 func pick_n_random(array: Array, n: int = app_count) -> Array:
@@ -39,6 +43,9 @@ func _on_ram_upgrade_button_pressed() -> void:
 	if State.bytecoin < ram_upgrade_cost: return
 	State.bytecoin -= ram_upgrade_cost
 	State.max_ram_value += ram_upgrade_value
+	
+func _on_cooler_upgrade_button_pressed() -> void:
+	State.heat_reduction_speed += 0.3
 
 
 func _on_second_timer_timeout() -> void:

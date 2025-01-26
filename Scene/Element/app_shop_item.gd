@@ -9,12 +9,23 @@ extends Control
 const price_text_format = "%d\n[img=32]res://Resource/Texture/bytecoin.png[/img]"
 @onready var disable_input_timer: Timer = $DisableInputTimer
 
+var is_sold_out: bool = false:
+	set(value):
+		if not is_sold_out and value:
+			v_box_container.hide()
+			sold_out_texture_rect.show()
+		elif is_sold_out and not value:
+			v_box_container.show()
+			sold_out_texture_rect.hide()
+		is_sold_out = value
+
 var app_resource: AppResource:
 	set(value):
 		app_resource = value
 		price_label.text = price_text_format % app_resource.buy_price
 		buy_button.icon = app_resource.icon
 		description.text = app_resource.description
+		is_sold_out = false
 
 func _ready() -> void:
 	#app_resource = 
@@ -28,9 +39,8 @@ func _on_buy_button_pressed() -> void:
 	if not app_resource.allow_multiple:
 		app_resource.is_for_sale = false
 		Database.shop_app_map.erase(app_resource.id)
-		
-		v_box_container.hide()	
-		sold_out_texture_rect.show()
+		is_sold_out = true
+
 		
 	
 	Event.app_buy_request.emit(app_resource)

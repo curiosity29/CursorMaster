@@ -1,9 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://urv68rekayxc"]
+[gd_scene load_steps=13 format=3 uid="uid://urv68rekayxc"]
 
-[ext_resource type="Texture2D" uid="uid://dvloptnx0835n" path="res://Resource/Texture/Banana.png" id="1_6iyfy"]
 [ext_resource type="Script" uid="uid://nvwu7sx55rcd" path="res://Scene/Element/task_manager.gd" id="1_cecgw"]
 [ext_resource type="Texture2D" uid="uid://8fv5ssprajx1" path="res://Resource/Texture/bytecoin.png" id="2_04gw3"]
 [ext_resource type="Shader" uid="uid://bkorqyu0h65cu" path="res://Resource/Shader/progress_fill.gdshader" id="2_cecgw"]
+[ext_resource type="Texture2D" uid="uid://dqbu6kmeo1yy" path="res://Resource/Texture/task_manager_icon.png" id="3_04gw3"]
 
 [sub_resource type="Gradient" id="Gradient_twryh"]
 offsets = PackedFloat32Array(0, 0.664336, 1)
@@ -141,8 +141,18 @@ shader_parameter/particle_end_scale = Vector2(0.01, 0.01)
 shader_parameter/particle_scale_randomness = 0.5
 shader_parameter/particle_amount = 0
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_04gw3"]
+bg_color = Color(0.680102, 0.959726, 0.344548, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nd2ak"]
+bg_color = Color(0.76459, 0.658334, 0.0975449, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ccpry"]
+bg_color = Color(0.458796, 0.392725, 0.0489848, 1)
+
 [node name="TaskManager" type="Control"]
-custom_minimum_size = Vector2(500, 96)
+process_mode = 3
+custom_minimum_size = Vector2(500, 128)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -165,12 +175,13 @@ grow_vertical = 2
 [node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
-texture = ExtResource("1_6iyfy")
+texture = ExtResource("3_04gw3")
 expand_mode = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_constants/separation = 2
 
 [node name="Coin" type="ColorRect" parent="HBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
@@ -199,6 +210,8 @@ layout_mode = 2
 size_flags_horizontal = 3
 bbcode_enabled = true
 text = "100[img=32]res://Resource/Texture/bytecoin.png[/img]"
+scroll_active = false
+autowrap_mode = 0
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -263,3 +276,39 @@ theme_override_font_sizes/font_size = 16
 text = "13.1 MB free of 128 MB"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="SpeedController" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+
+[node name="PauseButton" type="Button" parent="HBoxContainer/VBoxContainer/SpeedController"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_mode = 0
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_04gw3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_nd2ak")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_04gw3")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ccpry")
+text = "||"
+
+[node name="SpeedLabel" type="Label" parent="HBoxContainer/VBoxContainer/SpeedController"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "2X"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SpeedupButton" type="Button" parent="HBoxContainer/VBoxContainer/SpeedController"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_mode = 0
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_04gw3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_nd2ak")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_04gw3")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ccpry")
+text = ">>"
+
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/SpeedController/PauseButton" to="." method="_on_pause_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/SpeedController/SpeedupButton" to="." method="_on_speedup_button_pressed"]

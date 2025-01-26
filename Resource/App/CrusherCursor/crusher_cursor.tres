@@ -13,4 +13,5 @@ icon = ExtResource("2_2knrp")
 buy_price = 5
 app_scene = ExtResource("1_n5404")
 is_for_sale = false
+allow_multiple = false
 metadata/_custom_type_script = ExtResource("1_bxm4c")

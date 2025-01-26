@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="AppResource" load_steps=4 format=3 uid="uid://rvkcq8mba5db"]
+
+[ext_resource type="Script" uid="uid://c1aneo2onwh24" path="res://PureScript/Resource/app_resource.gd" id="1_48ebg"]
+[ext_resource type="PackedScene" uid="uid://ey5hes74dbt3" path="res://Resource/App/AutoFixer/auto_fixer.tscn" id="1_rxe2w"]
+[ext_resource type="Texture2D" uid="uid://4gjjqr72gt1h" path="res://Resource/Texture/medkit_icon.png" id="2_owtci"]
+
+[resource]
+script = ExtResource("1_48ebg")
+id = "auto_fixer"
+app_name = "auto fixer.auto"
+description = "fix your pc 2 pieces at a time"
+icon = ExtResource("2_owtci")
+buy_price = 5
+app_scene = ExtResource("1_rxe2w")
+is_for_sale = true
+allow_multiple = true
+metadata/_custom_type_script = ExtResource("1_48ebg")
