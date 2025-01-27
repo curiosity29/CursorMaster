@@ -7,6 +7,7 @@
 [node name="Compressor" instance=ExtResource("1_emvwj")]
 app_name = "compressor.tab"
 app_window_scene = ExtResource("2_d6l0l")
+app_resource_id = "compressor"
 
 [node name="TextureRect" parent="VBoxContainer" index="0"]
 texture = ExtResource("3_3beld")

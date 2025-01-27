@@ -7,6 +7,8 @@ func damage_area_entered(damage: int, area: Area2D) -> bool:
 	#need to add group tag to area if it has non-hitbox area
 	var area_owner = area.owner
 	if area_owner is Enemy:
+		if area_owner.is_queued_for_deletion():
+			return false
 		area_owner.take_damage(damage, self)
 		return true
 	else:

@@ -3,6 +3,7 @@ extends Resource
 
 @export var id: String
 @export var name: String
+@export var app_id: String
 
 @export var cursor_hotspot: Vector2 = Vector2.ZERO
 @export var cursor_texture: Texture

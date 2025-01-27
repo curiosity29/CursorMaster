@@ -10,7 +10,7 @@ border_width_top = 3
 border_width_right = 3
 border_width_bottom = 3
 
-[node name="AppWindow" type="Control"]
+[node name="AppWindow" type="Control" groups=["app"]]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

@@ -2,14 +2,14 @@
 
 [ext_resource type="Script" uid="uid://c1aneo2onwh24" path="res://PureScript/Resource/app_resource.gd" id="1_bxm4c"]
 [ext_resource type="PackedScene" uid="uid://s5fo7qa36uif" path="res://Resource/App/CrusherCursor/crusher_cursor.tscn" id="1_n5404"]
-[ext_resource type="Texture2D" uid="uid://cwgpekg0go4bn" path="res://Resource/Texture/crusher_cursor.png" id="2_2knrp"]
+[ext_resource type="Texture2D" uid="uid://k72g6heyk8lk" path="res://Resource/Texture/crusher_cursor_128.png" id="2_n5404"]
 
 [resource]
 script = ExtResource("1_bxm4c")
 id = "crusher_cursor"
 app_name = "crusher cursor.cs"
 description = "change your cursor to the crusher: smash viruses in a small region, and cause a bit of heat."
-icon = ExtResource("2_2knrp")
+icon = ExtResource("2_n5404")
 buy_price = 5
 app_scene = ExtResource("1_n5404")
 is_for_sale = false

@@ -7,18 +7,20 @@ func on_set() -> void:
 	super.on_set()
 	
 func on_click(mouse_pos: Vector2, source: Node2D = null) -> void:
-	if not root_app: 
-		#print("ERROR: missing ref to app")
-		return
+	
+	## consume 1 ammo on manual usage and allow automation to use freely
+	if root_app:
+		if root_app.ammo <= 0:
+			#print("ERROR: missing ref to app")
+			return
+		else: root_app.ammo -= 1
 
 	## only cost heat if source is player clicking
 	if source is State:
 		if State.heat_value_left < heat_cost:
 			return
 		State.heat_value += heat_cost
-	if root_app.ammo <= 0:
-		return
-	root_app.ammo -= 1
+
 	var effect_animation = effect_animation_scene.instantiate()
 	InstanceHelper.map.add_child(effect_animation)
 	effect_animation.global_position = mouse_pos

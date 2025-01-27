@@ -7,6 +7,7 @@
 [node name="AutoClicker" instance=ExtResource("1_10wee")]
 app_name = "Auto clicker.tab"
 app_window_scene = ExtResource("2_4d5di")
+app_resource_id = "auto_clicker"
 
 [node name="TextureRect" parent="VBoxContainer" index="0"]
 texture = ExtResource("2_n2hsj")

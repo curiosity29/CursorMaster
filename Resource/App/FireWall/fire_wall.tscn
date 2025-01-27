@@ -8,7 +8,9 @@
 [node name="FireWall" instance=ExtResource("1_k6wiq")]
 script = ExtResource("2_8yna7")
 wall_scene = ExtResource("3_lplt1")
+heat_cost = 25.0
 app_name = "fire wall.exe"
+app_resource_id = "fire_wall"
 
 [node name="TextureRect" parent="VBoxContainer" index="0"]
 texture = ExtResource("2_0gv66")

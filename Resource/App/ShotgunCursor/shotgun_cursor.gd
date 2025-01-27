@@ -1,9 +1,9 @@
 class_name ShotgunCursorApp
-extends App
+extends CursorApp
 @onready var ammon_label: Label = $AmmonLabel
 
 func on_open() -> void:
-	State.cursor_manager = Database.cursor_map["shotgun"]
+	super.on_open()
 	State.cursor_manager.root_app = self
 
 func _ready() -> void:

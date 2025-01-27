@@ -4,6 +4,33 @@
 [ext_resource type="Texture2D" uid="uid://bpei3su5dnrcp" path="res://Resource/Texture/shotgun.png" id="2_0eu7r"]
 [ext_resource type="Texture2D" uid="uid://ddx73p2ktwbn" path="res://Resource/Texture/brown_cone_tip.png" id="3_128bn"]
 
+[sub_resource type="Animation" id="Animation_apm1o"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DamageEffectCone:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(10, 10)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DamageEffectCone:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_usyjy"]
 resource_name = "damageEffect"
 length = 0.24
@@ -49,33 +76,6 @@ tracks/2/keys = {
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_apm1o"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("DamageEffectCone:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(10, 10)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("DamageEffectCone:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_o08k4"]
 _data = {
 &"RESET": SubResource("Animation_apm1o"),
@@ -83,7 +83,6 @@ _data = {
 }
 
 [node name="ShotgunCursorHittingbox" type="Area2D"]
-position = Vector2(28, -5)
 script = ExtResource("1_d4ite")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]

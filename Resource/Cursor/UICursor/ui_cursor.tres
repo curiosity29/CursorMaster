@@ -7,6 +7,7 @@
 script = ExtResource("1_qnxo8")
 id = "ui_cursor"
 name = "UI cursor"
+app_id = "ui_cursor"
 cursor_hotspot = Vector2(27, 5)
 cursor_texture = ExtResource("1_gwp71")
 metadata/_custom_type_script = ExtResource("1_qnxo8")

@@ -8,7 +8,7 @@ extends Control
 @onready var app_name_label: RichTextLabel = $VBoxContainer/AppNameLabel
 var is_dragging: bool = false
 var drag_offset: Vector2 = Vector2.ZERO
-
+@export var app_resource_id: String
 func _ready() -> void:
 	app_name_label.text = app_name
 	#double_click_timer.timeout.connect(func(): first_clicked = false)

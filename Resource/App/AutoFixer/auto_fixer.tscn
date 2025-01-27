@@ -8,6 +8,7 @@
 script = ExtResource("2_ecf4r")
 heal_per_sec = 2
 app_name = "auto fixer.auto"
+app_resource_id = "auto_fixer"
 
 [node name="TextureRect" parent="VBoxContainer" index="0"]
 texture = ExtResource("3_8rg7a")

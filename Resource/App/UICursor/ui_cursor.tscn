@@ -7,6 +7,7 @@
 [node name="UICursor" instance=ExtResource("1_iafjt")]
 script = ExtResource("2_2sdv7")
 app_name = "UI cursor.cs"
+app_resource_id = "ui_cursor"
 
 [node name="TextureRect" parent="VBoxContainer" index="0"]
 texture = ExtResource("3_rgue8")

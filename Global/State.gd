@@ -31,12 +31,25 @@ var heat_value_left: float:
 
 var heat_reduction_speed: float = 1.
 
-var owned_app_list: Array[AppResource]
+var owned_apps: Dictionary[AppResource, App] = {}
 
 enum Difficulty {EASY, NORMAL, HARD}
-var difficulty: Difficulty = Difficulty.EASY
+var difficulty: Difficulty = Difficulty.NORMAL
 
-var elapsed_time: float = 0.
+var elapsed_time: float = 0.:
+	set(value):
+		elapsed_time = value
+		if elapsed_secs == int(elapsed_time):
+			return
+		else:
+			elapsed_secs = int(elapsed_time)
+var elapsed_secs: int = 0:
+	set(value):
+		elapsed_secs = value
+		sec_elapsed.emit()
+signal sec_elapsed
+
+
 const WIN_TIME: float = 150
 enum RunEndState {WIN, LOSE}
 var run_end_state: RunEndState = RunEndState.LOSE
@@ -61,9 +74,10 @@ func on_app_buy(app_resource: AppResource):
 	InstanceHelper.map.add_child(new_app)
 	#new_app.global_position = InstanceHelper.map.global_position + InstanceHelper.map.size/2
 	new_app.global_position = InstanceHelper.core.global_position
+	owned_apps[app_resource] = new_app
 
 func set_default_cursor():
-	cursor_manager = Database.cursor_map["default"]
+	cursor_manager = Database.cursor_map["default_cursor"]
 var cursor_manager: CursorManagerResource:
 	set(value):
 		if cursor_manager: cursor_manager.on_unset()
@@ -104,5 +118,5 @@ func reset_all():
 	# NOTE: currently thing will not work on second run
 	bytecoin = starting_bytecoin
 	elapsed_time = 0.
-	owned_app_list.clear()
+	owned_apps.clear()
 	income_timer.start()

@@ -6,8 +6,8 @@
 
 [resource]
 script = ExtResource("1_jlsr2")
-id = "anti_virus"
-app_name = "Anti virus.tab"
+id = "anti_virus_3000"
+app_name = "Anti virus 3000.tab"
 description = "slowly and not surely remove all the virus where it scan"
 icon = ExtResource("1_qnsmh")
 buy_price = 5

@@ -52,6 +52,7 @@ enabled=PackedStringArray("res://addons/godot_resource_groups/plugin.cfg", "res:
 [global_group]
 
 Enemy=""
+app=""
 
 [godot_resource_groups]
 

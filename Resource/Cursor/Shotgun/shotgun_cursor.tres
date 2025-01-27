@@ -1,15 +1,16 @@
 [gd_resource type="Resource" load_steps=5 format=3 uid="uid://btgvw3ufli3i6"]
 
 [ext_resource type="PackedScene" uid="uid://ptosbg7y71uo" path="res://Resource/Cursor/Shotgun/shotgun_cursor_animation.tscn" id="1_2hoif"]
-[ext_resource type="Texture2D" uid="uid://bpei3su5dnrcp" path="res://Resource/Texture/shotgun.png" id="1_dlvib"]
+[ext_resource type="Texture2D" uid="uid://cpn5hjnv32sv6" path="res://Resource/Texture/shotgun_128.png" id="1_dlvib"]
 [ext_resource type="Script" uid="uid://erjgg1ru1m5u" path="res://Resource/Cursor/Shotgun/shotgun_cursor_resource.gd" id="2_23gxn"]
 [ext_resource type="Script" uid="uid://bfp3w7t3x572f" path="res://PureScript/Resource/cursor_manager_resource.gd" id="3_1mtnb"]
 
 [resource]
 script = ExtResource("2_23gxn")
 effect_animation_scene = ExtResource("1_2hoif")
-id = "shotgun"
+id = "shotgun_cursor"
 name = "shotgun"
-cursor_hotspot = Vector2(59, 27)
+app_id = "shotgun_cursor"
+cursor_hotspot = Vector2(120, 54)
 cursor_texture = ExtResource("1_dlvib")
 metadata/_custom_type_script = ExtResource("3_1mtnb")

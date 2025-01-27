@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="AppResource" load_steps=4 format=3 uid="uid://bsv0ht2rg8d10"]
+
+[ext_resource type="PackedScene" uid="uid://bwi2pow1gniau" path="res://Resource/App/DefenseMatrix/defense_matrix.tscn" id="1_6x20g"]
+[ext_resource type="Script" uid="uid://c1aneo2onwh24" path="res://PureScript/Resource/app_resource.gd" id="1_t2k20"]
+[ext_resource type="Texture2D" uid="uid://bidislnjqw78h" path="res://Resource/Texture/matrix_cell.png" id="2_erlu0"]
+
+[resource]
+script = ExtResource("1_t2k20")
+id = "defense_matrix"
+app_name = "defense matrix"
+description = "A generating 4x4 matrix of defense trap "
+icon = ExtResource("2_erlu0")
+buy_price = 5
+app_scene = ExtResource("1_6x20g")
+is_for_sale = true
+allow_multiple = true
+metadata/_custom_type_script = ExtResource("1_t2k20")

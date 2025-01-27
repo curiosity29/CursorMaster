@@ -1,16 +1,17 @@
 [gd_scene load_steps=4 format=3 uid="uid://hnbl26yns55d"]
 
 [ext_resource type="PackedScene" uid="uid://cnm0a8qtvlr0v" path="res://Scene/Element/App.tscn" id="1_wvo3b"]
-[ext_resource type="Texture2D" uid="uid://bpei3su5dnrcp" path="res://Resource/Texture/shotgun.png" id="2_nett8"]
 [ext_resource type="Script" uid="uid://dl3mlu4do4r6f" path="res://Resource/App/ShotgunCursor/shotgun_cursor.gd" id="2_x2roh"]
+[ext_resource type="Texture2D" uid="uid://cpn5hjnv32sv6" path="res://Resource/Texture/shotgun_128.png" id="3_x2roh"]
 
 [node name="ShotgunCursor" instance=ExtResource("1_wvo3b")]
 script = ExtResource("2_x2roh")
 max_ammo = 8
 app_name = "shotgun cursor.cs"
+app_resource_id = "shotgun_cursor"
 
 [node name="TextureRect" parent="VBoxContainer" index="0"]
-texture = ExtResource("2_nett8")
+texture = ExtResource("3_x2roh")
 
 [node name="AmmonLabel" type="Label" parent="." index="3"]
 layout_mode = 1

@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://bwi2pow1gniau"]
+
+[ext_resource type="PackedScene" uid="uid://cnm0a8qtvlr0v" path="res://Scene/Element/App.tscn" id="1_op8cd"]
+[ext_resource type="PackedScene" uid="uid://c23rfmdibclei" path="res://Resource/App/DefenseMatrix/defense_matrix_window.tscn" id="2_ykbgj"]
+[ext_resource type="Texture2D" uid="uid://bidislnjqw78h" path="res://Resource/Texture/matrix_cell.png" id="3_12ngs"]
+
+[node name="DefenseMatrix" instance=ExtResource("1_op8cd")]
+app_name = "defense matrix.tab"
+app_window_scene = ExtResource("2_ykbgj")
+app_resource_id = "defense_matrix"
+
+[node name="TextureRect" parent="VBoxContainer" index="0"]
+texture = ExtResource("3_12ngs")
+
+[node name="DoubleClickTimer" parent="." index="2"]
+wait_time = 0.25

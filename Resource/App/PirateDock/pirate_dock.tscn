@@ -7,6 +7,7 @@
 [node name="PirateDock" instance=ExtResource("1_usoes")]
 app_name = "pirate dock.tab"
 app_window_scene = ExtResource("2_vth1p")
+app_resource_id = "pirate_dock"
 
 [node name="TextureRect" parent="VBoxContainer" index="0"]
 texture = ExtResource("2_omgli")

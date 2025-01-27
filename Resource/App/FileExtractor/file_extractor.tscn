@@ -46,6 +46,7 @@ shader_parameter/particle_amount = 5
 script = ExtResource("2_5gss5")
 bomb_scene = ExtResource("3_5gss5")
 app_name = "file extractor.auto"
+app_resource_id = "file_extractor"
 
 [node name="TextureRect" parent="VBoxContainer" index="0"]
 texture = ExtResource("3_ri67p")

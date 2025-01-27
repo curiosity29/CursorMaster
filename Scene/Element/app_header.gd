@@ -25,7 +25,7 @@ func _gui_input(event: InputEvent) -> void:
 	if event.is_action_pressed("click"):
 		if grabber.get_global_rect().has_point(get_global_mouse_position()):
 			is_dragging = true
-			drag_offset = global_position - get_global_mouse_position()
+			drag_offset = parent_app_node.global_position - get_global_mouse_position()
 			
 func _input(event: InputEvent) -> void:
 	if event.is_action_released("click"):

@@ -8,8 +8,9 @@
 [resource]
 script = ExtResource("3_kwyqb")
 hitting_box_scene = ExtResource("1_bs5tx")
-id = "default"
+id = "default_cursor"
 name = "default"
-cursor_hotspot = Vector2(2, 2)
+app_id = "default_cursor"
+cursor_hotspot = Vector2(8, 8)
 cursor_texture = ExtResource("1_rlihm")
 metadata/_custom_type_script = ExtResource("2_rlihm")

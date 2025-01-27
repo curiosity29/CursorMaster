@@ -42,11 +42,11 @@ func debug_set_resource():
 func lazy_difficulty_scaling():
 	match State.difficulty:
 		State.Difficulty.EASY:
-			health *= 1
+			health *= 0.7
 		State.Difficulty.NORMAL:
-			health *= 2.
+			health *= 1.
 		State.Difficulty.HARD:
-			health *= 3.
+			health *= 1.3
 			
 	health *= 1 + (State.elapsed_time/State.second_per_round) * 0.5 # +50% base per round
 
@@ -65,7 +65,11 @@ func _process(delta: float) -> void:
 	nav_agent.target_position = target_global_pos
 	var direction = global_position.direction_to(nav_agent.get_next_path_position())
 	#global_position += direction * enemy_resource.speed * delta
+	var current_direction = velocity.normalized()
 	var acceleration = speed * 1.5
+	var brake_acceleration = 600
+	var brake_vector_length = (1 - direction.dot(current_direction))/2
+	velocity = velocity.move_toward(direction * speed, brake_vector_length * brake_acceleration * delta)
 	velocity = velocity.move_toward(direction * speed, acceleration * delta)
 	look_at(global_position - direction)
 	move_and_slide()
@@ -88,5 +92,6 @@ func take_damage(value: int, _source: Node = null):
 		on_dead()
 		
 func on_dead():
-	call_deferred("queue_free")
+	queue_free()
+	#call_deferred("queue_free")
 #endregion

@@ -23,7 +23,7 @@ unique_name_in_owner = true
 shape = SubResource("RectangleShape2D_1mt85")
 
 [node name="OnOffHittingTimer" type="Timer" parent="MarginContainer/VBoxContainer/Body" index="2"]
-wait_time = 0.2
+wait_time = 0.25
 autostart = true
 
 [connection signal="resized" from="MarginContainer/VBoxContainer/Body" to="." method="_on_body_resized"]

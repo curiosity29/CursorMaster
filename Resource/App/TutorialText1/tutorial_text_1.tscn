@@ -7,6 +7,7 @@
 [node name="TutorialText1" instance=ExtResource("1_py1kn")]
 app_name = "tutorial.txt"
 app_window_scene = ExtResource("2_240vs")
+app_resource_id = "tutorial_text"
 
 [node name="TextureRect" parent="VBoxContainer" index="0"]
 texture = ExtResource("2_fcn36")

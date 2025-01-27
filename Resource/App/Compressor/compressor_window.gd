@@ -4,7 +4,7 @@ extends AppWindow
 @onready var compress_area: Area2D = %CompressArea
 @onready var collision_shape_2d: CollisionShape2D = $MarginContainer/VBoxContainer/Body/CompressArea/CollisionShape2D
 var target_enemies: Array[Enemy] = []
-var compress_y_acceleration: float = 100.
+var compress_y_acceleration: float = 500.
 @onready var pull_timer: Timer = $PullTimer
 @export var max_pull_count: int = 8
 func _ready() -> void:

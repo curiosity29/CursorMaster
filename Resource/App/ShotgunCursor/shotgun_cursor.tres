@@ -2,14 +2,14 @@
 
 [ext_resource type="Script" uid="uid://c1aneo2onwh24" path="res://PureScript/Resource/app_resource.gd" id="1_fttpc"]
 [ext_resource type="PackedScene" uid="uid://hnbl26yns55d" path="res://Resource/App/ShotgunCursor/shotgun_cursor.tscn" id="1_nej4d"]
-[ext_resource type="Texture2D" uid="uid://bpei3su5dnrcp" path="res://Resource/Texture/shotgun.png" id="2_rmqtb"]
+[ext_resource type="Texture2D" uid="uid://cpn5hjnv32sv6" path="res://Resource/Texture/shotgun_128.png" id="2_nej4d"]
 
 [resource]
 script = ExtResource("1_fttpc")
 id = "shotgun_cursor"
 app_name = "shotgun cursor.cs"
 description = "shot gun"
-icon = ExtResource("2_rmqtb")
+icon = ExtResource("2_nej4d")
 buy_price = 5
 app_scene = ExtResource("1_nej4d")
 is_for_sale = true

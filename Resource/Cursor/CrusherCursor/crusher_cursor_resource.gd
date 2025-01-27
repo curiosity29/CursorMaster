@@ -1,8 +1,8 @@
 extends CursorManagerResource
 
-var damage_radius: float = 100.
+var damage_radius: float = 400.
 var damage: int = 20
-const heat_cost: float = 2.
+const heat_cost: float = 4.
 @export var effect_animation_scene: PackedScene
 
 func on_set() -> void:

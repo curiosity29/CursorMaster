@@ -1,0 +1,43 @@
+[gd_scene load_steps=4 format=3 uid="uid://dqb14g36cstwk"]
+
+[ext_resource type="Script" uid="uid://dtq74fnk6wa0l" path="res://Resource/App/DefenseMatrix/matrix_cell_trap.gd" id="1_7wmdu"]
+[ext_resource type="Texture2D" uid="uid://bidislnjqw78h" path="res://Resource/Texture/matrix_cell.png" id="2_bbhcm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bbhcm"]
+size = Vector2(64, 64)
+
+[node name="MatrixCellTrap" type="Control"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1856.0
+offset_bottom = -1016.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_7wmdu")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(32, 32)
+shape = SubResource("RectangleShape2D_bbhcm")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_bbhcm")
+expand_mode = 1
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

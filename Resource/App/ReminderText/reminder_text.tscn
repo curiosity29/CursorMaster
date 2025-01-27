@@ -7,6 +7,7 @@
 [node name="ReminderText" instance=ExtResource("1_7stw8")]
 app_name = "reminder text.txt"
 app_window_scene = ExtResource("2_8g3d0")
+app_resource_id = "reminder_text"
 
 [node name="TextureRect" parent="VBoxContainer" index="0"]
 texture = ExtResource("2_c0ltr")

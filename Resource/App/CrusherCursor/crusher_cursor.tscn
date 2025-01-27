@@ -2,11 +2,12 @@
 
 [ext_resource type="PackedScene" uid="uid://cnm0a8qtvlr0v" path="res://Scene/Element/App.tscn" id="1_fhnis"]
 [ext_resource type="Script" uid="uid://chxxcv4xugbot" path="res://Resource/App/CrusherCursor/crusher_cursor.gd" id="2_b7cqi"]
-[ext_resource type="Texture2D" uid="uid://cwgpekg0go4bn" path="res://Resource/Texture/crusher_cursor.png" id="3_b7cqi"]
+[ext_resource type="Texture2D" uid="uid://k72g6heyk8lk" path="res://Resource/Texture/crusher_cursor_128.png" id="3_psbak"]
 
 [node name="CrusherCursor" instance=ExtResource("1_fhnis")]
 script = ExtResource("2_b7cqi")
 app_name = "crusher cursor.cs"
+app_resource_id = "crusher_cursor"
 
 [node name="TextureRect" parent="VBoxContainer" index="0"]
-texture = ExtResource("3_b7cqi")
+texture = ExtResource("3_psbak")

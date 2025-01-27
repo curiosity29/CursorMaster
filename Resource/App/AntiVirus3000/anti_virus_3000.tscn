@@ -8,3 +8,4 @@
 script = ExtResource("1_72q1r")
 app_name = "Anti Virus 3000.tab"
 app_window_scene = ExtResource("2_cteo0")
+app_resource_id = "anti_virus_3000"

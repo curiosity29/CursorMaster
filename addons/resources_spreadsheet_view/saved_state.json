@@ -7,10 +7,19 @@
       "resource_name": {
         "visibility": 0.0
       }
+    },
+    "res://Resource/Cursor/": {
+      "resource_local_to_scene": {
+        "visibility": 0.0
+      },
+      "resource_name": {
+        "visibility": 0.0
+      }
     }
   },
   "recent_paths": [
-    "res://Resource/App/"
+    "res://Resource/App/",
+    "res://Resource/Cursor/"
   ],
   "table_functions": {
     "filter": [

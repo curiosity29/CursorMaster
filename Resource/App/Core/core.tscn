@@ -8,6 +8,7 @@
 script = ExtResource("2_4hf3a")
 health = 200
 app_name = "homework.mp4"
+app_resource_id = "core"
 
 [node name="TextureRect" parent="VBoxContainer" index="0"]
 texture = ExtResource("3_7jp41")

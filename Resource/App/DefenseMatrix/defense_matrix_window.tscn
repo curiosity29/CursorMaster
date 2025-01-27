@@ -1,0 +1,88 @@
+[gd_scene load_steps=4 format=3 uid="uid://c23rfmdibclei"]
+
+[ext_resource type="PackedScene" uid="uid://cgaiiiewvrg7f" path="res://Scene/Element/app_window.tscn" id="1_asbpm"]
+[ext_resource type="Script" uid="uid://2sydkatmua6c" path="res://Resource/App/DefenseMatrix/defense_matrix_window.gd" id="2_o3n1p"]
+[ext_resource type="PackedScene" uid="uid://dqb14g36cstwk" path="res://Resource/App/DefenseMatrix/matrix_cell_trap.tscn" id="3_3ht8g"]
+
+[node name="DefenseMatrixWindow" instance=ExtResource("1_asbpm")]
+custom_minimum_size = Vector2(274, 306)
+offset_right = -1646.0
+offset_bottom = -774.0
+script = ExtResource("2_o3n1p")
+max_cell_count = 16
+cell_scene = ExtResource("3_3ht8g")
+max_size = Vector2(274, 306)
+is_transparent_body = true
+app_window_name = "Defense matrix"
+ram_cost = 16.0
+
+[node name="Body" parent="MarginContainer/VBoxContainer" index="1"]
+mouse_filter = 2
+
+[node name="ColorRect" parent="MarginContainer/VBoxContainer/Body" index="0"]
+color = Color(0.970616, 0.00316323, 0.00173579, 0.192157)
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer/Body" index="1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 4
+theme_override_constants/v_separation = 4
+columns = 4
+
+[node name="MatrixCellTrap" parent="MarginContainer/VBoxContainer/Body/GridContainer" index="0" instance=ExtResource("3_3ht8g")]
+layout_mode = 2
+
+[node name="MatrixCellTrap2" parent="MarginContainer/VBoxContainer/Body/GridContainer" index="1" instance=ExtResource("3_3ht8g")]
+layout_mode = 2
+
+[node name="MatrixCellTrap3" parent="MarginContainer/VBoxContainer/Body/GridContainer" index="2" instance=ExtResource("3_3ht8g")]
+layout_mode = 2
+
+[node name="MatrixCellTrap4" parent="MarginContainer/VBoxContainer/Body/GridContainer" index="3" instance=ExtResource("3_3ht8g")]
+layout_mode = 2
+
+[node name="MatrixCellTrap5" parent="MarginContainer/VBoxContainer/Body/GridContainer" index="4" instance=ExtResource("3_3ht8g")]
+layout_mode = 2
+
+[node name="MatrixCellTrap6" parent="MarginContainer/VBoxContainer/Body/GridContainer" index="5" instance=ExtResource("3_3ht8g")]
+layout_mode = 2
+
+[node name="MatrixCellTrap7" parent="MarginContainer/VBoxContainer/Body/GridContainer" index="6" instance=ExtResource("3_3ht8g")]
+layout_mode = 2
+
+[node name="MatrixCellTrap8" parent="MarginContainer/VBoxContainer/Body/GridContainer" index="7" instance=ExtResource("3_3ht8g")]
+layout_mode = 2
+
+[node name="MatrixCellTrap9" parent="MarginContainer/VBoxContainer/Body/GridContainer" index="8" instance=ExtResource("3_3ht8g")]
+layout_mode = 2
+
+[node name="MatrixCellTrap10" parent="MarginContainer/VBoxContainer/Body/GridContainer" index="9" instance=ExtResource("3_3ht8g")]
+layout_mode = 2
+
+[node name="MatrixCellTrap11" parent="MarginContainer/VBoxContainer/Body/GridContainer" index="10" instance=ExtResource("3_3ht8g")]
+layout_mode = 2
+
+[node name="MatrixCellTrap12" parent="MarginContainer/VBoxContainer/Body/GridContainer" index="11" instance=ExtResource("3_3ht8g")]
+layout_mode = 2
+
+[node name="MatrixCellTrap13" parent="MarginContainer/VBoxContainer/Body/GridContainer" index="12" instance=ExtResource("3_3ht8g")]
+layout_mode = 2
+
+[node name="MatrixCellTrap14" parent="MarginContainer/VBoxContainer/Body/GridContainer" index="13" instance=ExtResource("3_3ht8g")]
+layout_mode = 2
+
+[node name="MatrixCellTrap15" parent="MarginContainer/VBoxContainer/Body/GridContainer" index="14" instance=ExtResource("3_3ht8g")]
+layout_mode = 2
+
+[node name="MatrixCellTrap16" parent="MarginContainer/VBoxContainer/Body/GridContainer" index="15" instance=ExtResource("3_3ht8g")]
+layout_mode = 2
+
+[node name="RechargeTimer" type="Timer" parent="." index="2"]
+wait_time = 0.6
+autostart = true
+
+[connection signal="timeout" from="RechargeTimer" to="." method="_on_recharge_timer_timeout"]

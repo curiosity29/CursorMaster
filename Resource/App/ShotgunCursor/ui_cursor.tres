@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="AppResource" load_steps=4 format=3 uid="uid://8vo4a5ogw2fx"]
+
+[ext_resource type="PackedScene" uid="uid://hnbl26yns55d" path="res://Resource/App/ShotgunCursor/shotgun_cursor.tscn" id="1_px76a"]
+[ext_resource type="Texture2D" uid="uid://m07ey7gbiiqe" path="res://Resource/Texture/pointing_hand_cursor.png" id="2_px76a"]
+[ext_resource type="Script" uid="uid://c1aneo2onwh24" path="res://PureScript/Resource/app_resource.gd" id="3_mt1de"]
+
+[resource]
+script = ExtResource("3_mt1de")
+id = "ui_cursor"
+app_name = "UI cursor"
+description = "UI cursor"
+icon = ExtResource("2_px76a")
+buy_price = 5
+app_scene = ExtResource("1_px76a")
+is_for_sale = false
+allow_multiple = false
+metadata/_custom_type_script = ExtResource("3_mt1de")
