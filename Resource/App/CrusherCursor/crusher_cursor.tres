@@ -7,7 +7,7 @@
 [resource]
 script = ExtResource("1_bxm4c")
 id = "crusher_cursor"
-app_name = "crusher cursor.exe"
+app_name = "crusher cursor.cs"
 description = "change your cursor to the crusher: smash viruses in a small region, and cause a bit of heat."
 icon = ExtResource("2_2knrp")
 buy_price = 5

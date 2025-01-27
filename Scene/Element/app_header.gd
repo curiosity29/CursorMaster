@@ -34,4 +34,6 @@ func _input(event: InputEvent) -> void:
 func _process(_delta: float) -> void:
 	if is_dragging:
 		## NOTE: parent app window should have the same position as app header, otherwise need + parent offset
-		parent_app_node.global_position = get_global_mouse_position() + drag_offset
+		var max_pos: Vector2 = get_viewport_rect().size - size
+		parent_app_node.global_position = (get_global_mouse_position() + drag_offset).\
+											clamp(Vector2.ZERO, max_pos)

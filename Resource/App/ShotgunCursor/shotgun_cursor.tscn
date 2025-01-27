@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://hnbl26yns55d"]
+
+[ext_resource type="PackedScene" uid="uid://cnm0a8qtvlr0v" path="res://Scene/Element/App.tscn" id="1_wvo3b"]
+[ext_resource type="Texture2D" uid="uid://bpei3su5dnrcp" path="res://Resource/Texture/shotgun.png" id="2_nett8"]
+[ext_resource type="Script" uid="uid://dl3mlu4do4r6f" path="res://Resource/App/ShotgunCursor/shotgun_cursor.gd" id="2_x2roh"]
+
+[node name="ShotgunCursor" instance=ExtResource("1_wvo3b")]
+script = ExtResource("2_x2roh")
+max_ammo = 8
+app_name = "shotgun cursor.cs"
+
+[node name="TextureRect" parent="VBoxContainer" index="0"]
+texture = ExtResource("2_nett8")
+
+[node name="AmmonLabel" type="Label" parent="." index="3"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -83.0
+offset_top = 14.0
+offset_bottom = 37.0
+grow_horizontal = 0
+text = "ammo: 8/8"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AmmoTimer" type="Timer" parent="." index="4"]
+wait_time = 2.0
+autostart = true
+
+[connection signal="timeout" from="AmmoTimer" to="." method="_on_ammo_timer_timeout"]

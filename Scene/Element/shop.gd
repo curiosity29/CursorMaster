@@ -6,6 +6,7 @@ const app_count: int = 3
 const ram_upgrade_cost: int = 5
 @export var ram_upgrade_value: float = 16.
 @export var cool_speed_upgrade_value: float = 0.3
+const cool_speed_upgrade_cost: int = 5
 @onready var refresh_count_down_label: RichTextLabel = $VBoxContainer/RefreshCountDownLabel
 @onready var second_timer: Timer = $SecondTimer
 var max_count_down_time: int = State.second_per_round
@@ -45,6 +46,8 @@ func _on_ram_upgrade_button_pressed() -> void:
 	State.max_ram_value += ram_upgrade_value
 	
 func _on_cooler_upgrade_button_pressed() -> void:
+	if State.bytecoin < cool_speed_upgrade_cost: return
+	State.bytecoin -= cool_speed_upgrade_cost
 	State.heat_reduction_speed += 0.3
 
 

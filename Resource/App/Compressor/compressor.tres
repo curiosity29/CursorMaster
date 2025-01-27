@@ -8,7 +8,7 @@
 script = ExtResource("1_n5rxd")
 id = "compressor"
 app_name = "compressor.tab"
-description = "compress up to 8 enemies into the horizontal center"
+description = "using greedy algorithm compress up to 8 enemies into the horizontal center, picking from the farthest."
 icon = ExtResource("1_ch2yb")
 buy_price = 5
 app_scene = ExtResource("1_guoiq")

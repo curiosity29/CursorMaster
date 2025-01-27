@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://c1enulsfkmyyb"]
+
+[ext_resource type="PackedScene" uid="uid://cnm0a8qtvlr0v" path="res://Scene/Element/App.tscn" id="1_iafjt"]
+[ext_resource type="Script" uid="uid://b27a5s40tj1xn" path="res://Resource/App/UICursor/ui_cursor.gd" id="2_2sdv7"]
+[ext_resource type="Texture2D" uid="uid://m07ey7gbiiqe" path="res://Resource/Texture/pointing_hand_cursor.png" id="3_rgue8"]
+
+[node name="UICursor" instance=ExtResource("1_iafjt")]
+script = ExtResource("2_2sdv7")
+app_name = "UI cursor.cs"
+
+[node name="TextureRect" parent="VBoxContainer" index="0"]
+texture = ExtResource("3_rgue8")
+
+[node name="Label" type="Label" parent="." index="3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -17.0
+offset_top = -11.5
+offset_right = 38.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "tab me"

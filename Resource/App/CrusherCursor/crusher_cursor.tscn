@@ -6,7 +6,7 @@
 
 [node name="CrusherCursor" instance=ExtResource("1_fhnis")]
 script = ExtResource("2_b7cqi")
-app_name = "crusher cursor.exe"
+app_name = "crusher cursor.cs"
 
 [node name="TextureRect" parent="VBoxContainer" index="0"]
 texture = ExtResource("3_b7cqi")

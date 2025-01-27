@@ -48,7 +48,7 @@ func _on_pull_timer_timeout() -> void:
 	for enemy: Enemy in top_n_custom(target_enemies, enemy_closer_to_center_y, max_pull_count):
 		if enemy:
 			var delta_y = enemy.global_position.y - body_center.y
-			enemy.velocity.y += -delta_y / pull_timer.wait_time * 0.8
+			enemy.velocity.y += -delta_y / pull_timer.wait_time * 1.5
 		## erase null 
 		else: 
 			enemy_to_erase.append(enemy)

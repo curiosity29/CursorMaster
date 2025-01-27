@@ -6,7 +6,7 @@
 
 [node name="DefaultCursor" instance=ExtResource("1_oppyb")]
 script = ExtResource("2_6tw6w")
-app_name = "default cursor.exe"
+app_name = "default cursor.cs"
 
 [node name="TextureRect" parent="VBoxContainer" index="0"]
 texture = ExtResource("3_febmx")

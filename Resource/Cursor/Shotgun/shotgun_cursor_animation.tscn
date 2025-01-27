@@ -1,0 +1,135 @@
+[gd_scene load_steps=7 format=3 uid="uid://ptosbg7y71uo"]
+
+[ext_resource type="Script" uid="uid://0weorblu2ttb" path="res://Resource/Cursor/Shotgun/shotgun_cursor_animation.gd" id="1_d4ite"]
+[ext_resource type="Texture2D" uid="uid://bpei3su5dnrcp" path="res://Resource/Texture/shotgun.png" id="2_0eu7r"]
+[ext_resource type="Texture2D" uid="uid://ddx73p2ktwbn" path="res://Resource/Texture/brown_cone_tip.png" id="3_128bn"]
+
+[sub_resource type="Animation" id="Animation_usyjy"]
+resource_name = "damageEffect"
+length = 0.24
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DamageEffectCone:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.24),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(15, 15)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.12, 0.24),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"damge_enemy_in_area"
+}, {
+"args": [],
+"method": &"queue_free"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("DamageEffectCone:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.0666667, 0.24),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_apm1o"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DamageEffectCone:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(10, 10)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DamageEffectCone:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_o08k4"]
+_data = {
+&"RESET": SubResource("Animation_apm1o"),
+&"damageEffect": SubResource("Animation_usyjy")
+}
+
+[node name="ShotgunCursorHittingbox" type="Area2D"]
+position = Vector2(28, -5)
+script = ExtResource("1_d4ite")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+scale = Vector2(15, 15)
+polygon = PackedVector2Array(63, 0, 60, -11, 44, -22, 0, 0, 41, 22, 58, 15)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.0
+offset_top = -27.0
+offset_right = 4.0
+offset_bottom = 37.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(32, 32)
+texture = ExtResource("2_0eu7r")
+
+[node name="DamageEffectCone" type="TextureRect" parent="."]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -32.0
+offset_right = 64.0
+offset_bottom = 32.0
+grow_vertical = 2
+scale = Vector2(10, 10)
+pivot_offset = Vector2(0, 32)
+mouse_filter = 2
+texture = ExtResource("3_128bn")
+
+[node name="ShotPivot" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 28.0
+offset_top = -5.0
+offset_right = 28.0
+offset_bottom = -5.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_o08k4")
+}
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

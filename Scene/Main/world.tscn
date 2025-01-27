@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://cng3iysgp4mdw"]
+[gd_scene load_steps=33 format=3 uid="uid://cng3iysgp4mdw"]
 
 [ext_resource type="Script" uid="uid://c3m2cxthk4fuh" path="res://Scene/Main/world.gd" id="1_e7iqy"]
 [ext_resource type="Script" uid="uid://cn5ojowj5b0a4" path="res://Scene/Element/obstacle.gd" id="2_4fii4"]
@@ -16,13 +16,16 @@
 [ext_resource type="PackedScene" uid="uid://s5fo7qa36uif" path="res://Resource/App/CrusherCursor/crusher_cursor.tscn" id="8_q16u2"]
 [ext_resource type="PackedScene" uid="uid://civ3yph023tte" path="res://Resource/App/FireWall/fire_wall.tscn" id="9_0p2xg"]
 [ext_resource type="PackedScene" uid="uid://nytlbk4yl5ro" path="res://Resource/App/DefaultCursor/default_cursor.tscn" id="9_gioca"]
-[ext_resource type="PackedScene" uid="uid://18i5a037safy" path="res://Resource/Enemy/Dummy/dummy.tscn" id="9_ql47x"]
 [ext_resource type="PackedScene" uid="uid://shjmjxqvgo32" path="res://Resource/App/VirtualMachine/virtual_machine.tscn" id="12_wwyuk"]
 [ext_resource type="PackedScene" uid="uid://cl8l813o71jnl" path="res://Resource/App/FileExtractor/file_extractor.tscn" id="14_tquwj"]
 [ext_resource type="PackedScene" uid="uid://urv68rekayxc" path="res://Scene/Element/task_manager.tscn" id="15_se05f"]
 [ext_resource type="PackedScene" uid="uid://epen4xgts480" path="res://Resource/App/Compressor/compressor.tscn" id="20_8lu4g"]
 [ext_resource type="PackedScene" uid="uid://xtf4r1s7o2j8" path="res://Resource/Enemy/Slowpoke/slowpoke.tscn" id="21_ghgcx"]
 [ext_resource type="PackedScene" uid="uid://c3r64o0v08d2p" path="res://Resource/Enemy/TrojanHorse/trojan_horse.tscn" id="22_5f8rw"]
+[ext_resource type="PackedScene" uid="uid://hnbl26yns55d" path="res://Resource/App/ShotgunCursor/shotgun_cursor.tscn" id="23_xoc4v"]
+[ext_resource type="PackedScene" uid="uid://c1enulsfkmyyb" path="res://Resource/App/UICursor/ui_cursor.tscn" id="24_00ioh"]
+[ext_resource type="PackedScene" uid="uid://ey5hes74dbt3" path="res://Resource/App/AutoFixer/auto_fixer.tscn" id="24_75b66"]
+[ext_resource type="PackedScene" uid="uid://oigo6e1u4c43" path="res://Resource/Enemy/Sprinter/sprinter.tscn" id="26_a27oc"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_se05f"]
 bg_color = Color(0.680102, 0.959726, 0.344548, 1)
@@ -34,14 +37,14 @@ bg_color = Color(0.76459, 0.658334, 0.0975449, 1)
 bg_color = Color(0.458796, 0.392725, 0.0489848, 1)
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_56sn8"]
-vertices = PackedVector2Array(2629.75, -556.953, 2586.24, 1765.86, 2190, 433.5, 2190, 278.5, 2185.5, 784.5, 2185.5, 629.5, 1700, -116.797, 1776.54, -530.617, 1700, -25.5, 1765, 1725.8, 1710, 1081.68, 1710, 1077.5, 116.5, 784.5, 1270.89, 1077.5, -60.2578, 1072.25, -64.7266, -4.21094, 116.5, 629.5, 121, 433.5, 121, 278.5, 1680.27, -10.1797, 1683.11, -25.5)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(2, 1, 4, 5), PackedInt32Array(6, 7, 0, 3, 8), PackedInt32Array(4, 1, 9, 10, 11), PackedInt32Array(12, 4, 11, 13, 14), PackedInt32Array(12, 14, 15, 16), PackedInt32Array(17, 2, 5, 16), PackedInt32Array(17, 16, 15, 18), PackedInt32Array(18, 15, 19, 3), PackedInt32Array(8, 3, 19, 20)])
+vertices = PackedVector2Array(2629.75, -556.953, 2586.24, 1765.86, 2190, 433.5, 2190, 278.5, 2185.5, 784.5, 2185.5, 629.5, 1763, -119.5, 1776.54, -530.617, 1763, 35.5, 1765, 1725.8, 1773, 1188.5, 1700.5, -119.5, 121, 278.5, -64.5703, 35.5, -60.4219, 1033.5, 121, 433.5, 116.5, 629.5, 1719.12, 1188.5, 1773, 1033.5, 116.5, 784.5)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(2, 1, 4, 5), PackedInt32Array(6, 7, 0, 3, 8), PackedInt32Array(4, 1, 9, 10), PackedInt32Array(6, 11, 7), PackedInt32Array(8, 3, 12, 13), PackedInt32Array(14, 13, 12, 15, 16), PackedInt32Array(9, 17, 10), PackedInt32Array(4, 10, 18), PackedInt32Array(19, 4, 18, 14), PackedInt32Array(15, 2, 5, 16), PackedInt32Array(14, 16, 19)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-129, -68, 1627, -74, 1723, -593, 2695, -623, 2649, 1833, 1706, 1787, 1651, 1143, -124, 1136)])
 agent_radius = 64.0
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_r2btm"]
-vertices = PackedVector2Array(2153.5, 752.5, 2662.33, -587.773, 2617.62, 1799.73, 1770.26, 1766.06, 2158, 401.5, 2153.5, 661.5, 2158, 310.5, 1735.83, -500.477, 1659.48, -4.15625, 153, 310.5, -16.1094, 5.8125, -19.8828, 1070.26, 153, 401.5, 148.5, 661.5, 1675.59, 1200.5, 1678, 1200.5, 1678, 1109.5, 148.5, 752.5, 1656.12, 1084.22, 1660.35, 1109.5)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 1, 0, 5), PackedInt32Array(1, 4, 6), PackedInt32Array(7, 1, 6, 8), PackedInt32Array(8, 6, 9, 10), PackedInt32Array(11, 10, 9, 12, 13), PackedInt32Array(3, 14, 15), PackedInt32Array(0, 3, 15, 16), PackedInt32Array(12, 4, 5, 13), PackedInt32Array(11, 13, 17), PackedInt32Array(18, 11, 17, 0), PackedInt32Array(18, 0, 16, 19)])
+vertices = PackedVector2Array(2153.5, 752.5, 2662.33, -587.773, 2617.62, 1799.73, 1770.26, 1766.06, 2158, 401.5, 2153.5, 661.5, 2158, 310.5, 1731, -87.5, 1735.83, -500.477, 1731, 3.5, 1668.22, 1156.5, 1741, 1156.5, 1741, 1065.5, 148.5, 752.5, -19.8672, 1065.5, -16.1094, 5.8125, 148.5, 661.5, 1672.3, -87.5, 372.188, 3.5, 153, 310.5, 153, 401.5)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 1, 0, 5), PackedInt32Array(1, 4, 6), PackedInt32Array(7, 8, 1, 6, 9), PackedInt32Array(3, 10, 11), PackedInt32Array(0, 3, 11, 12), PackedInt32Array(13, 0, 12, 14), PackedInt32Array(13, 14, 15, 16), PackedInt32Array(7, 17, 8), PackedInt32Array(18, 9, 6, 19, 15), PackedInt32Array(16, 15, 19, 20), PackedInt32Array(5, 16, 20, 4)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-48, -26, 1632, -36, 1708, -530, 2695, -623, 2649, 1833, 1743, 1797, 1629, 1116, -52, 1102)])
 agent_radius = 32.0
 
@@ -91,7 +94,6 @@ custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
 
 [node name="Shop" type="Control" parent="HBoxContainer"]
-process_mode = 3
 custom_minimum_size = Vector2(192, 0)
 layout_mode = 2
 script = ExtResource("2_x23p1")
@@ -137,8 +139,10 @@ custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 
 [node name="RamUpgradeButton" type="Button" parent="HBoxContainer/Shop/VBoxContainer/VBoxContainer/RamUpgrade/VBoxContainer"]
+process_mode = 3
 layout_mode = 2
 size_flags_vertical = 3
+focus_mode = 0
 theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_se05f")
 theme_override_styles/hover = SubResource("StyleBoxFlat_x23p1")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_se05f")
@@ -147,8 +151,10 @@ text = "+16 MB
 ram"
 
 [node name="CoolerUpgradeButton" type="Button" parent="HBoxContainer/Shop/VBoxContainer/VBoxContainer/RamUpgrade/VBoxContainer"]
+process_mode = 3
 layout_mode = 2
 size_flags_vertical = 3
+focus_mode = 0
 theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_se05f")
 theme_override_styles/hover = SubResource("StyleBoxFlat_x23p1")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_se05f")
@@ -261,26 +267,26 @@ shape = SubResource("RectangleShape2D_8lu4g")
 
 [node name="ColorRect3" type="ColorRect" parent="HBoxContainer/Map/NavigationRegion64Size/NavigationRegion32Size/ObstacleContainer/Basemap"]
 custom_minimum_size = Vector2(1507, 27)
-offset_left = -304.0
-offset_top = -116.0
-offset_right = 1639.0
-offset_bottom = -89.0
+offset_left = -241.0
+offset_top = -55.0
+offset_right = 1702.0
+offset_bottom = -28.0
 color = Color(0.428888, 0.34811, 0.260518, 1)
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="HBoxContainer/Map/NavigationRegion64Size/NavigationRegion32Size/ObstacleContainer/Basemap"]
-position = Vector2(665.5, -103)
+position = Vector2(728.5, -42)
 shape = SubResource("RectangleShape2D_8lu4g")
 
 [node name="ColorRect4" type="ColorRect" parent="HBoxContainer/Map/NavigationRegion64Size/NavigationRegion32Size/ObstacleContainer/Basemap"]
 custom_minimum_size = Vector2(1507, 27)
-offset_left = -294.0
-offset_top = 1142.0
-offset_right = 1649.0
-offset_bottom = 1169.0
+offset_left = -231.0
+offset_top = 1098.0
+offset_right = 1712.0
+offset_bottom = 1125.0
 color = Color(0.428888, 0.34811, 0.260518, 1)
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="HBoxContainer/Map/NavigationRegion64Size/NavigationRegion32Size/ObstacleContainer/Basemap"]
-position = Vector2(675.5, 1155)
+position = Vector2(738.5, 1111)
 shape = SubResource("RectangleShape2D_8lu4g")
 
 [node name="ColorRect5" type="ColorRect" parent="HBoxContainer/Map/NavigationRegion64Size/NavigationRegion32Size/ObstacleContainer/Basemap"]
@@ -318,6 +324,18 @@ grow_vertical = 2
 mouse_filter = 2
 metadata/_edit_lock_ = true
 
+[node name="Slowpoke" parent="HBoxContainer/Map/DebugContainer/Enemies" instance=ExtResource("21_ghgcx")]
+position = Vector2(1443, 405)
+
+[node name="Slowpoke4" parent="HBoxContainer/Map/DebugContainer/Enemies" instance=ExtResource("21_ghgcx")]
+position = Vector2(-388, 1058)
+
+[node name="Slowpoke2" parent="HBoxContainer/Map/DebugContainer/Enemies" instance=ExtResource("21_ghgcx")]
+position = Vector2(1150, 562)
+
+[node name="Slowpoke3" parent="HBoxContainer/Map/DebugContainer/Enemies" instance=ExtResource("21_ghgcx")]
+position = Vector2(1483, 530)
+
 [node name="Draggable" type="Control" parent="HBoxContainer/Map/DebugContainer"]
 layout_mode = 1
 anchors_preset = 15
@@ -329,18 +347,19 @@ mouse_filter = 2
 metadata/_edit_lock_ = true
 
 [node name="Bomb" parent="HBoxContainer/Map/DebugContainer/Draggable" instance=ExtResource("6_tquwj")]
-offset_left = 790.0
-offset_top = 675.0
-offset_right = 854.0
-offset_bottom = 739.0
+offset_left = 815.0
+offset_top = 644.0
+offset_right = 879.0
+offset_bottom = 708.0
 
 [node name="Bomb2" parent="HBoxContainer/Map/DebugContainer/Draggable" instance=ExtResource("6_tquwj")]
-offset_left = 624.0
-offset_top = 416.0
-offset_right = 688.0
-offset_bottom = 480.0
+offset_left = 1221.0
+offset_top = 497.0
+offset_right = 1285.0
+offset_bottom = 561.0
 
 [node name="AppContainer" type="Control" parent="HBoxContainer/Map/DebugContainer"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -351,42 +370,141 @@ mouse_filter = 2
 metadata/_edit_lock_ = true
 
 [node name="AutoClicker" parent="HBoxContainer/Map/DebugContainer/AppContainer" instance=ExtResource("7_q16u2")]
-offset_left = 199.0
-offset_top = 651.0
-offset_right = 327.0
-offset_bottom = 831.0
+offset_left = 726.0
+offset_top = 914.0
+offset_right = 854.0
+offset_bottom = 1094.0
 
 [node name="AntiVirus3000" parent="HBoxContainer/Map/DebugContainer/AppContainer" instance=ExtResource("5_di4vt")]
-offset_left = 49.0
-offset_top = 643.0
-offset_right = 177.0
-offset_bottom = 823.0
+offset_left = 838.0
+offset_top = 828.0
+offset_right = 966.0
+offset_bottom = 1008.0
 
 [node name="FireWall" parent="HBoxContainer/Map/DebugContainer/AppContainer" instance=ExtResource("9_0p2xg")]
-offset_left = 625.0
-offset_top = 169.0
-offset_right = 753.0
-offset_bottom = 349.0
+offset_left = 1485.0
+offset_top = 75.0
+offset_right = 1613.0
+offset_bottom = 255.0
 heat_cost = 25.0
 
 [node name="ProfessorHelper" parent="HBoxContainer/Map/DebugContainer/AppContainer" instance=ExtResource("8_gioca")]
-offset_left = 349.0
-offset_top = 866.0
-offset_right = 477.0
-offset_bottom = 1046.0
+offset_left = 36.0
+offset_top = 900.0
+offset_right = 164.0
+offset_bottom = 1080.0
 
 [node name="VirtualMachine" parent="HBoxContainer/Map/DebugContainer/AppContainer" instance=ExtResource("12_wwyuk")]
-offset_left = 199.0
-offset_top = 431.0
-offset_right = 327.0
-offset_bottom = 611.0
+offset_left = 351.0
+offset_top = 862.0
+offset_right = 479.0
+offset_bottom = 1042.0
 health = 100
 
+[node name="AntiVirus3001" parent="HBoxContainer/Map/DebugContainer/AppContainer" instance=ExtResource("5_di4vt")]
+offset_left = 594.0
+offset_top = 577.0
+offset_right = 722.0
+offset_bottom = 757.0
+
+[node name="Compressor" parent="HBoxContainer/Map/DebugContainer/AppContainer" instance=ExtResource("20_8lu4g")]
+offset_left = 14.0
+offset_top = 631.0
+offset_right = 142.0
+offset_bottom = 811.0
+
+[node name="FireWall2" parent="HBoxContainer/Map/DebugContainer/AppContainer" instance=ExtResource("9_0p2xg")]
+offset_left = 143.0
+offset_top = 346.0
+offset_right = 271.0
+offset_bottom = 526.0
+heat_cost = 25.0
+
+[node name="FireWall3" parent="HBoxContainer/Map/DebugContainer/AppContainer" instance=ExtResource("9_0p2xg")]
+offset_left = 142.0
+offset_top = 526.0
+offset_right = 270.0
+offset_bottom = 706.0
+heat_cost = 25.0
+
+[node name="ShotgunCursor" parent="HBoxContainer/Map/DebugContainer/AppContainer" instance=ExtResource("23_xoc4v")]
+offset_left = 358.0
+offset_top = 435.0
+offset_right = 486.0
+offset_bottom = 615.0
+
+[node name="AutoFixer" parent="HBoxContainer/Map/DebugContainer/AppContainer" instance=ExtResource("24_75b66")]
+offset_left = 17.0
+offset_top = 229.0
+offset_right = 145.0
+offset_bottom = 409.0
+
+[node name="ProfessorHelper2" parent="HBoxContainer/Map/DebugContainer/AppContainer" instance=ExtResource("8_gioca")]
+offset_left = 274.0
+offset_top = 448.0
+offset_right = 402.0
+offset_bottom = 628.0
+
 [node name="FileExtractor" parent="HBoxContainer/Map/DebugContainer/AppContainer" instance=ExtResource("14_tquwj")]
-offset_left = 269.0
-offset_top = 191.0
-offset_right = 397.0
-offset_bottom = 371.0
+offset_left = 1590.0
+offset_top = 166.0
+offset_right = 1718.0
+offset_bottom = 346.0
+
+[node name="Enemies2" type="Control" parent="HBoxContainer/Map/DebugContainer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_lock_ = true
+
+[node name="TrojanHorse" parent="HBoxContainer/Map/DebugContainer/Enemies2" instance=ExtResource("22_5f8rw")]
+position = Vector2(1135, 632)
+
+[node name="TrojanHorse2" parent="HBoxContainer/Map/DebugContainer/Enemies2" instance=ExtResource("22_5f8rw")]
+position = Vector2(1128, 516)
+
+[node name="TrojanHorse3" parent="HBoxContainer/Map/DebugContainer/Enemies2" instance=ExtResource("22_5f8rw")]
+position = Vector2(1118, 403)
+
+[node name="Slowpoke5" parent="HBoxContainer/Map/DebugContainer/Enemies2" instance=ExtResource("21_ghgcx")]
+position = Vector2(1303, 414)
+
+[node name="Slowpoke6" parent="HBoxContainer/Map/DebugContainer/Enemies2" instance=ExtResource("21_ghgcx")]
+position = Vector2(1303, 414)
+
+[node name="Slowpoke7" parent="HBoxContainer/Map/DebugContainer/Enemies2" instance=ExtResource("21_ghgcx")]
+position = Vector2(1009, 489)
+
+[node name="Slowpoke8" parent="HBoxContainer/Map/DebugContainer/Enemies2" instance=ExtResource("21_ghgcx")]
+position = Vector2(994, 645)
+
+[node name="Slowpoke9" parent="HBoxContainer/Map/DebugContainer/Enemies2" instance=ExtResource("21_ghgcx")]
+position = Vector2(918, 477)
+
+[node name="Slowpoke10" parent="HBoxContainer/Map/DebugContainer/Enemies2" instance=ExtResource("21_ghgcx")]
+position = Vector2(914, 569)
+
+[node name="Sprinter" parent="HBoxContainer/Map/DebugContainer/Enemies2" instance=ExtResource("26_a27oc")]
+position = Vector2(823, 499)
+
+[node name="Sprinter2" parent="HBoxContainer/Map/DebugContainer/Enemies2" instance=ExtResource("26_a27oc")]
+position = Vector2(988, 579)
+
+[node name="Sprinter3" parent="HBoxContainer/Map/DebugContainer/Enemies2" instance=ExtResource("26_a27oc")]
+position = Vector2(764, 548)
+
+[node name="Sprinter4" parent="HBoxContainer/Map/DebugContainer/Enemies2" instance=ExtResource("26_a27oc")]
+position = Vector2(739, 461)
+
+[node name="Sprinter5" parent="HBoxContainer/Map/DebugContainer/Enemies2" instance=ExtResource("26_a27oc")]
+position = Vector2(637, 527)
+
+[node name="Sprinter6" parent="HBoxContainer/Map/DebugContainer/Enemies2" instance=ExtResource("26_a27oc")]
+position = Vector2(888, 421)
 
 [node name="AppContainer" type="Control" parent="HBoxContainer/Map"]
 layout_mode = 1
@@ -406,10 +524,10 @@ offset_bottom = 611.0
 app_name = "my pc"
 
 [node name="DefaultCursor" parent="HBoxContainer/Map/AppContainer" instance=ExtResource("9_gioca")]
-offset_left = 18.0
-offset_top = 882.0
-offset_right = 146.0
-offset_bottom = 1062.0
+offset_left = 16.0
+offset_top = 889.0
+offset_right = 144.0
+offset_bottom = 1069.0
 
 [node name="CrusherCursor" parent="HBoxContainer/Map/AppContainer" instance=ExtResource("8_q16u2")]
 offset_left = 163.0
@@ -419,84 +537,16 @@ offset_bottom = 1056.0
 
 [node name="TaskManager" parent="HBoxContainer/Map/AppContainer" instance=ExtResource("15_se05f")]
 layout_mode = 1
-offset_left = 1.0
+offset_left = 4.0
 offset_top = 8.0
-offset_right = -1209.0
+offset_right = -1206.0
 offset_bottom = -944.0
 
-[node name="Compressor" parent="HBoxContainer/Map/AppContainer" instance=ExtResource("20_8lu4g")]
-offset_left = 755.0
-offset_top = 424.0
-offset_right = 883.0
-offset_bottom = 604.0
-
-[node name="FireWall2" parent="HBoxContainer/Map/AppContainer" instance=ExtResource("9_0p2xg")]
-offset_left = 450.0
-offset_top = 168.0
-offset_right = 578.0
-offset_bottom = 348.0
-heat_cost = 25.0
-
-[node name="Enemies" type="Control" parent="HBoxContainer/Map/AppContainer"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-metadata/_edit_lock_ = true
-
-[node name="Dummy" parent="HBoxContainer/Map/AppContainer/Enemies" instance=ExtResource("9_ql47x")]
-position = Vector2(880, 116)
-
-[node name="Dummy2" parent="HBoxContainer/Map/AppContainer/Enemies" instance=ExtResource("9_ql47x")]
-position = Vector2(1202, 170)
-
-[node name="Dummy3" parent="HBoxContainer/Map/AppContainer/Enemies" instance=ExtResource("9_ql47x")]
-position = Vector2(1292, 359)
-
-[node name="Dummy4" parent="HBoxContainer/Map/AppContainer/Enemies" instance=ExtResource("9_ql47x")]
-position = Vector2(1102, 525)
-
-[node name="Dummy5" parent="HBoxContainer/Map/AppContainer/Enemies" instance=ExtResource("9_ql47x")]
-position = Vector2(883, 679)
-
-[node name="Dummy6" parent="HBoxContainer/Map/AppContainer/Enemies" instance=ExtResource("9_ql47x")]
-position = Vector2(574, 776)
-
-[node name="Dummy7" parent="HBoxContainer/Map/AppContainer/Enemies" instance=ExtResource("9_ql47x")]
-position = Vector2(508, 524)
-
-[node name="Dummy8" parent="HBoxContainer/Map/AppContainer/Enemies" instance=ExtResource("9_ql47x")]
-position = Vector2(568, 262)
-
-[node name="Dummy9" parent="HBoxContainer/Map/AppContainer/Enemies" instance=ExtResource("9_ql47x")]
-position = Vector2(1225, 769)
-
-[node name="Dummy10" parent="HBoxContainer/Map/AppContainer/Enemies" instance=ExtResource("9_ql47x")]
-position = Vector2(1406, 546)
-
-[node name="TrojanHorse" parent="HBoxContainer/Map/AppContainer/Enemies" instance=ExtResource("22_5f8rw")]
-position = Vector2(1292, 645)
-
-[node name="TrojanHorse2" parent="HBoxContainer/Map/AppContainer/Enemies" instance=ExtResource("22_5f8rw")]
-position = Vector2(1217, 393)
-
-[node name="TrojanHorse3" parent="HBoxContainer/Map/AppContainer/Enemies" instance=ExtResource("22_5f8rw")]
-position = Vector2(1380, 287)
-
-[node name="Slowpoke" parent="HBoxContainer/Map" instance=ExtResource("21_ghgcx")]
-position = Vector2(1483, 414)
-
-[node name="Slowpoke4" parent="HBoxContainer/Map" instance=ExtResource("21_ghgcx")]
-position = Vector2(75, 1009)
-
-[node name="Slowpoke2" parent="HBoxContainer/Map" instance=ExtResource("21_ghgcx")]
-position = Vector2(1483, 653)
-
-[node name="Slowpoke3" parent="HBoxContainer/Map" instance=ExtResource("21_ghgcx")]
-position = Vector2(1483, 530)
+[node name="UICursor" parent="HBoxContainer/Map/AppContainer" instance=ExtResource("24_00ioh")]
+offset_left = 316.0
+offset_top = 869.0
+offset_right = 444.0
+offset_bottom = 1049.0
 
 [connection signal="pressed" from="HBoxContainer/Shop/VBoxContainer/VBoxContainer/RamUpgrade/VBoxContainer/RamUpgradeButton" to="HBoxContainer/Shop" method="_on_ram_upgrade_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/Shop/VBoxContainer/VBoxContainer/RamUpgrade/VBoxContainer/CoolerUpgradeButton" to="HBoxContainer/Shop" method="_on_cooler_upgrade_button_pressed"]

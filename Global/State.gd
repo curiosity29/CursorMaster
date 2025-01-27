@@ -3,7 +3,10 @@ extends Node2D
 
 signal task_stats_changed
 @export var starting_bytecoin: int = 20
-var bytecoin: int
+var bytecoin: int:
+	set(value):
+		bytecoin = value
+		task_stats_changed.emit()
 var ram_value: float = 0.:
 	set(value):
 		ram_value = value
@@ -78,7 +81,9 @@ func _input(event: InputEvent) -> void:
 		#print("click event: ", event)
 		if event.is_action_pressed("click"): on_click(event.global_position)
 		elif event.is_action_pressed("right_click"): on_right_click(event.global_position)
-
+	
+	elif event.is_action_pressed("tab"):
+		cursor_manager = Database.cursor_map["ui_cursor"]
 
 func _process(delta: float) -> void:
 	heat_value = move_toward(heat_value, 0., heat_reduction_speed * delta)

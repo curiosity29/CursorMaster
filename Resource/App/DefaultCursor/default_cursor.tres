@@ -7,7 +7,7 @@
 [resource]
 script = ExtResource("1_kd1f1")
 id = "default_cursor"
-app_name = "default cursor"
+app_name = "default cursor.cs"
 description = ""
 icon = ExtResource("2_6rg5v")
 buy_price = 5

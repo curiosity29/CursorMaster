@@ -25,7 +25,7 @@ gradient = SubResource("Gradient_twryh")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xxpdy"]
 shader = ExtResource("6_bagsn")
-shader_parameter/progress = 0.421
+shader_parameter/progress = 0.81
 shader_parameter/background_color = Color(0.639216, 0.423529, 0.564706, 0)
 shader_parameter/color_gradient = SubResource("GradientTexture1D_guiby")
 shader_parameter/mask_texture = ExtResource("7_fjg0t")

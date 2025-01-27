@@ -7,5 +7,5 @@ script = ExtResource("1_q4efl")
 base_folder = "res://Resource/Cursor"
 includes = Array[String](["**.tres"])
 excludes = Array[String]([])
-paths = Array[String](["res://Resource/Cursor/CrusherCursor/crusher_cursor.tres", "res://Resource/Cursor/DefaultCursor/default_cursor.tres"])
+paths = Array[String](["res://Resource/Cursor/CrusherCursor/crusher_cursor.tres", "res://Resource/Cursor/DefaultCursor/default_cursor.tres", "res://Resource/Cursor/Shotgun/shotgun_cursor.tres", "res://Resource/Cursor/UICursor/ui_cursor.tres"])
 metadata/_custom_type_script = ExtResource("1_q4efl")

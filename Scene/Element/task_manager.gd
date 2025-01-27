@@ -20,6 +20,11 @@ func _ready() -> void:
 	State.task_stats_changed.connect(update_display)
 	update_display()
 	InstanceHelper.task_manager = self
+	init_property()
+	
+func init_property():
+	speed_mode = SpeedMode.NORMAL
+	
 func _exit_tree() -> void:
 	State.task_stats_changed.disconnect(update_display)
 

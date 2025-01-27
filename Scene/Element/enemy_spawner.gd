@@ -11,17 +11,17 @@ extends Control
 @export var spawn_policy_slow: Dictionary = {
 	"id": "slowpoke",
 	"start_time": 0.,
-	"spawn_delay": 0.8,
+	"spawn_delay": 2.,
 }
 @export var spawn_policy_sprinter: Dictionary = {
 	"id": "sprinter",
 	"start_time": 20.,
-	"spawn_delay": 1.2,
+	"spawn_delay": 1.8,
 }
 @export var spawn_policy_trojan_horse: Dictionary = {
 	"id": "trojan_horse",
 	"start_time": 50.,
-	"spawn_delay": 3.,
+	"spawn_delay": 5.,
 }
 
 func _ready() -> void:
