@@ -45,6 +45,10 @@ window/size/window_height_override=1080
 window/stretch/mode="viewport"
 window/vsync/vsync_mode=0
 
+[dotnet]
+
+project/assembly_name="CursorMaster"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/godot_resource_groups/plugin.cfg", "res://addons/resources_spreadsheet_view/plugin.cfg")

@@ -1,6 +1,5 @@
 #State
 extends Node2D
-
 signal task_stats_changed
 @export var starting_bytecoin: int = 20
 var bytecoin: int:

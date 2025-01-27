@@ -9,7 +9,7 @@ extends CharacterBody2D
 @onready var texture_rect: TextureRect = %TextureRect
 var size: Vector2:
 	get: return texture_rect.size
-
+@onready var hit_box: Area2D = $HitBox
 var health: int = 20
 var speed: int = 60
 var damage: int = 5

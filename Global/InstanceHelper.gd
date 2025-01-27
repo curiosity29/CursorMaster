@@ -1,6 +1,6 @@
 # InstanceHelper
 extends Node
-
+#Priority table for gamestate
 var targets: Array[TargetableManager]:
 	get:
 		# catch all remove null

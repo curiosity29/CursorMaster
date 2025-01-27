@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="AppResource" load_steps=2 format=3 uid="uid://dkgu633x4s445"]
+
+[ext_resource type="Script" uid="uid://c1aneo2onwh24" path="res://PureScript/Resource/app_resource.gd" id="1_70kfv"]
+
+[resource]
+script = ExtResource("1_70kfv")
+id = "wall_dmg"
+app_name = "Fire Firewall"
+description = "Firewall, but with extra fire!"
+buy_price = 5
+is_for_sale = true
+allow_multiple = true
+metadata/_custom_type_script = ExtResource("1_70kfv")

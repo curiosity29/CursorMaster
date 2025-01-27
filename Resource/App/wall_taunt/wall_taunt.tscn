@@ -1,0 +1,36 @@
+[gd_scene load_steps=4 format=3 uid="uid://bdoregcbjp2s1"]
+
+[ext_resource type="PackedScene" uid="uid://cnm0a8qtvlr0v" path="res://Scene/Element/App.tscn" id="1_xbcqw"]
+[ext_resource type="Script" uid="uid://d1tfl4be0esnn" path="res://Resource/App/wall_taunt/wall_taunt.gd" id="2_oms17"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oms17"]
+size = Vector2(300, 300)
+
+[node name="App" instance=ExtResource("1_xbcqw")]
+offset_left = 299.0
+offset_top = 132.0
+offset_right = 427.0
+offset_bottom = 312.0
+script = ExtResource("2_oms17")
+health = 999999
+app_name = "Penis"
+app_resource_id = "wall_dmg"
+
+[node name="TextureRect" parent="VBoxContainer" index="0"]
+texture = null
+
+[node name="HPLabel" type="RichTextLabel" parent="VBoxContainer/TextureRect" index="0"]
+offset_top = -27.0
+offset_right = 128.0
+offset_bottom = -1.0
+bbcode_enabled = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Area2D" type="Area2D" parent="." index="3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
+position = Vector2(67, 82)
+shape = SubResource("RectangleShape2D_oms17")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
