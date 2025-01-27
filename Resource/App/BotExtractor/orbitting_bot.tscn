@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://d0s5o7t101n88"]
+
+[ext_resource type="Script" uid="uid://c7fc2cn3w4ev4" path="res://Resource/App/BotExtractor/orbitting_bot.gd" id="1_tf2t7"]
+[ext_resource type="Texture2D" uid="uid://cpvxpq4arykg7" path="res://Resource/Texture/spin_blade.png" id="2_tf2t7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tf2t7"]
+size = Vector2(32, 32)
+
+[node name="OrbittingBot" type="Control"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_tf2t7")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_tf2t7")
+expand_mode = 1
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(16, 16)
+shape = SubResource("RectangleShape2D_tf2t7")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

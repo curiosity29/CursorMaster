@@ -1,20 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://cwvolicf2qhf7"]
+[gd_scene load_steps=14 format=3 uid="uid://cwvolicf2qhf7"]
 
 [ext_resource type="PackedScene" uid="uid://cnm0a8qtvlr0v" path="res://Scene/Element/App.tscn" id="1_1sffr"]
 [ext_resource type="Script" uid="uid://cjphiuhp15edx" path="res://Resource/App/BotExtractor/bot_extractor.gd" id="2_n547b"]
 [ext_resource type="Texture2D" uid="uid://dt2y2ggbyq75d" path="res://Resource/Texture/bomb_container_icon.png" id="3_vdjci"]
+[ext_resource type="PackedScene" uid="uid://d0s5o7t101n88" path="res://Resource/App/BotExtractor/orbitting_bot.tscn" id="3_wi7b4"]
 [ext_resource type="Texture2D" uid="uid://cv1v0anxnll0r" path="res://Resource/Texture/bomb_file.png" id="4_yig2h"]
+[ext_resource type="Texture2D" uid="uid://cpvxpq4arykg7" path="res://Resource/Texture/spin_blade.png" id="5_a4jp6"]
 [ext_resource type="Shader" uid="uid://bkorqyu0h65cu" path="res://Resource/Shader/progress_fill.gdshader" id="5_ak2or"]
-[ext_resource type="Texture2D" uid="uid://d2ox03nl0yf02" path="res://Resource/Texture/bomb_file_mask.png" id="6_viqbq"]
-
-[sub_resource type="Animation" id="Animation_nt5xr"]
-resource_name = "bombRecharge"
-length = 10.0
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_15nxh"]
-_data = {
-&"bombRecharge": SubResource("Animation_nt5xr")
-}
 
 [sub_resource type="Gradient" id="Gradient_lavlk"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 1, 0, 1)
@@ -22,12 +14,14 @@ colors = PackedColorArray(1, 1, 1, 1, 0, 1, 0, 1)
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_b5mn0"]
 gradient = SubResource("Gradient_lavlk")
 
+[sub_resource type="CanvasTexture" id="CanvasTexture_wi7b4"]
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_sftxj"]
 shader = ExtResource("5_ak2or")
 shader_parameter/progress = 0.81
 shader_parameter/background_color = Color(0.639216, 0.423529, 0.564706, 0)
 shader_parameter/color_gradient = SubResource("GradientTexture1D_b5mn0")
-shader_parameter/mask_texture = ExtResource("6_viqbq")
+shader_parameter/mask_texture = SubResource("CanvasTexture_wi7b4")
 shader_parameter/wave_amplitude = 0.02
 shader_parameter/wave_frequency = 5.915
 shader_parameter/wave_speed = 2.146
@@ -41,9 +35,20 @@ shader_parameter/particle_end_scale = Vector2(0.01, 0.01)
 shader_parameter/particle_scale_randomness = 0.5
 shader_parameter/particle_amount = 5
 
+[sub_resource type="Animation" id="Animation_nt5xr"]
+resource_name = "bombRecharge"
+length = 10.0
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_15nxh"]
+_data = {
+&"bombRecharge": SubResource("Animation_nt5xr")
+}
+
 [node name="BotExtractor" instance=ExtResource("1_1sffr")]
 script = ExtResource("2_n547b")
-bomb_scene = null
+bot_scene = ExtResource("3_wi7b4")
+recharge_time = 0.95
+max_bot_count = 32
 app_name = "bot extractor.auto"
 app_resource_id = "bot_extractor"
 
@@ -51,26 +56,53 @@ app_resource_id = "bot_extractor"
 texture = ExtResource("3_vdjci")
 expand_mode = 1
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3"]
-libraries = {
-&"": SubResource("AnimationLibrary_15nxh")
-}
+[node name="BladeTexture" type="TextureRect" parent="VBoxContainer/TextureRect" index="0"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_a4jp6")
+expand_mode = 1
 
-[node name="TextureRect" type="TextureRect" parent="." index="4"]
+[node name="Wave" type="TextureRect" parent="VBoxContainer/TextureRect/BladeTexture" index="0"]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_sftxj")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_bottom = -52.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("4_yig2h")
 expand_mode = 1
 
-[node name="Wave" type="TextureRect" parent="." index="5"]
-material = SubResource("ShaderMaterial_sftxj")
+[node name="BotContainer" type="Control" parent="VBoxContainer/TextureRect" index="1"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3"]
+libraries = {
+&"": SubResource("AnimationLibrary_15nxh")
+}
+
+[node name="Label" type="Label" parent="." index="4"]
 layout_mode = 0
-offset_right = 128.0
-offset_bottom = 128.0
-texture = ExtResource("4_yig2h")
-expand_mode = 1
+offset_left = 4.0
+offset_top = 7.0
+offset_right = 44.0
+offset_bottom = 30.0

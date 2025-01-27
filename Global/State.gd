@@ -49,7 +49,15 @@ var elapsed_secs: int = 0:
 signal sec_elapsed
 
 
-const WIN_TIME: float = 150
+var win_time: float = 150#:
+	#get:
+		#match difficulty:
+			#Difficulty.EASY:
+				#return 150.
+			#_:
+				#return 150.
+
+
 enum RunEndState {WIN, LOSE}
 var run_end_state: RunEndState = RunEndState.LOSE
 var is_playing: bool = false
@@ -102,7 +110,7 @@ func _process(delta: float) -> void:
 	heat_value = move_toward(heat_value, 0., heat_reduction_speed * delta)
 	if is_playing:
 		elapsed_time += delta
-		if elapsed_time > WIN_TIME:
+		if elapsed_time > win_time:
 			run_end_state = RunEndState.WIN
 			Event.run_end_request.emit()
 			# prevent multiple request

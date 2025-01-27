@@ -30,7 +30,7 @@
 [ext_resource type="PackedScene" uid="uid://18i5a037safy" path="res://Resource/Enemy/Dummy/dummy.tscn" id="25_ilm22"]
 [ext_resource type="PackedScene" uid="uid://oigo6e1u4c43" path="res://Resource/Enemy/Sprinter/sprinter.tscn" id="26_a27oc"]
 [ext_resource type="PackedScene" uid="uid://bwi2pow1gniau" path="res://Resource/App/DefenseMatrix/defense_matrix.tscn" id="29_jms88"]
-[ext_resource type="PackedScene" uid="uid://bdoregcbjp2s1" path="res://Resource/App/wall_taunt/wall_taunt.tscn" id="31_cyego"]
+[ext_resource type="PackedScene" uid="uid://cwvolicf2qhf7" path="res://Resource/App/BotExtractor/bot_extractor.tscn" id="31_cyego"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_se05f"]
 bg_color = Color(0.680102, 0.959726, 0.344548, 1)
@@ -665,7 +665,11 @@ offset_top = 854.0
 offset_right = 788.0
 offset_bottom = 1034.0
 
-[node name="App" parent="HBoxContainer/Map/InitAppContainer" instance=ExtResource("31_cyego")]
+[node name="BotExtractor" parent="HBoxContainer/Map/InitAppContainer" instance=ExtResource("31_cyego")]
+offset_left = 822.0
+offset_top = 842.0
+offset_right = 950.0
+offset_bottom = 1022.0
 
 [connection signal="pressed" from="HBoxContainer/Shop/VBoxContainer/VBoxContainer/RamUpgrade/VBoxContainer/RamUpgradeButton" to="HBoxContainer/Shop" method="_on_ram_upgrade_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/Shop/VBoxContainer/VBoxContainer/RamUpgrade/VBoxContainer/CoolerUpgradeButton" to="HBoxContainer/Shop" method="_on_cooler_upgrade_button_pressed"]

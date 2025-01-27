@@ -8,6 +8,6 @@ id = "wall_dmg"
 app_name = "Fire Firewall"
 description = "Firewall, but with extra fire!"
 buy_price = 5
-is_for_sale = true
+is_for_sale = false
 allow_multiple = true
 metadata/_custom_type_script = ExtResource("1_70kfv")

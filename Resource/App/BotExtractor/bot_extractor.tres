@@ -8,7 +8,7 @@
 script = ExtResource("3_gbjmt")
 id = "bot_extractor"
 app_name = "bot extractor"
-description = "spawn auto defending robot"
+description = "automatically spawn orbitting robot"
 icon = ExtResource("2_px0bj")
 buy_price = 5
 app_scene = ExtResource("1_0mmy3")

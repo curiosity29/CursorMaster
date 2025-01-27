@@ -6,6 +6,7 @@ var targets: Array[TargetableManager]:
 		# catch all remove null
 		targets = targets.filter(func(target): return target)
 		return targets
+
 var map: Map
 var core: Core
 var obstacle_container: Control

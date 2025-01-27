@@ -1,10 +1,13 @@
 extends App
 
-@onready var wave: TextureRect = $Wave
+@onready var wave: TextureRect = %Wave
 
-@export var bomb_scene: PackedScene
-const recharge_time: float = 10.
-var current_bot: Bomb
+@export var bot_scene: PackedScene
+@export var recharge_time: float = 1.55
+@export var max_bot_count: int = 32
+@onready var bot_container: Control = %BotContainer
+
+var current_bot: OrbittingBot
 func _ready():
 	super()
 	
@@ -22,8 +25,11 @@ func set_wave_parameter(progress_value: float):
 	wave.material.set_shader_parameter("progress", progress_value)
 
 func on_recharge_finish():
+	## retry when a bot die
+	if bot_container.get_child_count() >= max_bot_count:
+		bot_container.child_order_changed.connect(on_recharge_finish, CONNECT_ONE_SHOT)
+		return
 	#print("recharging finish")
-	current_bot = bomb_scene.instantiate()
-	add_child(current_bot)
-	current_bot.position += Vector2.RIGHT * (current_bot.size.x + 10)
+	current_bot = bot_scene.instantiate()
+	bot_container.add_child(current_bot)
 	recharge_bot()

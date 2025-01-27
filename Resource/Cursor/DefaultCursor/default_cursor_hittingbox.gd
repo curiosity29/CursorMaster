@@ -2,7 +2,6 @@ extends Area2D
 
 @export var damage: int = 20
 var heat_cost: float = 0.8
-@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 func _on_area_entered(area: Area2D) -> void:
 	if State.heat_value_left < heat_cost: return
