@@ -1,14 +1,14 @@
 [gd_resource type="Resource" script_class="AppResource" load_steps=4 format=3 uid="uid://co354w2vsh6ea"]
 
-[ext_resource type="PackedScene" uid="uid://cwvolicf2qhf7" path="res://Resource/App/BotExtractor/bot_extractor.tscn" id="1_0mmy3"]
+[ext_resource type="PackedScene" uid="uid://cwvolicf2qhf7" path="res://Resource/App/BladeSpinner/blade_spinner.tscn" id="1_0mmy3"]
 [ext_resource type="Texture2D" uid="uid://caobjkck3c00l" path="res://Resource/Texture/bomb_maker_icon.png" id="2_px0bj"]
 [ext_resource type="Script" uid="uid://c1aneo2onwh24" path="res://PureScript/Resource/app_resource.gd" id="3_gbjmt"]
 
 [resource]
 script = ExtResource("3_gbjmt")
-id = "bot_extractor"
-app_name = "bot extractor"
-description = "automatically spawn orbitting robot"
+id = "blade_spinner"
+app_name = "blade spinner"
+description = "automatically spawn orbitting blade"
 icon = ExtResource("2_px0bj")
 buy_price = 5
 app_scene = ExtResource("1_0mmy3")

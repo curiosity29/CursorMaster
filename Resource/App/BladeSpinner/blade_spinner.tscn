@@ -1,12 +1,12 @@
 [gd_scene load_steps=14 format=3 uid="uid://cwvolicf2qhf7"]
 
-[ext_resource type="PackedScene" uid="uid://cnm0a8qtvlr0v" path="res://Scene/Element/App.tscn" id="1_1sffr"]
-[ext_resource type="Script" uid="uid://cjphiuhp15edx" path="res://Resource/App/BotExtractor/bot_extractor.gd" id="2_n547b"]
-[ext_resource type="Texture2D" uid="uid://dt2y2ggbyq75d" path="res://Resource/Texture/bomb_container_icon.png" id="3_vdjci"]
-[ext_resource type="PackedScene" uid="uid://d0s5o7t101n88" path="res://Resource/App/BotExtractor/orbitting_bot.tscn" id="3_wi7b4"]
-[ext_resource type="Texture2D" uid="uid://cv1v0anxnll0r" path="res://Resource/Texture/bomb_file.png" id="4_yig2h"]
-[ext_resource type="Texture2D" uid="uid://cpvxpq4arykg7" path="res://Resource/Texture/spin_blade.png" id="5_a4jp6"]
-[ext_resource type="Shader" uid="uid://bkorqyu0h65cu" path="res://Resource/Shader/progress_fill.gdshader" id="5_ak2or"]
+[ext_resource type="PackedScene" uid="uid://cnm0a8qtvlr0v" path="res://Scene/Element/App.tscn" id="1_78gam"]
+[ext_resource type="Script" uid="uid://cjphiuhp15edx" path="res://Resource/App/BladeSpinner/blade_spinner.gd" id="2_5sddx"]
+[ext_resource type="PackedScene" uid="uid://d0s5o7t101n88" path="res://Resource/App/BladeSpinner/orbitting_blade.tscn" id="3_l8jx5"]
+[ext_resource type="Texture2D" uid="uid://dt2y2ggbyq75d" path="res://Resource/Texture/bomb_container_icon.png" id="4_78djo"]
+[ext_resource type="Texture2D" uid="uid://cpvxpq4arykg7" path="res://Resource/Texture/spin_blade.png" id="5_wf8ng"]
+[ext_resource type="Shader" uid="uid://bkorqyu0h65cu" path="res://Resource/Shader/progress_fill.gdshader" id="6_8424l"]
+[ext_resource type="Texture2D" uid="uid://cv1v0anxnll0r" path="res://Resource/Texture/bomb_file.png" id="7_8qjqm"]
 
 [sub_resource type="Gradient" id="Gradient_lavlk"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 1, 0, 1)
@@ -16,8 +16,9 @@ gradient = SubResource("Gradient_lavlk")
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_wi7b4"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_sftxj"]
-shader = ExtResource("5_ak2or")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_78gam"]
+resource_local_to_scene = true
+shader = ExtResource("6_8424l")
 shader_parameter/progress = 0.81
 shader_parameter/background_color = Color(0.639216, 0.423529, 0.564706, 0)
 shader_parameter/color_gradient = SubResource("GradientTexture1D_b5mn0")
@@ -44,16 +45,16 @@ _data = {
 &"bombRecharge": SubResource("Animation_nt5xr")
 }
 
-[node name="BotExtractor" instance=ExtResource("1_1sffr")]
-script = ExtResource("2_n547b")
-bot_scene = ExtResource("3_wi7b4")
+[node name="BladeSpinner" instance=ExtResource("1_78gam")]
+script = ExtResource("2_5sddx")
+bot_scene = ExtResource("3_l8jx5")
 recharge_time = 0.95
 max_bot_count = 32
-app_name = "bot extractor.auto"
-app_resource_id = "bot_extractor"
+app_name = "blade spinner.auto"
+app_resource_id = "blade_spinner"
 
 [node name="TextureRect" parent="VBoxContainer" index="0"]
-texture = ExtResource("3_vdjci")
+texture = ExtResource("4_78djo")
 expand_mode = 1
 
 [node name="BladeTexture" type="TextureRect" parent="VBoxContainer/TextureRect" index="0"]
@@ -69,19 +70,19 @@ offset_right = 32.0
 offset_bottom = 32.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("5_a4jp6")
+texture = ExtResource("5_wf8ng")
 expand_mode = 1
 
 [node name="Wave" type="TextureRect" parent="VBoxContainer/TextureRect/BladeTexture" index="0"]
 unique_name_in_owner = true
-material = SubResource("ShaderMaterial_sftxj")
+material = SubResource("ShaderMaterial_78gam")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("4_yig2h")
+texture = ExtResource("7_8qjqm")
 expand_mode = 1
 
 [node name="BotContainer" type="Control" parent="VBoxContainer/TextureRect" index="1"]

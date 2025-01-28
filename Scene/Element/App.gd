@@ -35,10 +35,15 @@ func _gui_input(event: InputEvent) -> void:
 		is_dragging = true
 		drag_offset = global_position - get_global_mouse_position()
 func _input(event: InputEvent) -> void:
-	if event.is_action_released("click"): is_dragging = false
+	if event.is_action_released("click"): 
+		is_dragging = false
 func _process(delta: float) -> void:
+	## drag and confine it in map
+	var max_pos: Vector2 = InstanceHelper.map.global_position + InstanceHelper.map.size - size
 	if is_dragging:
-		global_position = get_global_mouse_position() + drag_offset
+		global_position = (get_global_mouse_position() + drag_offset).clamp(
+			InstanceHelper.map.global_position, max_pos
+		)
 		
 #region self helper
 func open_window(global_pos: Vector2 = global_position) -> void:

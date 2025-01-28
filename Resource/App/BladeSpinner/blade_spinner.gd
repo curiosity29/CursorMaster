@@ -7,7 +7,7 @@ extends App
 @export var max_bot_count: int = 32
 @onready var bot_container: Control = %BotContainer
 
-var current_bot: OrbittingBot
+var current_bot: OrbittingBlade
 func _ready():
 	super()
 	

@@ -1,22 +1,19 @@
-[gd_scene load_steps=13 format=3 uid="uid://cl8l813o71jnl"]
+[gd_scene load_steps=11 format=3 uid="uid://bl0lc22hoo1s6"]
 
-[ext_resource type="PackedScene" uid="uid://cnm0a8qtvlr0v" path="res://Scene/Element/App.tscn" id="1_lcotc"]
-[ext_resource type="Script" uid="uid://ipk7pkmy80y4" path="res://Resource/App/FileExtractor/file_extractor.gd" id="2_5gss5"]
-[ext_resource type="PackedScene" uid="uid://qb5f0r25n26a" path="res://Resource/Draggable/Bomb/bomb.tscn" id="3_5gss5"]
-[ext_resource type="Texture2D" uid="uid://dt2y2ggbyq75d" path="res://Resource/Texture/bomb_container_icon.png" id="3_ri67p"]
-[ext_resource type="Texture2D" uid="uid://cv1v0anxnll0r" path="res://Resource/Texture/bomb_file.png" id="5_ri67p"]
-[ext_resource type="Texture2D" uid="uid://d2ox03nl0yf02" path="res://Resource/Texture/bomb_file_mask.png" id="7_fjg0t"]
+[ext_resource type="PackedScene" uid="uid://cnm0a8qtvlr0v" path="res://Scene/Element/App.tscn" id="1_i1qye"]
+[ext_resource type="Script" uid="uid://clab5i8yoyde3" path="res://Resource/App/ByteCoinMiner/byte_coin_miner.gd" id="2_ru2e1"]
+[ext_resource type="Texture2D" uid="uid://8fv5ssprajx1" path="res://Resource/Texture/bytecoin.png" id="3_u0yk6"]
 
-[sub_resource type="Animation" id="Animation_nt5xr"]
-resource_name = "bombRecharge"
-length = 10.0
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u0yk6"]
+bg_color = Color(0.680102, 0.959726, 0.344548, 1)
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_15nxh"]
-_data = {
-&"bombRecharge": SubResource("Animation_nt5xr")
-}
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rp06f"]
+bg_color = Color(0.76459, 0.658334, 0.0975449, 1)
 
-[sub_resource type="Shader" id="Shader_up43f"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jg17h"]
+bg_color = Color(0.458796, 0.392725, 0.0489848, 1)
+
+[sub_resource type="Shader" id="Shader_dteqo"]
 code = "shader_type canvas_item;
 
 uniform float progress : hint_range(0.0, 1.0) = 0.5;
@@ -115,15 +112,14 @@ colors = PackedColorArray(1, 1, 1, 1, 0, 1, 0, 1)
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_guiby"]
 gradient = SubResource("Gradient_twryh")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_xxpdy"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_u0yk6"]
 resource_local_to_scene = true
-shader = SubResource("Shader_up43f")
-shader_parameter/progress = 0.81
+shader = SubResource("Shader_dteqo")
+shader_parameter/progress = 0.259
 shader_parameter/background_color = Color(0.639216, 0.423529, 0.564706, 0)
 shader_parameter/color_gradient = SubResource("GradientTexture1D_guiby")
-shader_parameter/mask_texture = ExtResource("7_fjg0t")
-shader_parameter/wave_amplitude = 0.02
-shader_parameter/wave_frequency = 5.915
+shader_parameter/wave_amplitude = 0.013
+shader_parameter/wave_frequency = 10.0
 shader_parameter/wave_speed = 2.146
 shader_parameter/particle_speed = 0.05
 shader_parameter/particle_lifetime = 3.0
@@ -133,38 +129,63 @@ shader_parameter/particle_offset = Vector2(0, 0)
 shader_parameter/particle_start_scale = Vector2(0.02, 0.02)
 shader_parameter/particle_end_scale = Vector2(0.01, 0.01)
 shader_parameter/particle_scale_randomness = 0.5
-shader_parameter/particle_amount = 5
+shader_parameter/particle_amount = 0
 
-[node name="FileExtractor" instance=ExtResource("1_lcotc")]
-script = ExtResource("2_5gss5")
-bomb_scene = ExtResource("3_5gss5")
-app_name = "file extractor.auto"
-app_resource_id = "file_extractor"
+[node name="ByteCoinMiner" instance=ExtResource("1_i1qye")]
+script = ExtResource("2_ru2e1")
+heat_cost_per_sec = 1.5
+progress_speed = 0.2
+coin_per_mine = 1
+app_name = "byte coin miner.auto"
+app_resource_id = "byte_coin_miner"
 
-[node name="TextureRect" parent="VBoxContainer" index="0"]
-texture = ExtResource("3_ri67p")
-expand_mode = 1
+[node name="MineToggleButton" type="CheckButton" parent="VBoxContainer" index="0"]
+process_mode = 3
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_vertical = 3
+focus_mode = 0
+mouse_filter = 1
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_u0yk6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_rp06f")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_u0yk6")
+theme_override_styles/normal = SubResource("StyleBoxFlat_jg17h")
+text = "Turned on"
+expand_icon = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3"]
-libraries = {
-&"": SubResource("AnimationLibrary_15nxh")
-}
+[node name="Progress" type="ColorRect" parent="VBoxContainer" index="1"]
+material = SubResource("ShaderMaterial_u0yk6")
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
 
-[node name="TextureRect" type="TextureRect" parent="." index="4"]
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Progress" index="0"]
+custom_minimum_size = Vector2(32, 32)
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_bottom = -52.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("5_ri67p")
+mouse_filter = 2
+texture = ExtResource("3_u0yk6")
 expand_mode = 1
+stretch_mode = 5
 
-[node name="Wave" type="TextureRect" parent="." index="5"]
-material = SubResource("ShaderMaterial_xxpdy")
-layout_mode = 0
-offset_right = 128.0
-offset_bottom = 128.0
-texture = ExtResource("5_ri67p")
+[node name="TextureRect" parent="VBoxContainer" index="2"]
+visible = false
+custom_minimum_size = Vector2(32, 32)
+texture = ExtResource("3_u0yk6")
 expand_mode = 1
+stretch_mode = 5
+
+[node name="Button" parent="." index="1"]
+mouse_filter = 2
+
+[connection signal="toggled" from="VBoxContainer/MineToggleButton" to="." method="_on_mine_toggle_button_toggled"]
