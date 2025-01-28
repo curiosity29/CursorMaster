@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="AppResource" load_steps=3 format=3 uid="uid://dhhg3a5b6s0ua"]
+[gd_resource type="Resource" script_class="AppResource" load_steps=4 format=3 uid="uid://dhhg3a5b6s0ua"]
 
+[ext_resource type="PackedScene" uid="uid://bl0lc22hoo1s6" path="res://Resource/App/ByteCoinMiner/byte_coin_miner.tscn" id="1_8jky5"]
 [ext_resource type="Script" uid="uid://c1aneo2onwh24" path="res://PureScript/Resource/app_resource.gd" id="1_c0t6g"]
 [ext_resource type="Texture2D" uid="uid://8fv5ssprajx1" path="res://Resource/Texture/bytecoin.png" id="1_rfu2d"]
 
@@ -10,6 +11,7 @@ app_name = "byte coin miner"
 description = "keep you pc warm and earn free money"
 icon = ExtResource("1_rfu2d")
 buy_price = 2
+app_scene = ExtResource("1_8jky5")
 is_for_sale = true
 allow_multiple = true
 metadata/_custom_type_script = ExtResource("1_c0t6g")

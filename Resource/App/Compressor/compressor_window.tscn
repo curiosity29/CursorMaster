@@ -46,6 +46,7 @@ texture = SubResource("GradientTexture2D_u86i1")
 
 [node name="CompressArea" type="Area2D" parent="MarginContainer/VBoxContainer/Body" index="2"]
 unique_name_in_owner = true
+collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MarginContainer/VBoxContainer/Body/CompressArea" index="0"]
 shape = SubResource("RectangleShape2D_ovl8j")

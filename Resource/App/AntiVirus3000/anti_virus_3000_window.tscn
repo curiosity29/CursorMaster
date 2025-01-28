@@ -17,6 +17,7 @@ mouse_filter = 2
 
 [node name="HittingBox" type="Area2D" parent="MarginContainer/VBoxContainer/Body" index="1"]
 unique_name_in_owner = true
+collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MarginContainer/VBoxContainer/Body/HittingBox" index="0"]
 unique_name_in_owner = true

@@ -150,7 +150,7 @@ theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_u0yk6")
 theme_override_styles/hover = SubResource("StyleBoxFlat_rp06f")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_u0yk6")
 theme_override_styles/normal = SubResource("StyleBoxFlat_jg17h")
-text = "Turned on"
+text = "Turned OFF"
 expand_icon = true
 
 [node name="Progress" type="ColorRect" parent="VBoxContainer" index="1"]

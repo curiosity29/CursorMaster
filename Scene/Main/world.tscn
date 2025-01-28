@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://cng3iysgp4mdw"]
+[gd_scene load_steps=30 format=3 uid="uid://cng3iysgp4mdw"]
 
 [ext_resource type="Script" uid="uid://c3m2cxthk4fuh" path="res://Scene/Main/world.gd" id="1_e7iqy"]
 [ext_resource type="Script" uid="uid://cn5ojowj5b0a4" path="res://Scene/Element/obstacle.gd" id="2_4fii4"]
@@ -9,28 +9,16 @@
 [ext_resource type="PackedScene" uid="uid://cdhemt5pjjmer" path="res://Scene/Element/app_shop_item.tscn" id="3_56sn8"]
 [ext_resource type="PackedScene" uid="uid://chaoecajqxhxx" path="res://Resource/App/Core/core.tscn" id="4_di4vt"]
 [ext_resource type="PackedScene" uid="uid://cgdqly86g5vby" path="res://Scene/Element/enemy_spawner.tscn" id="4_dxgkd"]
-[ext_resource type="PackedScene" uid="uid://bnr50xadh0h2x" path="res://Resource/App/AntiVirus3000/anti_virus_3000.tscn" id="5_di4vt"]
 [ext_resource type="Script" uid="uid://bbjfmngn0oyjy" path="res://Scene/Element/download_progress_indicator.gd" id="5_gmkva"]
 [ext_resource type="PackedScene" uid="uid://qb5f0r25n26a" path="res://Resource/Draggable/Bomb/bomb.tscn" id="6_tquwj"]
-[ext_resource type="PackedScene" uid="uid://6pcrfclgvup6" path="res://Resource/App/AutoClicker/auto_clicker.tscn" id="7_q16u2"]
-[ext_resource type="PackedScene" uid="uid://dkhwotstt1kip" path="res://Resource/App/ProfessorHelper/professor_helper.tscn" id="8_gioca"]
 [ext_resource type="PackedScene" uid="uid://s5fo7qa36uif" path="res://Resource/App/CrusherCursor/crusher_cursor.tscn" id="8_q16u2"]
-[ext_resource type="PackedScene" uid="uid://civ3yph023tte" path="res://Resource/App/FireWall/fire_wall.tscn" id="9_0p2xg"]
 [ext_resource type="PackedScene" uid="uid://nytlbk4yl5ro" path="res://Resource/App/DefaultCursor/default_cursor.tscn" id="9_gioca"]
-[ext_resource type="PackedScene" uid="uid://shjmjxqvgo32" path="res://Resource/App/VirtualMachine/virtual_machine.tscn" id="12_wwyuk"]
-[ext_resource type="PackedScene" uid="uid://cl8l813o71jnl" path="res://Resource/App/FileExtractor/file_extractor.tscn" id="14_tquwj"]
 [ext_resource type="PackedScene" uid="uid://urv68rekayxc" path="res://Scene/Element/task_manager.tscn" id="15_se05f"]
-[ext_resource type="PackedScene" uid="uid://epen4xgts480" path="res://Resource/App/Compressor/compressor.tscn" id="20_8lu4g"]
 [ext_resource type="PackedScene" uid="uid://xtf4r1s7o2j8" path="res://Resource/Enemy/Slowpoke/slowpoke.tscn" id="21_ghgcx"]
 [ext_resource type="PackedScene" uid="uid://c3r64o0v08d2p" path="res://Resource/Enemy/TrojanHorse/trojan_horse.tscn" id="22_5f8rw"]
-[ext_resource type="PackedScene" uid="uid://hnbl26yns55d" path="res://Resource/App/ShotgunCursor/shotgun_cursor.tscn" id="23_xoc4v"]
 [ext_resource type="PackedScene" uid="uid://c1enulsfkmyyb" path="res://Resource/App/UICursor/ui_cursor.tscn" id="24_00ioh"]
-[ext_resource type="PackedScene" uid="uid://ey5hes74dbt3" path="res://Resource/App/AutoFixer/auto_fixer.tscn" id="24_75b66"]
 [ext_resource type="PackedScene" uid="uid://18i5a037safy" path="res://Resource/Enemy/Dummy/dummy.tscn" id="25_ilm22"]
 [ext_resource type="PackedScene" uid="uid://oigo6e1u4c43" path="res://Resource/Enemy/Sprinter/sprinter.tscn" id="26_a27oc"]
-[ext_resource type="PackedScene" uid="uid://bwi2pow1gniau" path="res://Resource/App/DefenseMatrix/defense_matrix.tscn" id="29_jms88"]
-[ext_resource type="PackedScene" uid="uid://cwvolicf2qhf7" path="res://Resource/App/BladeSpinner/blade_spinner.tscn" id="31_cyego"]
-[ext_resource type="PackedScene" uid="uid://bl0lc22hoo1s6" path="res://Resource/App/ByteCoinMiner/byte_coin_miner.tscn" id="32_p5805"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_se05f"]
 bg_color = Color(0.680102, 0.959726, 0.344548, 1)
@@ -519,96 +507,6 @@ offset_top = 497.0
 offset_right = 1285.0
 offset_bottom = 561.0
 
-[node name="AppContainer" type="Control" parent="HBoxContainer/Map/DebugContainer"]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-metadata/_edit_lock_ = true
-
-[node name="AutoClicker" parent="HBoxContainer/Map/DebugContainer/AppContainer" instance=ExtResource("7_q16u2")]
-offset_left = 726.0
-offset_top = 914.0
-offset_right = 854.0
-offset_bottom = 1094.0
-
-[node name="AntiVirus3000" parent="HBoxContainer/Map/DebugContainer/AppContainer" instance=ExtResource("5_di4vt")]
-offset_left = 838.0
-offset_top = 828.0
-offset_right = 966.0
-offset_bottom = 1008.0
-
-[node name="FireWall" parent="HBoxContainer/Map/DebugContainer/AppContainer" instance=ExtResource("9_0p2xg")]
-offset_left = 1485.0
-offset_top = 75.0
-offset_right = 1613.0
-offset_bottom = 255.0
-
-[node name="ProfessorHelper" parent="HBoxContainer/Map/DebugContainer/AppContainer" instance=ExtResource("8_gioca")]
-offset_left = 36.0
-offset_top = 900.0
-offset_right = 164.0
-offset_bottom = 1080.0
-
-[node name="VirtualMachine" parent="HBoxContainer/Map/DebugContainer/AppContainer" instance=ExtResource("12_wwyuk")]
-offset_left = 351.0
-offset_top = 862.0
-offset_right = 479.0
-offset_bottom = 1042.0
-health = 100
-
-[node name="AntiVirus3001" parent="HBoxContainer/Map/DebugContainer/AppContainer" instance=ExtResource("5_di4vt")]
-offset_left = 594.0
-offset_top = 577.0
-offset_right = 722.0
-offset_bottom = 757.0
-
-[node name="Compressor" parent="HBoxContainer/Map/DebugContainer/AppContainer" instance=ExtResource("20_8lu4g")]
-offset_left = 14.0
-offset_top = 631.0
-offset_right = 142.0
-offset_bottom = 811.0
-
-[node name="FireWall2" parent="HBoxContainer/Map/DebugContainer/AppContainer" instance=ExtResource("9_0p2xg")]
-offset_left = 143.0
-offset_top = 346.0
-offset_right = 271.0
-offset_bottom = 526.0
-
-[node name="FireWall3" parent="HBoxContainer/Map/DebugContainer/AppContainer" instance=ExtResource("9_0p2xg")]
-offset_left = 142.0
-offset_top = 526.0
-offset_right = 270.0
-offset_bottom = 706.0
-
-[node name="ShotgunCursor" parent="HBoxContainer/Map/DebugContainer/AppContainer" instance=ExtResource("23_xoc4v")]
-offset_left = 358.0
-offset_top = 435.0
-offset_right = 486.0
-offset_bottom = 615.0
-
-[node name="AutoFixer" parent="HBoxContainer/Map/DebugContainer/AppContainer" instance=ExtResource("24_75b66")]
-offset_left = 17.0
-offset_top = 229.0
-offset_right = 145.0
-offset_bottom = 409.0
-
-[node name="ProfessorHelper2" parent="HBoxContainer/Map/DebugContainer/AppContainer" instance=ExtResource("8_gioca")]
-offset_left = 274.0
-offset_top = 448.0
-offset_right = 402.0
-offset_bottom = 628.0
-
-[node name="FileExtractor" parent="HBoxContainer/Map/DebugContainer/AppContainer" instance=ExtResource("14_tquwj")]
-offset_left = 1590.0
-offset_top = 166.0
-offset_right = 1718.0
-offset_bottom = 346.0
-
 [node name="Enemies2" type="Control" parent="HBoxContainer/Map/DebugContainer"]
 layout_mode = 1
 anchors_preset = 15
@@ -770,50 +668,6 @@ offset_left = 316.0
 offset_top = 869.0
 offset_right = 444.0
 offset_bottom = 1049.0
-
-[node name="DefenseMatrix" parent="HBoxContainer/Map/InitAppContainer" instance=ExtResource("29_jms88")]
-offset_left = 468.0
-offset_top = 876.0
-offset_right = 596.0
-offset_bottom = 1056.0
-
-[node name="AntiVirus3000" parent="HBoxContainer/Map/InitAppContainer" instance=ExtResource("5_di4vt")]
-offset_left = 660.0
-offset_top = 854.0
-offset_right = 788.0
-offset_bottom = 1034.0
-
-[node name="VirtualMachine" parent="HBoxContainer/Map/InitAppContainer" instance=ExtResource("12_wwyuk")]
-
-[node name="BladeSpinner" parent="HBoxContainer/Map/InitAppContainer" instance=ExtResource("31_cyego")]
-offset_left = 813.0
-offset_top = 851.0
-offset_right = 941.0
-offset_bottom = 1031.0
-
-[node name="ByteCoinMiner" parent="HBoxContainer/Map/InitAppContainer" instance=ExtResource("32_p5805")]
-offset_left = 972.0
-offset_top = 827.0
-offset_right = 1100.0
-offset_bottom = 1007.0
-
-[node name="ByteCoinMiner2" parent="HBoxContainer/Map/InitAppContainer" instance=ExtResource("32_p5805")]
-offset_left = 1179.0
-offset_top = 856.0
-offset_right = 1307.0
-offset_bottom = 1036.0
-
-[node name="ByteCoinMiner3" parent="HBoxContainer/Map/InitAppContainer" instance=ExtResource("32_p5805")]
-offset_left = 1258.0
-offset_top = 658.0
-offset_right = 1386.0
-offset_bottom = 838.0
-
-[node name="ByteCoinMiner4" parent="HBoxContainer/Map/InitAppContainer" instance=ExtResource("32_p5805")]
-offset_left = 1378.0
-offset_top = 863.0
-offset_right = 1506.0
-offset_bottom = 1043.0
 
 [connection signal="pressed" from="HBoxContainer/Shop/VBoxContainer/VBoxContainer/RamUpgrade/VBoxContainer/RamUpgradeButton" to="HBoxContainer/Shop" method="_on_ram_upgrade_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/Shop/VBoxContainer/VBoxContainer/RamUpgrade/VBoxContainer/CoolerUpgradeButton" to="HBoxContainer/Shop" method="_on_cooler_upgrade_button_pressed"]

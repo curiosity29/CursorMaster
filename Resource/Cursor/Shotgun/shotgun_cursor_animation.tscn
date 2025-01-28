@@ -83,6 +83,7 @@ _data = {
 }
 
 [node name="ShotgunCursorHittingbox" type="Area2D"]
+collision_layer = 0
 script = ExtResource("1_d4ite")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]

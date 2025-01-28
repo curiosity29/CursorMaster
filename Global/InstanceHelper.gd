@@ -1,5 +1,5 @@
 # InstanceHelper
-extends Node
+extends Node2D
 #Priority table for gamestate
 var targets: Array[TargetableManager]:
 	get:
@@ -14,9 +14,11 @@ var task_manager: TaskManager
 var nav_regions: Array[MainNavRegion]
 const APP_WINDOW = preload("res://Scene/Element/app_window.tscn")
 
+
 func update_nav_regions():
 	for nav_region in nav_regions:
 		nav_region.update()
+
 
 func create_enemy(id: String) -> Enemy:
 	var enemy_resource = Database.enemy_map[id]

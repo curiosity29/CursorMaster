@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dbfohuy3kokti" path="res://Resource/Texture/anti_virus_cursor.png" id="2_vw7my"]
 
 [node name="DefaultCursorHittingbox" type="Area2D"]
+collision_layer = 0
 script = ExtResource("1_7hsri")
 
 [node name="TextureRect" type="TextureRect" parent="."]

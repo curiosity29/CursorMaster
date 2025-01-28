@@ -18,7 +18,7 @@ var max_ram_value: float = 64.:
 	set(value):
 		max_ram_value = value
 		task_stats_changed.emit()
-var max_heat_value: float = 50.:
+var max_heat_value: float = 0.:
 	set(value):
 		max_heat_value = value
 		task_stats_changed.emit()
@@ -49,21 +49,24 @@ var elapsed_secs: int = 0:
 signal sec_elapsed
 
 
-var win_time: float = 150#:
-	#get:
-		#match difficulty:
-			#Difficulty.EASY:
-				#return 150.
-			#_:
-				#return 150.
-
+var win_time: float = 150:
+	get:
+		match difficulty:
+			Difficulty.EASY:
+				return 140.
+			Difficulty.NORMAL:
+				return 175.
+			Difficulty.HARD:
+				return 210.
+			_:
+				return 150.
 
 enum RunEndState {WIN, LOSE}
 var run_end_state: RunEndState = RunEndState.LOSE
 var is_playing: bool = false
 
 var income_timer: Timer = Timer.new()
-const second_per_round: int = 30
+const second_per_round: int = 35
 @export var passive_income_per_round: int = 10
 #var APP_SCENE = preload("res://Scene/Element/App.tscn")
 

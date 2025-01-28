@@ -12,6 +12,7 @@ func on_click(mouse_pos: Vector2, source: Node2D = null) -> void:
 	## only cost heat if source is player clicking
 	if source is State:
 		if State.heat_value_left < heat_cost:
+			AnimationHelper.spawn_overheat_indicator(mouse_pos)
 			return
 		State.heat_value += heat_cost
 	
