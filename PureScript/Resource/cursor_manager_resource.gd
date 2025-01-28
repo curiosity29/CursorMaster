@@ -8,6 +8,7 @@ extends Resource
 @export var cursor_hotspot: Vector2 = Vector2.ZERO
 @export var cursor_texture: Texture
 
+@export var on_click_sound: AudioStream
 #region effect for overwrite
 func on_set():
 	#Input.set_custom_mouse_cursor(cursor_texture)
@@ -17,6 +18,8 @@ func on_unset():
 	pass
 
 func on_click(_mouse_pos: Vector2, _source: Node2D = null) -> void:
+	if on_click_sound: 
+		SoundPlayer.play(on_click_sound)
 	pass
 	
 func on_right_click(_mouse_pos: Vector2, _source: Node2D = null) -> void:

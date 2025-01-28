@@ -48,7 +48,7 @@ func lazy_difficulty_scaling():
 		State.Difficulty.HARD:
 			health *= 1.3
 			
-	health *= 1 + (State.elapsed_time/State.second_per_round) * 0.5 # +50% base per round
+	health *= 1 + (State.elapsed_time/State.second_per_round) * 0.4 # +50% base per round
 
 func _process(delta: float) -> void:
 	#return
@@ -67,7 +67,7 @@ func _process(delta: float) -> void:
 	#global_position += direction * enemy_resource.speed * delta
 	var current_direction = velocity.normalized()
 	var acceleration = speed * 1.5
-	var brake_acceleration = 600
+	var brake_acceleration = 700
 	var brake_vector_length = (1 - direction.dot(current_direction))/2
 	velocity = velocity.move_toward(direction * speed, brake_vector_length * brake_acceleration * delta)
 	velocity = velocity.move_toward(direction * speed, acceleration * delta)

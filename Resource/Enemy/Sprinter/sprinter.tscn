@@ -7,10 +7,10 @@
 enemy_resource_id = "sprinter"
 
 [node name="CollisionPolygon2D" parent="." index="0"]
-polygon = PackedVector2Array(2, 34, 5, 10, 64, 10, 64.5944, 28.3357, 64, 38, 59, 54, 7, 54)
+polygon = PackedVector2Array(2, 34, 5, 10, 64, 10, 64.5944, 28.3357, 64, 38, 59, 54, 5, 54)
 
 [node name="TextureRect" parent="." index="1"]
 texture = ExtResource("2_5wpkx")
 
 [node name="CollisionPolygon2D" parent="HitBox" index="0"]
-polygon = PackedVector2Array(5, 10, 64, 10, 65, 28, 64, 38, 59, 54, 7, 54, 2, 34)
+polygon = PackedVector2Array(5, 10, 64, 10, 65, 28, 64, 38, 59, 54, 5, 54, 2, 34)

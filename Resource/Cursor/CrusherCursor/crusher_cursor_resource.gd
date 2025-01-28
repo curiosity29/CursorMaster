@@ -4,7 +4,7 @@ var damage_radius: float = 400.
 var damage: int = 20
 const heat_cost: float = 4.
 @export var effect_animation_scene: PackedScene
-
+@export var audio_on_effect: AudioStream
 func on_set() -> void:
 	super.on_set()
 	
@@ -16,6 +16,7 @@ func on_click(mouse_pos: Vector2, source: Node2D = null) -> void:
 			return
 		State.heat_value += heat_cost
 	
+	SoundPlayer.play(audio_on_effect)
 	var effect_animation = effect_animation_scene.instantiate()
 	InstanceHelper.map.add_child(effect_animation)
 	effect_animation.global_position = mouse_pos

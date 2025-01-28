@@ -12,12 +12,14 @@ const cool_speed_upgrade_cost: int = 5
 var max_count_down_time: int = State.second_per_round
 var count_down_time: int = max_count_down_time
 const count_down_label_format: String = "refresh after %d secs"
+
+@export var refresh_shop_sound: AudioStream
+
 func _ready() -> void:
 	second_timer.start()
-	refresh_shop()
+	refresh_shop(false)
 
-
-func refresh_shop():
+func refresh_shop(do_play_sound: bool = true):
 	var app_left_to_display: int = min(app_count, Database.shop_app_map.size())
 	#app_container.add_child()
 	var random_app_resources = pick_n_random(
@@ -32,7 +34,10 @@ func refresh_shop():
 			continue
 		var app_resource = random_app_resources[index]
 		child.app_resource = random_app_resources[index]
-		
+	
+	if do_play_sound:
+		SoundPlayer.play(refresh_shop_sound)
+	
 func pick_n_random(array: Array, n: int = app_count) -> Array:
 	var picked_array = []
 	for index in n:

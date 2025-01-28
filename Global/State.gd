@@ -1,7 +1,7 @@
 #State
 extends Node2D
 signal task_stats_changed
-@export var starting_bytecoin: int = 20
+@export var starting_bytecoin: int = 10
 var bytecoin: int:
 	set(value):
 		bytecoin = value
@@ -18,7 +18,7 @@ var max_ram_value: float = 64.:
 	set(value):
 		max_ram_value = value
 		task_stats_changed.emit()
-var max_heat_value: float = 0.:
+var max_heat_value: float = 50.:
 	set(value):
 		max_heat_value = value
 		task_stats_changed.emit()
@@ -34,7 +34,9 @@ var owned_apps: Dictionary[AppResource, App] = {}
 
 enum Difficulty {EASY, NORMAL, HARD}
 var difficulty: Difficulty = Difficulty.NORMAL
-
+enum GameMode {NORMAL, ENDLESS}
+var game_mode: GameMode = GameMode.NORMAL
+var is_endless: bool = false
 var elapsed_time: float = 0.:
 	set(value):
 		elapsed_time = value
@@ -53,13 +55,13 @@ var win_time: float = 150:
 	get:
 		match difficulty:
 			Difficulty.EASY:
-				return 140.
+				return 160.
 			Difficulty.NORMAL:
-				return 175.
+				return 195.#2.
 			Difficulty.HARD:
-				return 210.
+				return 230.#0.5 
 			_:
-				return 150.
+				return 195.
 
 enum RunEndState {WIN, LOSE}
 var run_end_state: RunEndState = RunEndState.LOSE
@@ -69,6 +71,12 @@ var income_timer: Timer = Timer.new()
 const second_per_round: int = 35
 @export var passive_income_per_round: int = 10
 #var APP_SCENE = preload("res://Scene/Element/App.tscn")
+
+#region setting 
+var master_volume: float = 0.
+#endregion
+
+
 
 func _ready() -> void:
 	if Database.is_node_ready(): set_default_cursor()
@@ -83,11 +91,12 @@ func on_app_buy(app_resource: AppResource):
 	var new_app: App = app_resource.app_scene.instantiate()
 	InstanceHelper.map.add_child(new_app)
 	#new_app.global_position = InstanceHelper.map.global_position + InstanceHelper.map.size/2
-	new_app.global_position = InstanceHelper.core.global_position
+	new_app.global_position = InstanceHelper.core.global_position + Vector2.UP * new_app.size.y
 	owned_apps[app_resource] = new_app
 
 func set_default_cursor():
 	cursor_manager = Database.cursor_map["default_cursor"]
+	
 var cursor_manager: CursorManagerResource:
 	set(value):
 		if cursor_manager: cursor_manager.on_unset()
@@ -113,13 +122,16 @@ func _process(delta: float) -> void:
 	heat_value = move_toward(heat_value, 0., heat_reduction_speed * delta)
 	if is_playing:
 		elapsed_time += delta
-		if elapsed_time > win_time:
-			run_end_state = RunEndState.WIN
-			Event.run_end_request.emit()
-			# prevent multiple request
-			#print("run end request")
-			elapsed_time = 0.
+		if game_mode == GameMode.NORMAL and elapsed_time > win_time:
+			_on_win()
 
+func _on_win():
+	run_end_state = RunEndState.WIN
+	Event.run_end_request.emit()
+	# prevent multiple request
+	#print("run end request")
+	elapsed_time = 0.
+	
 func get_passive_income_per_min():
 	bytecoin += passive_income_per_round
 

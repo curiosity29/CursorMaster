@@ -24,6 +24,7 @@ func _exit_tree() -> void:
 	InstanceHelper.targets.erase(targetable_manager)
 	
 func on_dead():
+	State.run_end_state = State.RunEndState.LOSE
 	Event.run_end_request.emit()
 
 func update_health():

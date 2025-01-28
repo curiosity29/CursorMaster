@@ -23,7 +23,7 @@ resources_spreadsheet_view/resource_cell_label_mode=1
 [application]
 
 config/name="CursorMaster"
-run/main_scene="uid://cng3iysgp4mdw"
+run/main_scene="uid://d2oapdpix1wis"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -35,6 +35,7 @@ AnimationHelper="*res://Global/AnimationHelper.gd"
 CombatHelper="*res://Global/CombatHelper.gd"
 State="*res://Global/State.gd"
 Event="*res://Global/Event.gd"
+SoundPlayer="*res://Global/sound_player.tscn"
 
 [display]
 

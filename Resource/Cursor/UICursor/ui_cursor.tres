@@ -1,7 +1,8 @@
-[gd_resource type="Resource" script_class="CursorManagerResource" load_steps=3 format=3 uid="uid://kqewbova71tp"]
+[gd_resource type="Resource" script_class="CursorManagerResource" load_steps=4 format=3 uid="uid://kqewbova71tp"]
 
 [ext_resource type="Texture2D" uid="uid://m07ey7gbiiqe" path="res://Resource/Texture/pointing_hand_cursor.png" id="1_gwp71"]
 [ext_resource type="Script" uid="uid://bfp3w7t3x572f" path="res://PureScript/Resource/cursor_manager_resource.gd" id="1_qnxo8"]
+[ext_resource type="AudioStream" uid="uid://d01lsarcfwqke" path="res://Resource/Sound/click_short.mp3" id="3_novxx"]
 
 [resource]
 script = ExtResource("1_qnxo8")
@@ -10,4 +11,5 @@ name = "UI cursor"
 app_id = "ui_cursor"
 cursor_hotspot = Vector2(27, 5)
 cursor_texture = ExtResource("1_gwp71")
+on_click_sound = ExtResource("3_novxx")
 metadata/_custom_type_script = ExtResource("1_qnxo8")

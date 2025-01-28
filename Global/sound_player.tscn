@@ -1,0 +1,36 @@
+[gd_scene load_steps=2 format=3 uid="uid://dnvi33r1s4g5d"]
+
+[ext_resource type="Script" uid="uid://16u386l01k87" path="res://Global/SoundPlayer.gd" id="1_tdeen"]
+
+[node name="SoundPlayer" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tdeen")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="."]
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer" parent="."]
+
+[node name="AudioStreamPlayer2D3" type="AudioStreamPlayer" parent="."]
+
+[node name="AudioStreamPlayer2D4" type="AudioStreamPlayer" parent="."]
+
+[node name="AudioStreamPlayer2D5" type="AudioStreamPlayer" parent="."]
+
+[node name="AudioStreamPlayer2D6" type="AudioStreamPlayer" parent="."]
+
+[node name="AudioStreamPlayer2D7" type="AudioStreamPlayer" parent="."]
+
+[node name="AudioStreamPlayer2D8" type="AudioStreamPlayer" parent="."]
+
+[node name="AudioStreamPlayer2D9" type="AudioStreamPlayer" parent="."]
+
+[node name="AudioStreamPlayer2D10" type="AudioStreamPlayer" parent="."]
+
+[node name="AudioStreamPlayer2D11" type="AudioStreamPlayer" parent="."]
+
+[node name="AudioStreamPlayer2D12" type="AudioStreamPlayer" parent="."]

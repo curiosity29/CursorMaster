@@ -9,6 +9,7 @@ extends Control
 var is_dragging: bool = false
 var drag_offset: Vector2 = Vector2.ZERO
 @export var app_resource_id: String
+@export var on_open_app_sound: AudioStream
 func _ready() -> void:
 	app_name_label.text = app_name
 	#double_click_timer.timeout.connect(func(): first_clicked = false)
@@ -64,6 +65,7 @@ func open_window(global_pos: Vector2 = global_position) -> void:
 #region overwrite
 func on_open() -> void:
 	State.heat_value += open_heat_cost
+	SoundPlayer.play(on_open_app_sound)
 	#print("opening window")
 	open_window()
 

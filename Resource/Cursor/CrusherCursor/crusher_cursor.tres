@@ -1,6 +1,7 @@
-[gd_resource type="Resource" load_steps=5 format=3 uid="uid://bvld5sqm071ss"]
+[gd_resource type="Resource" load_steps=6 format=3 uid="uid://bvld5sqm071ss"]
 
 [ext_resource type="Texture2D" uid="uid://k72g6heyk8lk" path="res://Resource/Texture/crusher_cursor_128.png" id="1_k7bha"]
+[ext_resource type="AudioStream" uid="uid://cxn33qy2fk0ba" path="res://Resource/Sound/thump.mp3" id="1_qerbf"]
 [ext_resource type="Script" uid="uid://cq08rflcqmklt" path="res://Resource/Cursor/CrusherCursor/crusher_cursor_resource.gd" id="2_02jax"]
 [ext_resource type="PackedScene" uid="uid://bsnwc5ssvnvej" path="res://Resource/Cursor/CrusherCursor/crush_damage_animation.tscn" id="2_k7bha"]
 [ext_resource type="Script" uid="uid://bfp3w7t3x572f" path="res://PureScript/Resource/cursor_manager_resource.gd" id="3_5d6an"]
@@ -8,6 +9,7 @@
 [resource]
 script = ExtResource("2_02jax")
 effect_animation_scene = ExtResource("2_k7bha")
+audio_on_effect = ExtResource("1_qerbf")
 id = "crusher_cursor"
 name = "crusher"
 app_id = "crusher_cursor"

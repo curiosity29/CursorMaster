@@ -1,13 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://da14d0s1dto5o"]
+[gd_scene load_steps=4 format=3 uid="uid://da14d0s1dto5o"]
 
 [ext_resource type="Script" uid="uid://j3f1qwfnc6hv" path="res://Resource/Cursor/DefaultCursor/default_cursor_hittingbox.gd" id="1_7hsri"]
+[ext_resource type="AudioStream" uid="uid://b436nmnyk7req" path="res://Resource/Sound/slash2.mp3" id="2_j8vjg"]
 [ext_resource type="Texture2D" uid="uid://dbfohuy3kokti" path="res://Resource/Texture/anti_virus_cursor.png" id="2_vw7my"]
 
 [node name="DefaultCursorHittingbox" type="Area2D"]
 collision_layer = 0
 script = ExtResource("1_7hsri")
+audio_on_hit = ExtResource("2_j8vjg")
 
 [node name="TextureRect" type="TextureRect" parent="."]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -19,6 +22,7 @@ offset_right = 20.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 texture = ExtResource("2_vw7my")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]

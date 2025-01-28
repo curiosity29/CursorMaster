@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://cng3iysgp4mdw"]
+[gd_scene load_steps=32 format=3 uid="uid://cng3iysgp4mdw"]
 
 [ext_resource type="Script" uid="uid://c3m2cxthk4fuh" path="res://Scene/Main/world.gd" id="1_e7iqy"]
 [ext_resource type="Script" uid="uid://cn5ojowj5b0a4" path="res://Scene/Element/obstacle.gd" id="2_4fii4"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://bnmauulljowdd" path="res://Scene/Element/navigation_region_2d.gd" id="2_wwyuk"]
 [ext_resource type="Script" uid="uid://ctxd3akiuq5ll" path="res://Scene/Element/shop.gd" id="2_x23p1"]
 [ext_resource type="PackedScene" uid="uid://cdhemt5pjjmer" path="res://Scene/Element/app_shop_item.tscn" id="3_56sn8"]
+[ext_resource type="AudioStream" uid="uid://ewc4pile2swq" path="res://Resource/Sound/ting_ting.mp3" id="4_8lu4g"]
 [ext_resource type="PackedScene" uid="uid://chaoecajqxhxx" path="res://Resource/App/Core/core.tscn" id="4_di4vt"]
 [ext_resource type="PackedScene" uid="uid://cgdqly86g5vby" path="res://Scene/Element/enemy_spawner.tscn" id="4_dxgkd"]
 [ext_resource type="Script" uid="uid://bbjfmngn0oyjy" path="res://Scene/Element/download_progress_indicator.gd" id="5_gmkva"]
@@ -162,6 +163,8 @@ agent_radius = 32.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8lu4g"]
 size = Vector2(1941, 27)
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_56sn8"]
+
 [node name="World" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -208,6 +211,7 @@ layout_mode = 2
 custom_minimum_size = Vector2(192, 0)
 layout_mode = 2
 script = ExtResource("2_x23p1")
+refresh_shop_sound = ExtResource("4_8lu4g")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Shop"]
 layout_mode = 1
@@ -455,6 +459,20 @@ position = Vector2(-250.505, 416)
 rotation = 1.55654
 shape = SubResource("RectangleShape2D_8lu4g")
 
+[node name="RightBound" type="CollisionShape2D" parent="HBoxContainer/Map/NavigationRegion64Size/NavigationRegion32Size/ObstacleContainer/Basemap"]
+position = Vector2(2671, 565)
+rotation = -1.5708
+shape = SubResource("WorldBoundaryShape2D_56sn8")
+
+[node name="TopBound" type="CollisionShape2D" parent="HBoxContainer/Map/NavigationRegion64Size/NavigationRegion32Size/ObstacleContainer/Basemap"]
+position = Vector2(2072, -637)
+rotation = 3.14159
+shape = SubResource("WorldBoundaryShape2D_56sn8")
+
+[node name="BottomBound" type="CollisionShape2D" parent="HBoxContainer/Map/NavigationRegion64Size/NavigationRegion32Size/ObstacleContainer/Basemap"]
+position = Vector2(2047, 1825)
+shape = SubResource("WorldBoundaryShape2D_56sn8")
+
 [node name="DebugContainer" type="Control" parent="HBoxContainer/Map"]
 unique_name_in_owner = true
 layout_mode = 1
@@ -562,15 +580,7 @@ position = Vector2(637, 527)
 [node name="Sprinter6" parent="HBoxContainer/Map/DebugContainer/Enemies2" instance=ExtResource("26_a27oc")]
 position = Vector2(888, 421)
 
-[node name="TaskManager" parent="HBoxContainer/Map" instance=ExtResource("15_se05f")]
-layout_mode = 1
-offset_left = 4.0
-offset_top = 8.0
-offset_right = -1206.0
-offset_bottom = -944.0
-mouse_filter = 2
-
-[node name="Enemies3" type="Control" parent="HBoxContainer/Map"]
+[node name="Enemies3" type="Control" parent="HBoxContainer/Map/DebugContainer"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -580,59 +590,67 @@ grow_vertical = 2
 mouse_filter = 2
 metadata/_edit_lock_ = true
 
-[node name="TrojanHorse" parent="HBoxContainer/Map/Enemies3" instance=ExtResource("22_5f8rw")]
+[node name="TrojanHorse" parent="HBoxContainer/Map/DebugContainer/Enemies3" instance=ExtResource("22_5f8rw")]
 position = Vector2(1135, 632)
 
-[node name="TrojanHorse2" parent="HBoxContainer/Map/Enemies3" instance=ExtResource("22_5f8rw")]
+[node name="TrojanHorse2" parent="HBoxContainer/Map/DebugContainer/Enemies3" instance=ExtResource("22_5f8rw")]
 position = Vector2(1128, 516)
 
-[node name="TrojanHorse3" parent="HBoxContainer/Map/Enemies3" instance=ExtResource("22_5f8rw")]
+[node name="TrojanHorse3" parent="HBoxContainer/Map/DebugContainer/Enemies3" instance=ExtResource("22_5f8rw")]
 position = Vector2(1118, 403)
 
-[node name="TrojanHorse4" parent="HBoxContainer/Map/Enemies3" instance=ExtResource("22_5f8rw")]
+[node name="TrojanHorse4" parent="HBoxContainer/Map/DebugContainer/Enemies3" instance=ExtResource("22_5f8rw")]
 position = Vector2(70, 983)
 
-[node name="Slowpoke5" parent="HBoxContainer/Map/Enemies3" instance=ExtResource("21_ghgcx")]
+[node name="Slowpoke5" parent="HBoxContainer/Map/DebugContainer/Enemies3" instance=ExtResource("21_ghgcx")]
 position = Vector2(1303, 414)
 
-[node name="Slowpoke6" parent="HBoxContainer/Map/Enemies3" instance=ExtResource("21_ghgcx")]
+[node name="Slowpoke6" parent="HBoxContainer/Map/DebugContainer/Enemies3" instance=ExtResource("21_ghgcx")]
 position = Vector2(1303, 414)
 
-[node name="Slowpoke7" parent="HBoxContainer/Map/Enemies3" instance=ExtResource("21_ghgcx")]
+[node name="Slowpoke7" parent="HBoxContainer/Map/DebugContainer/Enemies3" instance=ExtResource("21_ghgcx")]
 position = Vector2(1009, 489)
 
-[node name="Slowpoke8" parent="HBoxContainer/Map/Enemies3" instance=ExtResource("21_ghgcx")]
+[node name="Slowpoke8" parent="HBoxContainer/Map/DebugContainer/Enemies3" instance=ExtResource("21_ghgcx")]
 position = Vector2(994, 645)
 
-[node name="Slowpoke9" parent="HBoxContainer/Map/Enemies3" instance=ExtResource("21_ghgcx")]
+[node name="Slowpoke9" parent="HBoxContainer/Map/DebugContainer/Enemies3" instance=ExtResource("21_ghgcx")]
 position = Vector2(918, 477)
 
-[node name="Slowpoke10" parent="HBoxContainer/Map/Enemies3" instance=ExtResource("21_ghgcx")]
+[node name="Slowpoke10" parent="HBoxContainer/Map/DebugContainer/Enemies3" instance=ExtResource("21_ghgcx")]
 position = Vector2(914, 569)
 
-[node name="Sprinter" parent="HBoxContainer/Map/Enemies3" instance=ExtResource("26_a27oc")]
+[node name="Sprinter" parent="HBoxContainer/Map/DebugContainer/Enemies3" instance=ExtResource("26_a27oc")]
 position = Vector2(823, 499)
 
-[node name="Sprinter2" parent="HBoxContainer/Map/Enemies3" instance=ExtResource("26_a27oc")]
+[node name="Sprinter2" parent="HBoxContainer/Map/DebugContainer/Enemies3" instance=ExtResource("26_a27oc")]
 position = Vector2(988, 579)
 
-[node name="Sprinter3" parent="HBoxContainer/Map/Enemies3" instance=ExtResource("26_a27oc")]
+[node name="Sprinter3" parent="HBoxContainer/Map/DebugContainer/Enemies3" instance=ExtResource("26_a27oc")]
 position = Vector2(764, 548)
 
-[node name="Sprinter4" parent="HBoxContainer/Map/Enemies3" instance=ExtResource("26_a27oc")]
+[node name="Sprinter4" parent="HBoxContainer/Map/DebugContainer/Enemies3" instance=ExtResource("26_a27oc")]
 position = Vector2(739, 461)
 
-[node name="Sprinter5" parent="HBoxContainer/Map/Enemies3" instance=ExtResource("26_a27oc")]
+[node name="Sprinter5" parent="HBoxContainer/Map/DebugContainer/Enemies3" instance=ExtResource("26_a27oc")]
 position = Vector2(637, 527)
 
-[node name="Sprinter6" parent="HBoxContainer/Map/Enemies3" instance=ExtResource("26_a27oc")]
+[node name="Sprinter6" parent="HBoxContainer/Map/DebugContainer/Enemies3" instance=ExtResource("26_a27oc")]
 position = Vector2(888, 421)
 
-[node name="Dummy" parent="HBoxContainer/Map/Enemies3" instance=ExtResource("25_ilm22")]
+[node name="Dummy" parent="HBoxContainer/Map/DebugContainer/Enemies3" instance=ExtResource("25_ilm22")]
 position = Vector2(655, 193)
 
-[node name="Dummy2" parent="HBoxContainer/Map/Enemies3" instance=ExtResource("25_ilm22")]
+[node name="Dummy2" parent="HBoxContainer/Map/DebugContainer/Enemies3" instance=ExtResource("25_ilm22")]
 position = Vector2(523, 230)
+
+[node name="TaskManager" parent="HBoxContainer/Map" instance=ExtResource("15_se05f")]
+layout_mode = 1
+offset_left = 4.0
+offset_top = 8.0
+offset_right = -1206.0
+offset_bottom = -944.0
+mouse_filter = 2
 
 [node name="InitAppContainer" type="Control" parent="HBoxContainer/Map"]
 layout_mode = 1
@@ -650,24 +668,28 @@ offset_top = 431.0
 offset_right = 142.0
 offset_bottom = 611.0
 app_name = "my pc"
+on_open_app_sound = null
 
 [node name="DefaultCursor" parent="HBoxContainer/Map/InitAppContainer" instance=ExtResource("9_gioca")]
 offset_left = 16.0
 offset_top = 889.0
 offset_right = 144.0
 offset_bottom = 1069.0
+on_open_app_sound = null
 
 [node name="CrusherCursor" parent="HBoxContainer/Map/InitAppContainer" instance=ExtResource("8_q16u2")]
 offset_left = 163.0
 offset_top = 876.0
 offset_right = 291.0
 offset_bottom = 1056.0
+on_open_app_sound = null
 
 [node name="UICursor" parent="HBoxContainer/Map/InitAppContainer" instance=ExtResource("24_00ioh")]
 offset_left = 316.0
 offset_top = 869.0
 offset_right = 444.0
 offset_bottom = 1049.0
+on_open_app_sound = null
 
 [connection signal="pressed" from="HBoxContainer/Shop/VBoxContainer/VBoxContainer/RamUpgrade/VBoxContainer/RamUpgradeButton" to="HBoxContainer/Shop" method="_on_ram_upgrade_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/Shop/VBoxContainer/VBoxContainer/RamUpgrade/VBoxContainer/CoolerUpgradeButton" to="HBoxContainer/Shop" method="_on_cooler_upgrade_button_pressed"]

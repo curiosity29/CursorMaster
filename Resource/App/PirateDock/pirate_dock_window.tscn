@@ -13,7 +13,7 @@ bg_color = Color(0.76459, 0.658334, 0.0975449, 1)
 bg_color = Color(0.458796, 0.392725, 0.0489848, 1)
 
 [node name="PirateDockWindow" instance=ExtResource("1_fr7cb")]
-custom_minimum_size = Vector2(800, 469)
+custom_minimum_size = Vector2(800, 550)
 offset_right = -1120.0
 offset_bottom = -611.0
 script = ExtResource("2_iou2v")
@@ -119,6 +119,56 @@ text = "infested"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="ColorRect" type="ColorRect" parent="MarginContainer/VBoxContainer/Body/VBoxContainer" index="4"]
+custom_minimum_size = Vector2(0, 4)
+layout_mode = 2
+color = Color(0.680102, 0.959726, 0.344548, 1)
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Body/VBoxContainer" index="5"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Body/VBoxContainer/HBoxContainer6" index="0"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Options"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/Body/VBoxContainer/HBoxContainer6" index="1"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 24
+text = "Values"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Body/VBoxContainer" index="6"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Body/VBoxContainer/HBoxContainer5" index="0"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 24
+text = "Auto queue download (endless)"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CheckBoxButton" type="CheckButton" parent="MarginContainer/VBoxContainer/Body/VBoxContainer/HBoxContainer5" index="1"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_fr7cb")
+theme_override_styles/hover = SubResource("StyleBoxFlat_iou2v")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fr7cb")
+theme_override_styles/normal = SubResource("StyleBoxFlat_agyhf")
+text = "No"
+alignment = 1
+
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Body/VBoxContainer/HBoxContainer2/EasyButton" to="." method="_on_easy_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Body/VBoxContainer/HBoxContainer3/NormalButton" to="." method="_on_normal_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Body/VBoxContainer/HBoxContainer4/HardButton" to="." method="_on_hard_button_pressed"]
+[connection signal="toggled" from="MarginContainer/VBoxContainer/Body/VBoxContainer/HBoxContainer5/CheckBoxButton" to="." method="_on_check_box_button_toggled"]
