@@ -16,7 +16,7 @@ extends Control
 @export var spawn_policy_sprinter: Dictionary = {
 	"id": "sprinter",
 	"start_time": 20.,
-	"spawn_delay": 2.2,
+	"spawn_delay": 2.5,
 }
 @export var spawn_policy_trojan_horse: Dictionary = {
 	"id": "trojan_horse",
@@ -27,7 +27,7 @@ extends Control
 @export var spawn_policy_ad_carry: Dictionary = {
 	"id": "ad_carry",
 	"start_time": 40.,
-	"spawn_delay": 6.5,
+	"spawn_delay": 8,
 }
 
 
@@ -39,7 +39,7 @@ func _ready() -> void:
 
 var spawn_timers: Array[Timer]
 func setup_spawner_timer():
-	for spawn_policy in [spawn_policy_slow, spawn_policy_sprinter, spawn_policy_trojan_horse]:
+	for spawn_policy in [spawn_policy_slow, spawn_policy_sprinter, spawn_policy_trojan_horse, spawn_policy_ad_carry]:
 		var timer = Timer.new()
 		timer.wait_time = spawn_policy["spawn_delay"] * difficulty_spawn_delay_mult[State.difficulty]
 		timer.timeout.connect(spawn_enemy.bind(spawn_policy["id"]))
