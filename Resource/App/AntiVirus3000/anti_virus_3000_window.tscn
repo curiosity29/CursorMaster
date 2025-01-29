@@ -15,6 +15,9 @@ ram_cost = 16.0
 [node name="Body" parent="MarginContainer/VBoxContainer" index="1"]
 mouse_filter = 2
 
+[node name="ColorRect" parent="MarginContainer/VBoxContainer/Body" index="0"]
+visible = true
+
 [node name="HittingBox" type="Area2D" parent="MarginContainer/VBoxContainer/Body" index="1"]
 unique_name_in_owner = true
 collision_layer = 0

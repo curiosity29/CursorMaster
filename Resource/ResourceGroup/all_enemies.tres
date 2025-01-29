@@ -7,5 +7,5 @@ script = ExtResource("1_48cow")
 base_folder = "res://Resource/Enemy"
 includes = Array[String](["**.tres"])
 excludes = Array[String]([])
-paths = Array[String](["res://Resource/Enemy/Dummy/dummy.tres", "res://Resource/Enemy/Slowpoke/slowpoke.tres", "res://Resource/Enemy/Sprinter/sprinter.tres", "res://Resource/Enemy/TrojanHorse/trojan_horse.tres"])
+paths = Array[String](["res://Resource/Enemy/AdCarry/ad_carry.tres", "res://Resource/Enemy/Dummy/dummy.tres", "res://Resource/Enemy/Slowpoke/slowpoke.tres", "res://Resource/Enemy/Sprinter/sprinter.tres", "res://Resource/Enemy/TrojanHorse/trojan_horse.tres"])
 metadata/_custom_type_script = ExtResource("1_48cow")

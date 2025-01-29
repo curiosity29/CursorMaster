@@ -14,10 +14,13 @@ var heat_value: float = 0.:
 	set(value):
 		heat_value = value
 		task_stats_changed.emit()
+		
+var default_max_ram_value: float = 64.
 var max_ram_value: float = 64.:
 	set(value):
 		max_ram_value = value
 		task_stats_changed.emit()
+var default_max_heat_value: float = 50.
 var max_heat_value: float = 50.:
 	set(value):
 		max_heat_value = value
@@ -28,6 +31,7 @@ var ram_value_left: float:
 var heat_value_left: float:
 	get: return max_heat_value - heat_value
 
+var default_heat_reduction_speed: float = 1.
 var heat_reduction_speed: float = 1.
 
 var owned_apps: Dictionary[AppResource, App] = {}
@@ -142,3 +146,8 @@ func reset_all():
 	elapsed_time = 0.
 	owned_apps.clear()
 	income_timer.start()
+	ram_value = 0.
+	heat_value = 0.
+	max_ram_value = default_max_ram_value
+	max_heat_value = default_max_heat_value
+	heat_reduction_speed = default_heat_reduction_speed

@@ -1,0 +1,96 @@
+[gd_scene load_steps=4 format=3 uid="uid://4oke6q0ol6a1"]
+
+[ext_resource type="Script" uid="uid://cfweh6jwrgo73" path="res://Resource/Enemy/AdCarry/ad_carry_ad.gd" id="1_2f88x"]
+[ext_resource type="PackedScene" uid="uid://cvo6eawl7g85g" path="res://Scene/Element/app_header.tscn" id="2_dq60d"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0lwcj"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+
+[node name="AppWindow" type="Control" groups=["app"]]
+z_index = 10
+layout_mode = 3
+anchors_preset = 0
+offset_right = 200.0
+offset_bottom = 200.0
+script = ExtResource("1_2f88x")
+max_size = Vector2(200, 200)
+app_window_name = "YOU WIN"
+ram_cost = 0.0
+
+[node name="Border" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_0lwcj")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 0
+
+[node name="Header" parent="MarginContainer/VBoxContainer" node_paths=PackedStringArray("parent_app_node") instance=ExtResource("2_dq60d")]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 0
+parent_app_node = NodePath("../../..")
+
+[node name="Body" type="Control" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 1
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer/VBoxContainer/Body"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Label" type="RichTextLabel" parent="MarginContainer/VBoxContainer/Body"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(1, 0.33175, 0.266073, 1)
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "YOU WIN!!!
+CLICK FOR REWARD!!!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/Body"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Body/Button" to="." method="_on_button_pressed"]

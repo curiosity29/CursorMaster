@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="EnemyResource" load_steps=3 format=3 uid="uid://chqpc0nj4nat"]
+
+[ext_resource type="Script" uid="uid://b6j8jidrdov5t" path="res://PureScript/Resource/enemy_resource.gd" id="1_y32u8"]
+[ext_resource type="PackedScene" uid="uid://w6waghaa83hv" path="res://Resource/Enemy/AdCarry/ad_carry.tscn" id="2_2pk3v"]
+
+[resource]
+script = ExtResource("1_y32u8")
+id = "ad_carry"
+name = "AD Carry"
+scene = ExtResource("2_2pk3v")
+health = 50
+speed = 55
+damage = 5
+attack_speed = 1.0
+metadata/_custom_type_script = ExtResource("1_y32u8")

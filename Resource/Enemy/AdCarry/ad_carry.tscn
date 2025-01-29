@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://w6waghaa83hv"]
+
+[ext_resource type="PackedScene" uid="uid://cll1cljm8pvpn" path="res://Scene/Element/enemy.tscn" id="1_6sin8"]
+[ext_resource type="Texture2D" uid="uid://ccx4bcehuubn3" path="res://Resource/Texture/ad_carry_enemy.png" id="2_1bvrr"]
+[ext_resource type="Script" uid="uid://bpoapbsgxs7pw" path="res://Resource/Enemy/AdCarry/ad_carry.gd" id="2_evvab"]
+[ext_resource type="PackedScene" uid="uid://4oke6q0ol6a1" path="res://Resource/Enemy/AdCarry/ad_carry_ad.tscn" id="4_evvab"]
+
+[node name="AdCarry" instance=ExtResource("1_6sin8")]
+script = ExtResource("2_evvab")
+enemy_resource_id = "ad_carry"
+
+[node name="CollisionPolygon2D" parent="." index="0"]
+polygon = PackedVector2Array(4, 11, 62, 11, 61, 59, 4, 59)
+
+[node name="TextureRect" parent="." index="1"]
+texture = ExtResource("2_1bvrr")
+
+[node name="CollisionPolygon2D" parent="HitBox" index="0"]
+polygon = PackedVector2Array(4, 11, 62, 11, 61, 59, 4, 59)
+
+[node name="AppWindow" parent="." index="5" instance=ExtResource("4_evvab")]
+offset_left = -96.0
+offset_top = -223.0
+offset_right = 104.0
+offset_bottom = -23.0

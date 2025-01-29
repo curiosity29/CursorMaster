@@ -19,6 +19,7 @@ offset_bottom = -611.0
 script = ExtResource("2_iou2v")
 max_size = Vector2(800, 469)
 app_window_name = "pirate dock"
+ram_cost = 0.0
 
 [node name="ColorRect" parent="MarginContainer/VBoxContainer/Body" index="0"]
 color = Color(0, 0, 0, 1)

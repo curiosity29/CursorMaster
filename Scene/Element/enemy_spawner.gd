@@ -20,9 +20,16 @@ extends Control
 }
 @export var spawn_policy_trojan_horse: Dictionary = {
 	"id": "trojan_horse",
-	"start_time": 50.,
+	"start_time": 55.,
 	"spawn_delay": 5.,
 }
+
+@export var spawn_policy_ad_carry: Dictionary = {
+	"id": "ad_carry",
+	"start_time": 40.,
+	"spawn_delay": 6.5,
+}
+
 
 func _ready() -> void:
 	#timer.start()
