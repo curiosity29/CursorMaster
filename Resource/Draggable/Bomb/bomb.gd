@@ -12,7 +12,11 @@ extends Draggable
 var second_left: int
 func _ready() -> void:
 	super()
-	get_tree().create_timer(blowup_delay).timeout.connect(blowup)
+	var timer = Timer.new()
+	add_child(timer)
+	timer.start(blowup_delay)
+	timer.timeout.connect(blowup)
+	#get_tree().create_timer(blowup_delay).timeout.connect(blowup)
 	second_countdown_timer.start()
 	second_countdown_timer.timeout.connect(decrease_sec)
 	second_left = int(blowup_delay)

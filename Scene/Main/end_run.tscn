@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bej03fprjl3f6" path="res://Scene/Main/end_run.gd" id="1_fhs6v"]
 [ext_resource type="Texture2D" uid="uid://ci112pdqo6yac" path="res://Resource/Texture/pc_background.png" id="1_mhueh"]
-[ext_resource type="Texture2D" uid="uid://dckyx4e1mv3jl" path="res://Resource/Texture/troll_face.png" id="2_wctuu"]
+[ext_resource type="Texture2D" uid="uid://cm4n7wxxlhlb" path="res://Resource/Texture/troll_face2.png" id="3_mhueh"]
 [ext_resource type="Texture2D" uid="uid://b53hs2hxq8hd1" path="res://Resource/Texture/Pizza.png" id="3_p2br7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p2br7"]
@@ -206,7 +206,7 @@ offset_bottom = -28.0
 grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 2
-texture = ExtResource("2_wctuu")
+texture = ExtResource("3_mhueh")
 expand_mode = 1
 
 [node name="PrizeButton" type="Button" parent="OnWin/DialogWindow"]
