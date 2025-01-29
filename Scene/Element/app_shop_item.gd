@@ -37,7 +37,7 @@ func _on_buy_button_pressed() -> void:
 	State.bytecoin -= app_resource.buy_price
 	## remove from database and hide (until next refresh) if not allow multiple
 	if not app_resource.allow_multiple:
-		app_resource.is_for_sale = false
+		app_resource.is_for_sale_run = false
 		Database.shop_app_map.erase(app_resource.id)
 		is_sold_out = true
 

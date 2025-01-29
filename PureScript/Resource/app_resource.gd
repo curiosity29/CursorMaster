@@ -10,3 +10,11 @@ extends Resource
 
 @export var is_for_sale: bool = true
 @export var allow_multiple: bool = true
+
+var is_for_sale_run: bool
+
+func _init() -> void:
+	reset_values()
+
+func reset_values():
+	is_for_sale_run = is_for_sale

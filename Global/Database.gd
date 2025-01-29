@@ -14,6 +14,7 @@ var all_apps: Array[AppResource]
 var app_map: Dictionary[String, AppResource]
 var shop_app_map: Dictionary[String, AppResource]
 
+
 func _ready() -> void:
 	_all_enemies.load_all_into(all_enemies)
 	for enemy_resource: EnemyResource in all_enemies:
@@ -30,3 +31,9 @@ func _ready() -> void:
 		if app_resource.is_for_sale: 
 			shop_app_map[app_resource.id] = app_resource
 		
+func reset_app_resource():
+	shop_app_map.clear()
+	for app_resource: AppResource in all_apps:
+		app_resource.reset_values()
+		if app_resource.is_for_sale: 
+			shop_app_map[app_resource.id] = app_resource	

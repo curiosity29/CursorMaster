@@ -52,6 +52,7 @@ metadata/_edit_lock_ = true
 [node name="DoubleClickTimer" type="Timer" parent="."]
 wait_time = 0.2
 one_shot = true
+ignore_time_scale = true
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="timeout" from="DoubleClickTimer" to="." method="_on_double_click_timer_timeout"]

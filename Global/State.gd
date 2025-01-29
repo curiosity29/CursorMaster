@@ -72,7 +72,7 @@ var run_end_state: RunEndState = RunEndState.LOSE
 var is_playing: bool = false
 
 var income_timer: Timer = Timer.new()
-const second_per_round: int = 35
+const second_per_round: int = 35.
 @export var passive_income_per_round: int = 10
 #var APP_SCENE = preload("res://Scene/Element/App.tscn")
 
@@ -151,3 +151,4 @@ func reset_all():
 	max_ram_value = default_max_ram_value
 	max_heat_value = default_max_heat_value
 	heat_reduction_speed = default_heat_reduction_speed
+	Database.reset_app_resource()
